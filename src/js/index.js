@@ -9,9 +9,8 @@ import ProfileController from "./controller/profileController";
 import UsersController from "./controller/usersController";
 import UserController from "./controller/userController";
 
-
+// global state 
 const state = {
-
     url: "index.html"
 }
 
