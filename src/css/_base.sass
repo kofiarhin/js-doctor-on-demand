@@ -1,0 +1,103 @@
+// google font fira sans
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700;900&display=swap')
+
+// rest browser
+@import "normalize"
+// general styling
+
+* 
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+html, body
+    font-family: "Fira Sans"
+
+body
+    padding-bottom: 10rem
+
+h1, h2, h3, h4, p
+    margin: 0
+    padding: 0 
+
+a
+    text-decoration: none
+    color: black
+input
+    outline: none
+
+// colors
+$main: #6C63FF
+$main-light: #4DAECF
+$secondary: #F16F5A
+
+
+button
+    outline: none
+    border: none
+    cursor: pointer
+
+// container
+.container
+    width: 1200px
+    max-width: 90%
+    margin: 0 auto
+
+// main title
+.main-title
+    font:
+        size: 2rem
+        weight: 300
+    margin-bottom: 2rem
+    text-transform: capitalize
+    &.center
+        text-align: center
+
+//default form
+.form-wrapper
+    width: 540px
+    max-width: 90%
+    margin: 50px  auto
+    .input-unit
+        margin-bottom: 0.8rem
+    input, select
+        width: 100%
+        padding: 0.5rem
+        border: 1px solid rgba(black, 0.2)
+    .btn
+        display: block
+        padding: 0.8rem 0rem
+        background: $main
+        color: white
+        width: 100%
+        margin-bottom: 0.8rem
+    p
+        font-size: 1.2rem
+        span
+            color: $main
+            font-weight: 900
+    .error
+        color: red
+        margin: 0.8rem 0rem
+
+// styling of users
+.users-wrapper
+    display: grid
+    grid-template-columns: repeat(5, 1fr)
+    grid-gap: 20px
+    .user-unit
+        text-align: center
+        .cover
+            width: 100%
+            padding-top: 130%
+            margin-bottom: 0.8rem
+            background:
+                size: cover
+                position: center
+        .content
+            .name
+                font-size: 1.2rem
+                margin-bottom: 0.4rem
+                text-transform: capitalize
+            .email
+                font-size: 1rem 

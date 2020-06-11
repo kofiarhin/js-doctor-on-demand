@@ -1,0 +1,51 @@
+#our-doctors
+    .image-wrapper
+        display: grid
+        grid-template-columns: repeat(5, 1fr)
+        margin-bottom: 2rem
+        .image-unit
+            padding-top: 100%
+            background:
+                size: cover
+                position: center
+            &:nth-child(1)
+                background:
+                    image: url(../images/doctors/doctor-1.jpg)
+            &:nth-child(2)
+                background:
+                    image: url(../images/doctors/doctor-2.jpg)
+            &:nth-child(3)
+                background:
+                    image: url(../images/doctors/doctor-3.jpg)
+            &:nth-child(4)
+                background:
+                    image: url(../images/doctors/doctor-4.jpg)
+            &:nth-child(5)
+                background:
+                    image: url(../images/doctors/doctor-5.jpg)
+    .cta-wrapper
+        text-align: center
+        a
+            padding: 0.8rem 3rem
+            background: $main
+            color: white
+   
+
+@media(max-width: 960px)
+    #our-doctors
+        .image-wrapper
+            grid-template-columns: repeat(3, 1fr)
+
+@media(max-width: 550px)
+    #our-doctors
+        .image-wrapper
+            grid-template-columns: repeat(2, 1fr)
+
+@media(max-width: 400px)
+    #our-doctors
+        .image-wrapper
+            display: block
+            width: 70%
+            margin: 0 auto 40px
+            .image-unit
+                margin-bottom: 1rem
