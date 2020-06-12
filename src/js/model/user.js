@@ -5,13 +5,14 @@ export default class User {
 
     constructor(id) {
 
+        this.isLoggedIn = false;
+
         if (id) {
 
-
-
+            console.log("get uuser with id" + id);
         } else {
 
-
+            // check if user is logged in
             const userData = sessionStorage.getItem("user");
 
             if (!_.isEmpty(userData)) {

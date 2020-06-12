@@ -63,6 +63,10 @@ module.exports = {
         new htmlWebpackPlugin({
             filename: "book_appointment.html",
             template: "./src/book_appointment.html"
+        }),
+        new htmlWebpackPlugin({
+            filename: "appointment.html",
+            template: "./src/appointment.html"
         })
     ],
 

@@ -9,7 +9,7 @@ import ProfileController from "./controller/profileController";
 import UsersController from "./controller/usersController";
 import UserController from "./controller/userController";
 import BookAppointmentController from "./controller/bookAppointmentController"
-
+import AppointmentController from "./controller/appointmentController";
 // global state 
 const state = {
     url: "index.html"
@@ -98,6 +98,12 @@ function Router() {
     else if (state.url === "book_appointment.html") {
 
         BookAppointmentController()
+    }
+
+    // apppointment
+    else if (state.url === "appointment.html") {
+
+        AppointmentController()
     }
 }
 

@@ -25,9 +25,9 @@ export default async function RegisterController() {
     // };
 
     const userData = {
-        firstname: "patrick",
-        lastname: "lah",
-        email: "plah@gmail.com",
+        firstname: "azumah",
+        lastname: "nelson",
+        email: "azumah@gmail.com",
         password: "password",
         contact: "2092003023",
         gender: "male",

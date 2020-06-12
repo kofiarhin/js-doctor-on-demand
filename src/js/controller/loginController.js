@@ -13,7 +13,7 @@ export default async function LoginController() {
     // const password = getElement('#password').value.trim();
 
     // remove this code later
-    const email = "admin@gmail.com";
+    const email = "lebronjames@gmail.com";
     const password = "password"
 
 

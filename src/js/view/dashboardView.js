@@ -77,7 +77,7 @@ export function renderDashboard(role) {
 
 
                 <!-- dash-item-unit -->
-                <a href="#appointments" class="dash-item-unit">
+                <a href="appointment.html" class="dash-item-unit">
                     <i class="icon fas fa-calendar-check"></i>
                     <p>Appointments</p>
                 </a>
@@ -113,7 +113,7 @@ export function renderDashboard(role) {
 
 
                 <!-- dash-item-unit -->
-                <a href="#appointments" class="dash-item-unit">
+                <a href="appointment.html" class="dash-item-unit">
                     <i class="icon fas fa-calendar-check"></i>
                     <p>Appointments</p>
                 </a>
