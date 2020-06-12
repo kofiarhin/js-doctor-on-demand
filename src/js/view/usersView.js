@@ -9,10 +9,11 @@ export function renderUsers(query, data) {
 
     data.forEach(user => {
 
+
         let markup = `
                 
                      <a href="user.html?id=${user.id}" class="user-unit">
-                    <div class="cover" style="background-image:url(./images/${query}.png)"></div>
+                    <div class="cover" style="background-image:url(./images/doctors/doctor-${user.gender}.jpg)"></div>
                     <div class="content">
                         <p class="name">${user.firstname} ${user.lastname}</p>
                         <p class="email">${user.email}</p>

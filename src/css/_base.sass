@@ -63,8 +63,8 @@ button
     max-width: 90%
     margin: 50px  auto
     .input-unit
-        margin-bottom: 0.8rem
-    input, select
+        margin-bottom: 1rem
+    input, select, textarea
         width: 100%
         padding: 0.5rem
         border: 1px solid rgba(black, 0.2)
@@ -75,6 +75,13 @@ button
         color: white
         width: 100%
         margin-bottom: 0.8rem
+    label
+        display: block
+        margin-bottom: 0.8rem
+        font:
+            size: 1rem
+            weight: 700
+
     p
         font-size: 1.2rem
         span
@@ -108,8 +115,11 @@ button
 
 .cta-wrapper
     text-align: center
-    a
+    .cta
         display: inline-block
         padding: 0.8rem 3rem
         background: $main
         color: white
+        &.cta-block
+            display: block
+            width: 100%

@@ -8,6 +8,7 @@ import LogoutController from "./controller/logoutController";
 import ProfileController from "./controller/profileController";
 import UsersController from "./controller/usersController";
 import UserController from "./controller/userController";
+import BookAppointmentController from "./controller/bookAppointmentController"
 
 // global state 
 const state = {
@@ -21,13 +22,26 @@ function MainController() {
     // render Header
     HeaderController();
 
+    // get route information and set state of url
+    Router();
+
+
+
+}
+
+
+
+function Router() {
+
     // get url
     const url = window.location.pathname.replace("/", "");
 
     // set state of url
     state.url = url;
 
-    console.log(state.url)
+
+    console.log("---------current-page: ", state.url)
+
 
     if (!url && state.url === "") {
 
@@ -81,9 +95,11 @@ function MainController() {
         UserController()
     }
 
+    else if (state.url === "book_appointment.html") {
+
+        BookAppointmentController()
+    }
 }
-
-
 
 window.addEventListener("load", MainController);
 

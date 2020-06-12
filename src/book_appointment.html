@@ -45,32 +45,33 @@
         <div class="form-wrapper">
             <form action="">
 
-                <!-- first name -->
                 <div class="input-unit">
-                    <input type="text" name="firstName" id="firstName" placeholder="First Name">
+                    <label for="">Reason for Visit</label>
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <p class="error"></p>
                 </div>
 
-                <!-- last name -->
-                <div class="input-unit">
-                    <input type="text" name="firstName" id="lastName" placeholder="Last Name">
-                </div>
-
-
-                <!-- email -->
-                <div class="input-unit">
-                    <input type="email" name="email" id="email" placeholder="Email">
-                </div>
-
-
-                <!--contact -->
-                <div class="input-unit">
-                    <input type="number" name="contact" id="contact" placeholder="Contact">
-                </div>
-
+                <!-- input-unit -->
                 <div class="input-unit">
                     <label>Selectd Prefered Date</label>
-                    <input type="date" name="firstName" id="firstName" placeholder="First Name">
+                    <input type="date" name="firstName" id="firstName">
+                    <p class="error"></p>
                 </div>
+                <!-- end input-unit -->
+
+
+                <!-- input-unit -->
+                <div class="input-unit">
+                    <label>Selectd Prefered Time</label>
+                    <input type="time" name="time" id="time">
+                </div>
+                <!-- end input-unit -->
+
+                <!-- cta-wrapper -->
+                <div class="cta-wrapper">
+                    <button class="book-appointment cta cta-block">Book Appointment</button>
+                </div>
+                <!-- end cta-wrapper -->
 
             </form>
         </div>
