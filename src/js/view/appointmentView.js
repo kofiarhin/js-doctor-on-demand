@@ -31,4 +31,7 @@ export function renderAppointments(role, data) {
         output += markup;
     });
 
+
+    element.innerHTML = output;
+
 }

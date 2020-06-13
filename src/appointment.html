@@ -2,51 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
-    <title>Template</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+  <title>Appointments</title>
 </head>
 
 <body>
-    <div class="container">
-        <!-- main-header -->
-        <header class="main-header">
+  <div class="container">
+    <!-- main-header -->
+    <header class="main-header">
 
-            <!-- logo -->
-            <a href="index.html">
-                <h1 class="logo">BruceCare</h1>
-            </a>
+      <!-- logo -->
+      <a href="index.html">
+        <h1 class="logo">BruceCare</h1>
+      </a>
 
-            <!-- nav -->
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="contact.html">Contact</a>
-                <a href="login.html">Login</a>
-                <a href="register.html" class="cta">Let's Get Started</a>
-            </nav>
-            <!-- end nav -->
-            <div class="menu">
-                <i class="fa fa-bars"></i>
-            </div>
+      <!-- nav -->
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="register.html" class="cta">Let's Get Started</a>
+      </nav>
+      <!-- end nav -->
+      <div class="menu">
+        <i class="fa fa-bars"></i>
+      </div>
 
 
 
-        </header>
-        <!-- end main-header  -->
-    </div>
-    <!-- end container -->
+    </header>
+    <!-- end main-header  -->
+  </div>
+  <!-- end container -->
+
+
+  <section class="container">
+
 
     <h1 class="main-title center">Appointments</h1>
 
+    <table role="table" class="table">
+      <thead role="rowgroup">
+        <tr role="row">
+          <th role="columnheader">Date</th>
+          <th role="columnheader">First name</th>
+          <th role="columnheader">Last name</th>
+          <th role="columnheader">Email</th>
+          <th role="columnheader">Contact</th>
+          <th role="columnheader">Action</th>
+        </tr>
+      </thead>
+      <tbody role="rowgroup">
+        <tr role="row">
+          <td role="cell" data-title="Date">24th June, 2020</td>
+          <td role="cell" data-title="First name">Kofi</td>
+          <td role="cell" data-title="Last Name">Arhin</td>
+          <td role="cell" data-title="Email">john.smith@codepen.io</td>
+          <td role="cell" data-title="Contact">+233 2322323 </td>
+          <td role="cell" data-title="Action"> <a href="#" id="#"> View</a></a></td>
+        </tr>
 
-    <section id="appointments">
-        <div class="container">
-            <div class="wrapper"></div>
-        </div>
-    </section>
+
+
+
+
+      </tbody>
+    </table>
+  </section>
+
 
 </body>
 

@@ -1,12 +1,14 @@
 import User from "../model/user";
 import { getElement } from "../lib/helper"
-import Appointment from "../model/appointment"
+import Appointment from "../model/appointment";
+import BookAppointmentView from "../view/bookAppointmentView";
+
+const user = new User();
 
 async function formController(event) {
 
     event.preventDefault();
 
-    const user = new User();
 
     if (user.checkLogin()) {
 
@@ -26,13 +28,16 @@ async function formController(event) {
         //     time
         // };
 
+        // remove this code 
         const appointmentData = { reason: "having stomach aches since morning and. I have not beeen able to bla bla bla", date: "2020-06-26", time: "12:04" }
 
+        // get user data
         const userData = user.getData();
         const userId = userData.id;
+        // get doctor data
         const doctorData = await user.getUser(doctorId);
 
-
+        // refactor data to submit
         const dataToSubmit = {
             userData,
             doctorData,
@@ -43,23 +48,53 @@ async function formController(event) {
             status: "pending"
         };
 
-        const appointment = new Appointment();
 
-        appointment.create(dataToSubmit);
+        if (userData.role === "patient") {
 
-        if (appointment.create(dataToSubmit)) {
+            const appointment = new Appointment();
 
-            window.location.href = "dashboard.html"
+            appointment.create(dataToSubmit);
+
+            if (appointment.create(dataToSubmit)) {
+
+                window.location.href = "dashboard.html"
+            }
+        } else {
+            console.log("you are not authorised to do this transaction")
         }
 
+    } else {
 
+        // render error on ui
     }
 
 }
 
 
-export default function () {
+function renderButton() {
 
+    let ctaWrapper = getElement('.cta-wrapper');
+
+    let markup = "";
+    if (user.checkLogin()) {
+
+        // get role and render button based  on role
+        const role = user.userData.role;
+        if (role === "patient") {
+            markup = `<button type="submit" class='cta cta-block'> Book Appointment</button>`
+
+        } else {
+            markup = "<a href='dashboard.html' class='cta cta-block cta-danger'> You Cannot book an appointment </a>"
+        }
+    } else {
+        markup = "<a href='login.html' class='cta cta-block'> You need to login </a>";
+    }
+
+    ctaWrapper.innerHTML = markup;
+}
+
+export default function () {
+    renderButton()
     const form = getElement(".form-wrapper form");
     form.addEventListener("submit", formController)
 }
