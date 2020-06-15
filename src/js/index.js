@@ -9,22 +9,47 @@ import ProfileController from "./controller/profileController";
 import UsersController from "./controller/usersController";
 import UserController from "./controller/userController";
 import BookAppointmentController from "./controller/bookAppointmentController"
-import AppointmentController from "./controller/appointmentController";
+import AppointmentsController from "./controller/appointmentController";
+import ViewAppointmentController from "./controller/viewAppointmentController";
+
 // global state 
 const state = {
     url: "index.html"
 }
 
 
+function renderLoader() {
+
+    let markup = `<svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+//    <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+// </svg>`;
+
+    const element = document.createElement("div");
+
+    element.classList.add("loader");
+
+    element.innerHTML = markup;
+
+    console.log(element);
+
+    getElement("body").appendChild(element)
+
+}
+
+
 // main-controller
 function MainController() {
+
+    // render loader
+    // renderLoader()
+
+
 
     // render Header
     HeaderController();
 
     // get route information and set state of url
     Router();
-
 
 
 }
@@ -45,7 +70,8 @@ function Router() {
 
     if (!url && state.url === "") {
 
-        state.url = "index.html"
+        state.url = "index.html";
+
     }
 
     else if (state.url === "register.html") {
@@ -103,7 +129,13 @@ function Router() {
     // apppointment
     else if (state.url === "appointment.html") {
 
-        AppointmentController()
+        AppointmentsController()
+    }
+
+
+    else if (state.url === "view_appointment.html") {
+
+        ViewAppointmentController();
     }
 }
 

@@ -29,3 +29,21 @@ export function loggedIn() {
     }
 
 }
+
+
+export function formatDate(timestamp) {
+
+    const date = new Date(timestamp);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDay() + 1;
+
+    const result = `${day}/${month}/${year}`;
+
+    return result;
+    // var timestamp = new Date('02/10/2016').getTime();
+    // var todate = new Date(timestamp).getDate();
+    // var tomonth = new Date(timestamp).getMonth() + 1;
+    // var toyear = new Date(timestamp).getFullYear();
+    // var original_date = tomonth + '/' + todate + '/' + toyear;
+}

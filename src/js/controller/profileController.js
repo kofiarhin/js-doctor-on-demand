@@ -1,4 +1,6 @@
 import User from "../model/user";
+import _ from "lodash";
+import * as ProfileView from "../view/profileView";
 
 export default function () {
 
@@ -11,8 +13,13 @@ export default function () {
         window.location.href = "login.html"
     }
 
+    if (!_.isEmpty(user.userData)) {
 
-    const userData = user.userData;
-    console.log(userData)
+        const { userData } = user;
+
+        ProfileView.renderProfile(userData);
+
+
+    }
 
 }

@@ -14,14 +14,19 @@ export default async function LoginController() {
 
     // remove this code later
 
-    // login doctor
-    // const email = "lebronjames@gmail.com";
+    // // login doctor
+    // const email = "kofiarhin@gmail.com";
     // const password = "password"
 
 
-    // login patient
-    const email = "plah@gmail.com";
-    const password = "password"
+    // // // login patient
+    // const email = "plah@gmail.com";
+    // const password = "password"
+
+
+    // login as admin
+    const email = "admin@gmail.com";
+    const password = "password";
 
 
 
@@ -49,7 +54,7 @@ export default async function LoginController() {
             // compare password
             if (userData && userData.password === password) {
 
-                const { id, firstname, lastname, email, password, role } = userData;
+                const { id, firstname, lastname, email, password, role, contact, gender } = userData;
 
                 const sessionData = {
                     id,
@@ -57,7 +62,9 @@ export default async function LoginController() {
                     lastname,
                     email,
                     password,
-                    role
+                    role,
+                    contact,
+                    gender
                 }
 
 

@@ -4,6 +4,7 @@ export default class Appointment {
 
     constructor() {
 
+
         // get list of appointments
     }
 
@@ -37,12 +38,27 @@ export default class Appointment {
 
         else if (role === "doctor") {
 
+            // if role is doctor return doctor data
             appData = data.filter(item => item.doctorId === id);
 
 
         }
 
+
+        else if (role === "admin") {
+            // if role is admin return all the datas
+            return data;
+        }
+
         return appData;
+
+    }
+
+    async getAppointment(id) {
+
+        const data = await firebase.database().ref(`appointments/${id}`).once("value").then(snapshot => snapshot.val());
+
+        return data;
 
     }
 }

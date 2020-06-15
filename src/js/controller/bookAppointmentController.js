@@ -49,11 +49,11 @@ async function formController(event) {
         };
 
 
+
+
         if (userData.role === "patient") {
 
             const appointment = new Appointment();
-
-            appointment.create(dataToSubmit);
 
             if (appointment.create(dataToSubmit)) {
 
@@ -93,8 +93,34 @@ function renderButton() {
     ctaWrapper.innerHTML = markup;
 }
 
+
+async function renderTitle() {
+
+    if (user.checkLogin()) {
+
+        //  get doctor id from url
+        const search = new URLSearchParams(window.location.search);
+
+        const id = search.get("id");
+
+        if (id) {
+
+            const doctor = await user.getUser(id);
+
+            const { firstname, lastname } = doctor;
+            const title = getElement(".main-title span");
+
+            title.textContent = `Dr. ${firstname} ${lastname}`;
+        }
+    }
+
+}
+
+
+
 export default function () {
     renderButton()
+    renderTitle()
     const form = getElement(".form-wrapper form");
     form.addEventListener("submit", formController)
 }

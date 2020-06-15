@@ -29,6 +29,8 @@ function renderDoctor(data) {
                         <p class="name">Name: ${firstname} ${lastname}</p>
                         <p class="email">Email: ${email}</p>
                         <p class="contact">Contact: ${contact}</p>
+                        <p>Specialty: Add Specialty  </p> 
+                        <p>Cases: Add Cases </p> 
                     </div>
                     <!-- end text-wrapper -->
 
