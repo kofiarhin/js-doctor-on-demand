@@ -1,8 +1,11 @@
 // styling of users
+#users
+    min-height: 100vh
 .users-wrapper
     display: grid
     grid-template-columns: repeat(5, 1fr)
     grid-gap: 20px
+    width: 100%
     .user-unit
         text-align: center
         .cover
@@ -13,9 +16,19 @@
                 size: cover
                 position: center
         .content
-            .name
-                font-size: 1.2rem
-                margin-bottom: 0.4rem
-                text-transform: capitalize
-            .email
-                font-size: 1rem 
+            p
+                font-size: 0.8rem
+
+@media(max-width: 960px)
+    .users-wrapper
+        grid-template-columns: repeat(3, 1fr)
+
+
+@media(max-width: 550px)
+    .users-wrapper
+        grid-template-columns: repeat(2, 1fr)
+
+@media(max-width: 400px)
+    .users-wrapper
+        display: block
+        

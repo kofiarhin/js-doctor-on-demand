@@ -33,8 +33,6 @@ export function renderUsers(query, data) {
 
 export function renderTitle(title) {
 
-    const element = getElement(".main-title span");
-
-    element.innerHTML = `${title}s`;
+    console.log('users view render title render title')
 }
 
