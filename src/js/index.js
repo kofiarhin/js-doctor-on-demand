@@ -12,6 +12,7 @@ import BookAppointmentController from "./controller/bookAppointmentController"
 import AppointmentsController from "./controller/appointmentController";
 import ViewAppointmentController from "./controller/viewAppointmentController";
 import RegisterDoctorController from "./controller/register_doctor_controller"
+import VerifyAccountController from "./controller/verify_account_controller";
 
 // global state 
 const state = {
@@ -143,10 +144,16 @@ function Router() {
         AppointmentsController()
     }
 
-
+// view appointment 
     else if (state.url === "view_appointment.html") {
 
         ViewAppointmentController();
+    }
+
+
+    else if(state.url === "verify_account.html") {
+
+        VerifyAccountController();
     }
 }
 

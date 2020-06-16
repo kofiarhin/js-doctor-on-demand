@@ -54,7 +54,7 @@ export default class User {
         const newUserId = newUser.id;
 
         //    add user to patient databse
-        await firebase.database().ref("patients").push({ userId: newUserId, package: "none" })
+        await firebase.database().ref("patients").push({ userId: newUserId, package_name: "none" })
 
         return newUser;
     }
@@ -107,6 +107,22 @@ export default class User {
 
     }
 
+    async verifyDoctor(id) {
+
+        try {
+            await firebase.database().ref(`doctors/${id}`).update({
+                verified: true
+            });
+
+            console.log("??? ---- user updated ");
+            return true;
+
+        } catch (error) {
+
+            return false;
+        }
+
+    }
 
     // check login
     checkLogin() {

@@ -25,6 +25,7 @@ function renderCta(data) {
 
     // get login detail of person logged in
     let markup = "";
+
     // if rele is admin
     if (role === "admin") {
 
@@ -33,8 +34,13 @@ function renderCta(data) {
         <a href="book_appointment.html?id=${id}" class="cta cta-danger">Delete Account</a>
         `;
 
-        return markup;
+        if (!verified) {
 
+            markup += `<form>
+            <a href="verify_account.html?id=${id}" class="cta cta-success"> Verifiy Doctor </button>
+            </a>`;
+        }
+        return markup;
     }
 
     else if (role === "patient") {
@@ -61,6 +67,7 @@ function renderVerified(verified) {
 
     return `<a href="verfiy_user.html?"> Verify User</a>`;
 }
+
 function renderDoctor(data) {
 
     const { id, firstname, lastname, email, contact, gender, specialty, cases = 0, verified, role } = data;
@@ -84,6 +91,7 @@ function renderDoctor(data) {
                         <p class="email">Email: ${email}</p>
                         <p class="contact">Contact: ${contact}</p>
                         <p>Specialty: ${specialty}  </p> 
+                        <p>Verified: ${verified}  </p> 
                         <p>Cases: ${cases} </p> 
                     </div>
                     <!-- end text-wrapper -->

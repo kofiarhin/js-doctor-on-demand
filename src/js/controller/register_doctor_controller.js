@@ -16,13 +16,13 @@ export default function () {
         if (role === "admin") {
 
             const dataToSubmit = {
-                firstname: "kevin",
-                lastname: "durant",
+                firstname: "paul",
+                lastname: "george",
                 password: "password",
-                email: "kevindurant@gmail.com",
+                email: "paulgeorge@gmail.com",
                 contact: "23232232232",
                 gender: "male",
-                specialty: "general practice",
+                specialty: "dentist",
                 role: "doctor"
             };
 

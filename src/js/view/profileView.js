@@ -1,12 +1,24 @@
+import User from "../model/user";
 import { getElement } from "../lib/helper";
 import _ from "lodash";
 
 
 const profileWrapper = getElement("#profile .wrapper");
+const user = new User();
+
+
+
+function renderCta(data) {
+
+    console.log(data)
+    return `<a class="cta cta-block" href="edit_profile.html?id=">Edit Profile</a>`;
+}
+
 
 function renderPatientProfile(data) {
 
-    const { firstname, lastname, email, contact, gender } = data;
+
+    const { firstname, lastname, email, contact, gender, package_name, number_of_visits = 0 } = data;
 
     let markup = `
      
@@ -19,14 +31,14 @@ function renderPatientProfile(data) {
                     <p class="name" style="text-transform: capitalize">Name: ${firstname} ${lastname}</p>
                     <p class="email">Email: ${email}</p>
                     <p class="contact"> Contact: ${contact}</p>
-                    <p class="package"> Packgae: Add Packgage here</p>
-                    <p class="package"> Number of Visit Left: Number of Visit</p>
+                    <p class="package"> Packgae: ${package_name}</p>
+                    <p class="package"> Number of Visit Left: ${number_of_visits}</p>
                 </div>
                 <!-- end content -->
 
                 <!-- cta-wrapper -->
                 <div class="cta-wrapper">
-                    <a class="cta cta-block" href="edit_profile.html?id=">Edit Profile</a>
+                    ${renderCta(data)}
                 </div>
                 <!-- end cta-wrapper -->
      `;
@@ -77,14 +89,11 @@ function renderDoctorProfile(data) {
 export function renderProfile(data) {
 
 
-
     // check if dat is not empty    
     if (!_.isEmpty(data)) {
 
         // get role
         const role = data.role;
-
-        console.log(role)
 
         if (role === "patient") {
 

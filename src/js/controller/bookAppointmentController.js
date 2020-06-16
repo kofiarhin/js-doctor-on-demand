@@ -9,6 +9,8 @@ async function formController(event) {
 
     event.preventDefault();
 
+    console.log("?????----- book appointment")
+    return;
 
     if (user.checkLogin()) {
 
