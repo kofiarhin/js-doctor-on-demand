@@ -38,7 +38,8 @@ function renderPatientProfile(data) {
 
 function renderDoctorProfile(data) {
 
-    const { firstname, lastname, email, contact, gender } = data;
+
+    const { firstname, lastname, email, contact, gender, verified, specialty } = data;
 
 
     let markup = `
@@ -52,7 +53,7 @@ function renderDoctorProfile(data) {
                     <p class="name" style="text-transform: capitalize">Name: ${firstname} ${lastname}</p>
                     <p class="email">Email: ${email}</p>
                     <p class="contact">Contact: ${contact}</p>
-                    <p class="specialty">Specialty::  Specialty </p>
+                    <p class="specialty">Specialty:${specialty} </p>
                     <h2> Work Experience </h2>
                     <p class="description">
                          m Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, a
@@ -88,6 +89,7 @@ export function renderProfile(data) {
         if (role === "patient") {
 
             renderPatientProfile(data);
+
         } else if (role === "doctor") {
 
             renderDoctorProfile(data)

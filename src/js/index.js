@@ -11,6 +11,7 @@ import UserController from "./controller/userController";
 import BookAppointmentController from "./controller/bookAppointmentController"
 import AppointmentsController from "./controller/appointmentController";
 import ViewAppointmentController from "./controller/viewAppointmentController";
+import RegisterDoctorController from "./controller/register_doctor_controller"
 
 // global state 
 const state = {
@@ -74,16 +75,26 @@ function Router() {
 
     }
 
+    // register
     else if (state.url === "register.html") {
         const registerBtn = getElement("#register-btn")
         registerBtn.addEventListener("click", RegisterController);
 
     }
 
+
+    // create account
+    else if (state.url === "create_account.html") {
+
+
+        RegisterDoctorController()
+        // const registerBtn = getElement("#register-btn")
+        // registerBtn.addEventListener("click", RegisterDoctorController);
+    }
+
     // login page
     else if (state.url === "login.html") {
         const loginBtn = getElement("#login-btn")
-
         loginBtn.addEventListener("click", LoginController)
 
     }

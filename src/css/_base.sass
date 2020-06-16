@@ -32,6 +32,8 @@ input
 $main: #6C63FF
 $main-light: #4DAECF
 $secondary: #F16F5A
+$grey: #3d5a59
+$success: #438a5e
 
 
 button
@@ -101,9 +103,16 @@ button
         padding: 0.8rem 3rem
         background: $main
         color: white
+        margin-bottom: 0.8rem
         &.cta-block
             display: block
             width: 100%
+        &.cta-danger
+            background: red
+        &.cta-grey
+            background: $grey
+        &.cta-success
+            background: $success
 
 @media(max-width: 400px)
     .main-title

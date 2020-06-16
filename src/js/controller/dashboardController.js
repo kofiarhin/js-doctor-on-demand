@@ -20,7 +20,7 @@ export default function () {
 
 
             // render options
-            DashboardView.renderDashboard(userData.role);
+            DashboardView.renderDashboard(userData);
         }
     }
 

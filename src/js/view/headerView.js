@@ -26,11 +26,11 @@ export function renderHeader(data) {
 
         let markup = "";
         if (data) {
-            const { firstname, role } = data;
+            const { firstname, role, id } = data;
 
             markup = `
                 <nav>  
-                    <a href='profile.html'>${firstname}</a>
+                    <a href='profile.html?id=${id}'>${firstname}</a>
                     <a href="dashboard.html">Dashboard</a>
                     ${renderUrl(role)}
                     <a href="logout.html">Logout</a>

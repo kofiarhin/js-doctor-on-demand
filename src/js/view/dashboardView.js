@@ -9,7 +9,7 @@ export function renderTitle({ firstname, lastname, email }) {
 }
 
 // render dashboard title
-export function renderDashboard(role) {
+export function renderDashboard({ role, id }) {
 
     console.log(role)
     let markup = ``;
@@ -24,6 +24,13 @@ export function renderDashboard(role) {
             <div class="dashboard-wrapper">
 
                 <!-- dash-item-unit -->
+                <a href="create_account.html" class="dash-item-unit">
+                    <i class="icon fa fa-user"></i>
+                    <p>Create Account</p>
+                </a>
+                <!-- end dash-item-unit -->
+
+                 <!-- dash-item-unit -->
                 <a href="users.html?query=doctor" class="dash-item-unit">
                     <i class="icon fa fa-user-md"></i>
                     <p>Doctors</p>
@@ -69,7 +76,7 @@ export function renderDashboard(role) {
             <div class="dashboard-wrapper">
 
                 <!-- dash-item-unit -->
-                <a href="profile.html" class="dash-item-unit">
+                <a href="profile.html?id=${id}" class="dash-item-unit">
                     <i class="icon fa fa-user"></i>
                     <p>Profile</p>
                 </a>
@@ -97,6 +104,7 @@ export function renderDashboard(role) {
 
     }
 
+    // patient
     else if (role === "patient") {
 
         markup = `
@@ -105,7 +113,7 @@ export function renderDashboard(role) {
             <div class="dashboard-wrapper">
 
                 <!-- dash-item-unit -->
-                <a href="profile.html" class="dash-item-unit">
+                <a href="profile.html?id=${id}" class="dash-item-unit">
                     <i class="icon fa fa-user"></i>
                     <p>Profile</p>
                 </a>

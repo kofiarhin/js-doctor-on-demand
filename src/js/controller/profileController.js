@@ -2,24 +2,21 @@ import User from "../model/user";
 import _ from "lodash";
 import * as ProfileView from "../view/profileView";
 
-export default function () {
+export default async function () {
 
 
     const user = new User();
 
-    // if user is not logged in redcirect to login page
-    if (!user.checkLogin()) {
 
-        window.location.href = "login.html"
-    }
+    const search = new URLSearchParams(window.location.search);
 
-    if (!_.isEmpty(user.userData)) {
+    const id = search.get('id');
 
-        const { userData } = user;
+    const userData = await user.getUser(id);
 
-        ProfileView.renderProfile(userData);
+    if (!_.isEmpty(userData)) {
 
-
+        ProfileView.renderProfile(userData)
     }
 
 }

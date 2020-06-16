@@ -1,6 +1,7 @@
 import { getElement } from "../lib/helper";
 import * as  RegisterView from "../view/registerView";
 import User from "../model/user"
+import moment from "moment";
 
 export default async function RegisterController() {
 
@@ -24,14 +25,19 @@ export default async function RegisterController() {
     //     role
     // };
 
+    const createdOn = Date.now();
+    const role = "patient"
+
     const userData = {
-        firstname: "azumah",
-        lastname: "nelson",
-        email: "azumah@gmail.com",
+        firstname: "john",
+        lastname: "asante",
+        email: "johnasante@gmail.com",
         password: "password",
         contact: "2092003023",
         gender: "male",
-        role: "patient"
+        role,
+        createdOn
+
     };
 
 
@@ -48,8 +54,11 @@ export default async function RegisterController() {
         const user = new User();
 
         // create user
-        const newUser = await user.createUser(userData)
+        const newUser = await user.createPatient(userData)
 
+        if (!_.isEmpty(newUser)) {
+            window.location.href = "login.html"
+        }
         if (newUser) {
 
             window.location.href = "login.html"
