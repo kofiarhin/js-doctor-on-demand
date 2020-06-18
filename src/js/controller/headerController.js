@@ -1,12 +1,19 @@
 import { loggedIn } from "../lib/helper";
 import * as HeaderView from "../view/headerView";
+import User from "../model/user";
+
 
 export default function () {
 
-    if (loggedIn) {
+    const user = new User();
 
-        const user = JSON.parse(sessionStorage.getItem("user"))
-        HeaderView.renderHeader(user)
+    if (user.checkLogin()) {
+
+        // take out the password
+        const { userData: { password, ...rest } } = user;
+
+        HeaderView.renderHeader(rest)
     }
+
 
 }

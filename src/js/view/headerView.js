@@ -5,12 +5,12 @@ function renderUrl(role) {
 
     if (role === "doctor") {
 
-        return `<a href='users.html?query=patients'>Patients</a>`
+        return `<a href='users.html?query=patient'>Patients</a>`
 
     } else if (role === "admin") {
 
         return `
-                <a href='users.html?query=patients'>Patients</a>    
+                <a href='users.html?query=patient'>Patients</a>    
                 <a href='users.html?query=doctor'>Doctors</a>
         `;
 

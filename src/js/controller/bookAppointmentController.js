@@ -121,8 +121,11 @@ async function renderTitle() {
 
 
 export default function () {
+
     renderButton()
+
     renderTitle()
+
     const form = getElement(".form-wrapper form");
     form.addEventListener("submit", formController)
 }

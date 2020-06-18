@@ -19,6 +19,8 @@ function renderPatient(data) {
 // render custom cta's based on current logged in user
 function renderCta(data) {
 
+    console.log(data)
+
 
     // get id and verified info of user
     const { id, verified } = data;

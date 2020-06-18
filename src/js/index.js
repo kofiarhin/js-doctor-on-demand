@@ -13,6 +13,17 @@ import AppointmentsController from "./controller/appointmentController";
 import ViewAppointmentController from "./controller/viewAppointmentController";
 import RegisterDoctorController from "./controller/register_doctor_controller"
 import VerifyAccountController from "./controller/verify_account_controller";
+import DoctorsController from "./controller/DoctorsController";
+
+
+
+// model
+import User from "./model/user";
+
+
+const user = new User();
+
+
 
 // global state 
 const state = {
@@ -100,7 +111,6 @@ function Router() {
 
     }
 
-
     // dashboard
     else if (state.url === "dashboard.html") {
 
@@ -119,6 +129,14 @@ function Router() {
 
         ProfileController()
     }
+
+
+
+
+    else if( state.url === "doctors.html") {
+        DoctorsController(user)
+    }
+ 
 
     // list of users
 

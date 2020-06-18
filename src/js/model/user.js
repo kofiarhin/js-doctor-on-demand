@@ -140,66 +140,114 @@ export default class User {
     async getUsers(query) {
 
 
+        const users = await firebase.database().ref('users').orderByChild("role")
+            .equalTo(query).once("value").then(snapshot => firebaseLooper(snapshot));
 
-        if (query && query.length > 0) {
+        if (query === "doctor") {
 
-            const users = await firebase.database().ref("users").once("value").then(snapshot => firebaseLooper(snapshot));
 
-            const newData = users.filter(user => user.role === query);
+            //  get doctor list
 
-            console.log(newData)
-            return newData;
+            const doctors = await firebase.database().ref("doctors").once('value').then(snapshot => firebaseLooper(snapshot));
 
+            if (doctors && doctors.length > 0) {
+
+                users.forEach((user, index) => {
+
+                    const data = doctors.find(doctor => doctor.userId == user.id);
+
+
+                    // why i did this
+                    // because id overrides original user id 
+                    // reset the id to dotor id and pass new data instead
+                    const { id: doctorId, ...rest } = data;
+                    const newData = { doctorId, ...rest }
+
+                    // users[index] = { ...user, ...data }
+                    users[index] = { ...user, ...newData };
+
+                });
+
+            }
         }
+
+
+        else if (query === "patient") {
+
+            users.forEach(async (user, index) => {
+
+                const userData = await firebase.database().ref('patients').orderByChild("userId").equalTo(user.id).once("value")
+                    .then(snapshot => firebaseLooper(snapshot)[0]);
+
+                users[index] = { ...user, ...userData }
+
+            });
+
+
+            return users;
+        }
+
+        return users;
+
+
     }
 
     async getUser(id) {
 
-        console.log("????", id)
+        // get user from user table
+        const user = await firebase.database().ref(`users/${id}`).once("value").then(snapshot => snapshot.val());
 
-        if (id) {
-
-            // get user from database with given id
-            const user = await firebase.database().ref(`users/${id}`).once("value").then(snapshot => snapshot.val());
-            user.id = id;
+        if (!_.isEmpty(user)) {
 
             const { role } = user;
 
+
+            // if user is a doctor get details from dotor table
             if (role === "doctor") {
 
-                const data = await firebase.database().ref("doctors").orderByChild("userId").equalTo(id).once("value").then(snapshot => {
+                const doctorData = await firebase.database().ref("doctors").orderByChild("userId").equalTo(id).once("value").then(snapshot => firebaseLooper(snapshot)[0]);
 
-                    const result = firebaseLooper(snapshot)[0];
+                if (!_.isEmpty(doctorData)) {
 
-                    const { id, specialty, verified } = result;
-                    return { doctorId: id, specialty, verified };
+                    // reneme id field to doctor id and remove user id  from field
+                    const { id: doctorId, userId, ...rest } = doctorData;
+                    // reformat doctor data
+                    const newDoctorData = { doctorId, ...rest };
 
-                });
+                    // reformat user data
+                    const userData = { id, ...user, ...newDoctorData }
 
-                const newData = { ...user, ...data };
-
-                return newData;
-
+                    // return userData
+                    return userData;
+                }
             }
 
             else if (role === "patient") {
 
-                const data = await firebase.database().ref("patients").orderByChild("userId").equalTo(id).once("value").then(snapshot => {
-                    console.log("passsss")
+                const patientData = await firebase.database().ref("patients").orderByChild('userId').
+                    equalTo(id).once("value").then(snapshot => firebaseLooper(snapshot)[0]);
 
-                    const result = firebaseLooper(snapshot)[0]
-                    const { id, package_name } = result;
+                if (!_.isEmpty(patientData)) {
 
-                    return ({ patientId: id, package_name })
+                    const { id: patientId, userId, ...rest } = patientData;
 
-                });
+                    const newPatientData = { patientId, ...rest }
 
-                const newData = { ...user, ...data };
+                    const userData = { ...user, ...newPatientData }
 
-                return newData;
+                    return userData;
+                }
             }
+            // to do that of patient
+            return { id, ...user };
 
-            return user;
         }
     }
+
+    async test() {
+
+        console.log("passss")
+    }
+
+
 }

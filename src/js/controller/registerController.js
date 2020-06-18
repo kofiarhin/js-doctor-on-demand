@@ -29,12 +29,12 @@ export default async function RegisterController() {
     const role = "patient"
 
     const userData = {
-        firstname: "john",
+        firstname: "vivian",
         lastname: "asante",
-        email: "johnasante@gmail.com",
+        email: "vivianahorlumega@gmail.com",
         password: "password",
         contact: "2092003023",
-        gender: "male",
+        gender: "female",
         role,
         createdOn
 

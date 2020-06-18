@@ -86,6 +86,35 @@ function renderDoctorProfile(data) {
 }
 
 
+function renderAdminProfile(data) {
+
+    const { firstname, lastname, email, contact, gender } = data;
+
+    console.log(data)
+    let markup = `
+            <!-- cover -->
+                <div class="cover" style="background-image: url(./images/doctors/doctor-${gender}.jpg)"></div>
+                <!-- end cover -->
+
+                <!-- content -->
+                <div class="content">
+                    <p class="name" style="text-transform: capitalize">Name: ${firstname} ${lastname}</p>
+                    <p class="email">Email: ${email}</p>
+                    <p class="contact">Contact: ${contact}</p>
+                </div>
+                <!-- end content -->
+
+                <!-- cta-wrapper -->
+                <div class="cta-wrapper">
+                    <a class="cta cta-block" href="edit_profile.html?id=">Edit Profile</a>
+                </div>
+                <!-- end cta-wrapper -->
+     `;
+
+
+    profileWrapper.innerHTML = markup;
+}
+
 export function renderProfile(data) {
 
 
@@ -102,6 +131,9 @@ export function renderProfile(data) {
         } else if (role === "doctor") {
 
             renderDoctorProfile(data)
+        } else if (role === "admin") {
+
+            renderAdminProfile(data)
         }
 
     }

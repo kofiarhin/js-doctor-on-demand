@@ -83,9 +83,17 @@ module.exports = {
             template: "./src/create_account.html"
         }),
 
+        // verify account
         new htmlWebpackPlugin({
             filename: "verify_account.html",
             template: "./src/verify_account.html"
+        }),
+
+
+        // doctors
+        new htmlWebpackPlugin({
+            filename: "doctors.html",
+            template: "./src/doctors.html"
         })
     ],
 
