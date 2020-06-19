@@ -2,13 +2,13 @@ import { getElement, formatDate } from "../lib/helper";
 
 
 
-function renderPatientAppointment(data) {
+export function renderPatientAppointments(data) {
 
     const element = getElement("#appointments .table tbody");
     let output = "";
     data.forEach(item => {
         console.log(item);
-        const { doctorData, createdOn, status } = item;
+        const { doctorData, createdOn, status, id } = item;
         const { firstname, lastname, email, contact } = doctorData;
 
         let markup = `
@@ -19,7 +19,7 @@ function renderPatientAppointment(data) {
           <td role="cell" data-title="Email">${email}</td>
           <td role="cell" data-title="Contact">${contact}</td>
           <td role="cell" data-title="status">${status}</td>
-          <td role="cell" data-title="Action"> <a href="#" id="#"> View</a></a></td>
+          <td role="cell" data-title="Action"> <a href="view_appointment.html?id=${id}" id="#"> View</a></a></td>
         </tr>
     `;
         output += markup;
@@ -29,7 +29,7 @@ function renderPatientAppointment(data) {
 }
 
 
-function renderDoctorAppointment(data) {
+export function renderDoctorAppointments(data) {
 
     const element = getElement("#appointments .table tbody");
     let output = "";

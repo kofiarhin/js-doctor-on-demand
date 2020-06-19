@@ -147,7 +147,7 @@ export default class User {
 
         } else {
 
-            users = await firebase.database().or.ref("users").once("value").then(snapshot => firebaseLooper(snapshot));
+            users = await firebase.database().ref("users").once("value").then(snapshot => firebaseLooper(snapshot));
         }
 
         return users;
@@ -222,6 +222,36 @@ export default class User {
 
             return usersData;
         }
+    }
+
+
+    async getDoctors() {
+
+        let dataToSubmit = [];
+
+        const doctors = await firebase.database().ref("doctors").once("value").then(snapshot => firebaseLooper(snapshot));
+
+        const usersDetails = await firebase.database().ref("users").orderByChild("role").equalTo("doctor").once("value").then(snapshot => firebaseLooper(snapshot));
+
+        const result = await Promise.all([doctors, usersDetails]);
+
+        const [doctorsResult, usersResult] = result;
+
+
+        doctorsResult.forEach(doctor => {
+
+            const detail = usersResult.find(user => user.id === doctor.userId);
+
+            if (!_.isEmpty(detail)) {
+
+                const { id: doctorId, ...rest } = doctor;
+
+                dataToSubmit.push({ ...detail, doctorId, ...rest })
+            }
+
+        });
+
+        return dataToSubmit;
     }
 
     async test() {
