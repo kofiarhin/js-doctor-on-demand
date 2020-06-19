@@ -5,6 +5,29 @@ import { firebase, firebaseLooper } from "../firebase";
 
 export default class Doctor extends User {
 
+    constructor(id) {
+        super();
+
+
+    }
+
+    async getData(id) {
+
+        const doctorData = await firebase.database().ref(`doctors/${id}`).once("value").then(snapshot => snapshot.val());
+
+
+        if (!_.isEmpty(doctorData)) {
+            const { userId, ...rest } = doctorData;
+
+            const user = await firebase.database().ref(`users/${userId}`).once("value").then(snapshot => snapshot.val());
+
+            return { id: userId, ...user, ...rest }
+
+
+
+        }
+    }
+
     async verify(id) {
 
         await firebase.database().ref(`doctors/${id}`).update({

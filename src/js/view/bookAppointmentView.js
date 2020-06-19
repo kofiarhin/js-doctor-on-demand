@@ -1,6 +1,9 @@
+import { getElement } from "../lib/helper"
+
+export function renderTitle({ firstname, lastname }) {
 
 
-export function renderError() {
-    console.log("render error")
+    const title = getElement(".main-title");
 
+    title.textContent = `Book Appoiintment with Dr ${firstname} ${lastname}`;
 }
