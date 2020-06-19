@@ -1,60 +1,61 @@
 import User from "../model/user";
 import { getElement } from "../lib/helper";
 
+
+// get person loggged in details
 const user = new User();
 const { userData } = user;
+
+// get tole of user and render custom cta base on role
 let role = "";
 if (!_.isEmpty(userData)) {
     role = userData.role;
-
 }
-
-function renderPatient(data) {
-
-    console.log("render patient", data)
-}
-
 
 
 // render custom cta's based on current logged in user
 function renderCta(data) {
 
-    console.log(data)
+    let ctaMarkup = "";
+
+    // if user is a patiend and admin is logged in
+    if (data.role === "patient" && role === "admin") {
+
+        ctaMarkup = `
+           <a href="edit_profile.html?id=${data.id}" class="cta">Edit Profile</a>
+           <a href="edit_profile.html?id=" class="cta cta-danger">Delete Patient</a>      
+           <a href="edit_profile.html?id=" class="cta">Update Package</a>      
+        `;
+    }
 
 
-    // get id and verified info of user
-    const { id, verified } = data;
+    // if role is admin and a doctor
+    else if (role === "admin" && data.role === "doctor") {
 
-    // get login detail of person logged in
-    let markup = "";
-
-    // if rele is admin
-    if (role === "admin") {
-
-        markup = `
-        <a href="edit_profile.html?id=${id}" class="cta">Edit Profile</a>
-        <a href="book_appointment.html?id=${id}" class="cta cta-danger">Delete Account</a>
+        const { verified } = data;
+        ctaMarkup = `
+           <a href="edit_profile.html?id=${data.id}" class="cta">Edit Profile</a>
         `;
 
         if (!verified) {
 
-            markup += `<form>
-            <a href="verify_account.html?id=${id}" class="cta cta-success"> Verifiy Doctor </button>
-            </a>`;
+            ctaMarkup += ` <a href="verify_account.html?id=${data.doctorId}" class="cta cta-success">Activate Account</a>`
+        } else {
+            ctaMarkup += ` <a href="edit_profile.html?id=" class="cta cta-danger">Deactivate Account</a>`
         }
-        return markup;
+
+
     }
 
-    else if (role === "patient") {
+    // patient custom cta
+    else if (role === "patient" && data.role == "doctor") {
 
-        if (!verified) {
-
-            markup = `<a href="#" class='cta cta-block cta-grey'> Doctor Not Verified Yet </a>`;
-            return markup;
-        }
+        const { doctorId } = data;
+        // doctor data 
+        ctaMarkup = ` <a href="book_appointment.html?id=${doctorId}" class="cta cta-success">Book Apppointment</a>`
     }
 
-    return `<a href="book_appointment.html?id=${id}" class="cta cta-success">Book Appointment</a>`
+    return ctaMarkup;
 
 }
 
@@ -111,10 +112,61 @@ function renderDoctor(data) {
     element.innerHTML = markup;
 };
 
+
+// render patient
+function renderPatient(data) {
+
+    if (!_.isEmpty(data)) {
+
+        const { id, firstname, lastname, email, contact, gender, role, package_name } = data;
+        const element = getElement("#user-profile .user-wrapper");
+
+        let markup = `
+            
+                <!-- profile -->
+                <div class="profile" style="background-image: url(./images/patients/patient-${gender}.jpg)">
+                </div>
+                <!-- end profile -->
+
+                <!-- content -->
+                <div class="content">
+
+                    <!-- text-wrapper -->
+                    <div class="text-wrapper">
+                        <p class="name">Name: ${firstname} ${lastname}</p>
+                        <p class="email">Email: ${email}</p>
+                        <p class="contact">Contact: ${contact}</p>
+                    </div>
+                    <!-- end text-wrapper -->
+
+                    <!-- cta-wrappper -->
+                    <div class="cta-wrapper">
+                        ${renderCta(data)}
+                    </div>
+
+                    <!-- end cta-wrapper -->
+                </div>
+                <!-- end content -->
+     `;
+
+        element.innerHTML = markup;
+
+    }
+}
+
+
+
 export function renderUser(data) {
+
+    // render title
+    const { role } = data;
+
+    // render title
+    renderTitle(role)
 
     if (data) {
 
+        // get role of user and render title
         const role = data.role;
 
         if (role === "patient") {
@@ -128,4 +180,12 @@ export function renderUser(data) {
         }
     }
 
+}
+
+
+function renderTitle(role) {
+
+    const title = getElement(".main-title");
+
+    title.textContent = `${role} Profile`
 }

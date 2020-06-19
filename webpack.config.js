@@ -94,6 +94,11 @@ module.exports = {
         new htmlWebpackPlugin({
             filename: "doctors.html",
             template: "./src/doctors.html"
+        }),
+
+        new htmlWebpackPlugin({
+            filename: "patients.html",
+            template: "./src/patients.html"
         })
     ],
 

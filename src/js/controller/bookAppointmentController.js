@@ -88,6 +88,7 @@ function renderButton() {
         } else {
             markup = "<a href='dashboard.html' class='cta cta-block cta-danger'> You Cannot book an appointment </a>"
         }
+
     } else {
         markup = "<a href='login.html' class='cta cta-block'> You need to login </a>";
     }
@@ -123,7 +124,6 @@ async function renderTitle() {
 export default function () {
 
     renderButton()
-
     renderTitle()
 
     const form = getElement(".form-wrapper form");

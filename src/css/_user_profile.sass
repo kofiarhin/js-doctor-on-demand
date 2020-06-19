@@ -1,26 +1,26 @@
 #user-profile
     min-height: 100vh
     .user-wrapper
-        width: 540px
-        max-width: 90%
+        width: 640px
         margin: 0 auto
+        max-width: 90%
+        display: flex
         .profile
-            width: 400px
-            heigh: 400px
+            width: 300px
+            padding-top: 60%
             margin: 0 auto 20px
-            padding-top: 100%
             background:
                 size: cover
                 position: center
     
         .text-wrapper
             margin-bottom: 2rem
-            text-align: center
             p
                 font-size: 1rem
                 margin-bottom: 0.5rem
                 &.name
-                    font-size: 2rem
+                    font-size: 1.2rem
+                    text-transform: capitalize
            
         .cta-wrapper
             text-align: left
@@ -29,3 +29,8 @@
                 width: 100%
                 text-align: center
 
+@media(max-width: 650px)
+    #user-profile .user-wrapper
+        display: block
+        .text-wrapper
+            text-align: center 

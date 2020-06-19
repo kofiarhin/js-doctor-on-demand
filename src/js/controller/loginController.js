@@ -15,13 +15,13 @@ export default async function LoginController() {
     // remove this code later
 
     // // login doctor
-    const email = "kevindurant@gmail.com";
-    const password = "password"
+    // const email = "kevindurant@gmail.com";
+    // const password = "password"
 
 
     // // // login patient
-    // const email = "johnasante@gmail.com";
-    // const password = "password"
+    const email = "johnasante@gmail.com";
+    const password = "password"
 
 
     // login as admin

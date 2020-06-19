@@ -1,5 +1,6 @@
 import { getElement } from "../lib/helper";
 import User from "../model/user";
+import Doctor from "../model/doctor";
 
 
 const user = new User();
@@ -15,8 +16,21 @@ async function SubmitController(e) {
     // check if there is an id and user is an admin
     if (id && id.length > 0 && user.checkLogin() & user.userData.role === "admin") {
 
-        const userData = await user.getUser(id);
 
+        const doctor = new Doctor();
+
+        try {
+            await doctor.verify(id)
+            window.location.href = `doctors.html`
+        } catch (error) {
+
+            console.log(error);
+        }
+
+
+
+
+        return;
         const { doctorId } = userData;
 
         try {

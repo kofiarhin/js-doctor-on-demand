@@ -1,20 +1,19 @@
 import { getElement } from "../lib/helper";
+import _ from "lodash";
+
+export function renderDoctors(data) {
 
 
-function renderCustomData(query) {
+    const element = getElement("#doctors .container .users-wrapper");
+    const title = getElement(".main-title");
 
-
-}
-
-
-function renderDoctors(data) {
-
-
-    const element = getElement("#users .container .users-wrapper");
 
     let output = "";
+
     data.forEach(dataItem => {
         const { id, gender, email, firstname, lastname, specialty } = dataItem;
+
+
         let markup = `
 
                      <a href="user.html?id=${id}" class="user-unit">
@@ -31,72 +30,48 @@ function renderDoctors(data) {
     });
 
     element.innerHTML = output;
+    title.textContent = "Our Doctors"
 }
 
-
-function renderPatients(data) {
-
-    console.log(data)
-    data.forEach(dataItem => {
-
-        console.log(dataItem)
-    })
-}
+export function renderPatients(data) {
 
 
-
-// render list of users
-export function renderUsers(query, users) {
-
-    if (query === "doctor") {
-
-        renderDoctors(users)
-    }
-
-    else if (query === "patient") {
-
-        renderPatients(users)
-    }
-
-    // let output = "";
-    // const element = getElement("#users .container .users-wrapper");
-
-    // users.forEach(user => {
-
-    //     console.log(user)
-    // let markup = `
-
-    //              <a href="user.html?id=${user.id}" class="user-unit">
-    //             <div class="cover" style="background-image:url(./images/${query}s/${query}-${user.gender}.jpg)"></div>
-    //             <div class="content">
-    //                 <p class="name">${user.firstname} ${user.lastname}</p>
-    //                 <p class="email">${user.email}</p>
-    //                 ${renderCustomData(query, user)}
-    //                 <p class="specialty">${user.specialty}</p>
-    //             </div>
-    //         </a>
-    //         `;
-
-    //     output += markup;
-    // });
-
-
-    // element.innerHTML = output;
-
-
-}
-
-
-export function renderTitle(query) {
-
+    const element = getElement(".users-wrapper");
     const title = getElement(".main-title");
 
-    if (query === "patient") {
 
-        title.textContent = "List Of Patients"
-    } else if (query === "doctor") {
+    let output = "";
 
-        title.textContent = "Book Appointment with a Doctor!"
+    if (!_.isEmpty(data)) {
+
+        data.forEach(dataItem => {
+
+            const { id, gender, email, firstname, lastname, package_name } = dataItem;
+
+            let markup = `
+
+                     <a href="user.html?id=${id}" class="user-unit">
+                    <div class="cover" style="background-image:url(./images/patients/patient-${gender}.jpg)"></div>
+                    <div class="content">
+                        <p class="name">${firstname} ${lastname}</p>
+                        <p class="email">${email}</p>
+                        <p class="package-name">${package_name}</p>
+                    </div>
+                </a>
+                `;
+
+            output += markup;
+        });
+
+        element.innerHTML = output;
+
     }
 }
+
+
+
+
+
+
+
 

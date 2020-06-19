@@ -6,18 +6,26 @@
     grid-template-columns: repeat(5, 1fr)
     grid-gap: 20px
     width: 100%
+    min-height: 70vh
     .user-unit
         text-align: center
+        display: block
         .cover
             width: 100%
-            padding-top: 130%
+            padding-top: 100%
             margin-bottom: 0.8rem
             background:
                 size: cover
-                position: center
+                position: 80%
         .content
             p
-                font-size: 0.8rem
+                font-size: 1rem
+                &.name
+                    font-size: 1.2rem
+                    text-transform: capitalize
+                    margin-bottom: 0.2rem
+                &.specialty
+                    text-transform: capitalize
 
 @media(max-width: 960px)
     .users-wrapper
@@ -31,4 +39,6 @@
 @media(max-width: 400px)
     .users-wrapper
         display: block
+        .user-unit
+            margin-bottom: 2rem
         

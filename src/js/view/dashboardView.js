@@ -31,7 +31,7 @@ export function renderDashboard({ role, id }) {
                 <!-- end dash-item-unit -->
 
                  <!-- dash-item-unit -->
-                <a href="users.html?query=doctor" class="dash-item-unit">
+                <a href="doctors.html" class="dash-item-unit">
                     <i class="icon fa fa-user-md"></i>
                     <p>Doctors</p>
                 </a>
@@ -68,6 +68,8 @@ export function renderDashboard({ role, id }) {
 
     }
 
+
+
     // doctor 
     else if (role === "doctor") {
         markup = `
@@ -81,7 +83,6 @@ export function renderDashboard({ role, id }) {
                     <p>Profile</p>
                 </a>
                 <!-- end dash-item-unit -->
-
 
                 <!-- dash-item-unit -->
                 <a href="appointment.html" class="dash-item-unit">

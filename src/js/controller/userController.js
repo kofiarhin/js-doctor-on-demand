@@ -3,18 +3,19 @@ import * as UserView from "../view/userView";
 
 export default async function () {
 
-
-
-
     const search = new URLSearchParams(window.location.search);
     const id = search.get("id");
 
+    const user = new User();
 
 
-    if (id && id.length > 0) {
+    // get user with id from database
+    const userData = await user.getUser(id);
 
-        const user = new User();
-        const newUser = await user.getUser(id)
-        UserView.renderUser(newUser);
+    if (!_.isEmpty(userData)) {
+
+        UserView.renderUser(userData)
     }
+
+
 }

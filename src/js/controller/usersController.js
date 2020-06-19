@@ -19,7 +19,7 @@ export default async function () {
 
         if (!_.isEmpty(users)) {
 
-            UsersView.renderUsers(query, users)
+            UsersView.renderPatients(users)
         }
 
 

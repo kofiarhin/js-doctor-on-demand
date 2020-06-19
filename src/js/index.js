@@ -14,6 +14,7 @@ import ViewAppointmentController from "./controller/viewAppointmentController";
 import RegisterDoctorController from "./controller/register_doctor_controller"
 import VerifyAccountController from "./controller/verify_account_controller";
 import DoctorsController from "./controller/DoctorsController";
+import PatientsController from "./controller/pateintsController";
 
 
 
@@ -131,15 +132,19 @@ function Router() {
     }
 
 
+    // doctors
 
-
-    else if( state.url === "doctors.html") {
+    else if (state.url === "doctors.html") {
         DoctorsController(user)
     }
- 
+
+    // patients
+    else if (state.url === 'patients.html') {
+
+        PatientsController();
+    }
 
     // list of users
-
     else if (state.url === "users.html") {
 
         UsersController()
@@ -162,14 +167,14 @@ function Router() {
         AppointmentsController()
     }
 
-// view appointment 
+    // view appointment 
     else if (state.url === "view_appointment.html") {
 
         ViewAppointmentController();
     }
 
 
-    else if(state.url === "verify_account.html") {
+    else if (state.url === "verify_account.html") {
 
         VerifyAccountController();
     }

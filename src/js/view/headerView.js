@@ -7,16 +7,19 @@ function renderUrl(role) {
 
         return `<a href='users.html?query=patient'>Patients</a>`
 
+        // admin
     } else if (role === "admin") {
 
         return `
-                <a href='users.html?query=patient'>Patients</a>    
-                <a href='users.html?query=doctor'>Doctors</a>
+                <a href='patients.html'>Patients</a>    
+                <a href='doctors.html'>Doctors</a>
         `;
 
     }
-    return `<a href='users.html?query=doctor'>Doctors</a>`;
+    return `<a href='doctors.html'>Doctors</a>`;
 }
+
+
 // render header
 export function renderHeader(data) {
 
@@ -32,7 +35,12 @@ export function renderHeader(data) {
                 <nav>  
                     <a href='profile.html?id=${id}'>${firstname}</a>
                     <a href="dashboard.html">Dashboard</a>
-                    ${renderUrl(role)}
+
+                    ${
+                // render custom links based on roles
+                renderUrl(role)
+                }
+
                     <a href="logout.html">Logout</a>
                 </nav>
         `;
