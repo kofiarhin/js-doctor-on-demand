@@ -1,9 +1,10 @@
 import Appointment from "../model/appointment";
 import User from "../model/user";
 import * as AppointmentView from "../view/appointmentView";
-
+import { test } from "../lib/helper";
 
 export default async function () {
+
 
     const user = new User();
     const { userData } = user;
@@ -12,18 +13,53 @@ export default async function () {
 
     const appointment = new Appointment();
 
-
-
     if (role === "patient") {
-        const data = await appointment.getPatientAppointments(id);
+
+        const userData = await user.getUser(id);
+        const { patientId } = userData;
+
+        const data = await appointment.getPatientAppointments(patientId);
         AppointmentView.renderPatientAppointments(data)
+
+    }
+
+
+    // if role is a doctor 
+    else if (role === "doctor") {
+
+        // get doctor appointment based on id
+        // get doctor id
+        const doctorData = await user.getUser(id);
+
+        if (!_.isEmpty(doctorData)) {
+
+            const { doctorId } = doctorData;
+
+            // get appointment of doctor
+            const data = await appointment.getDoctorAppointments(doctorId)
+
+            if (!_.isEmpty(data)) {
+
+                AppointmentView.renderDoctorAppointments(data)
+            }
+        }
+
+    }
+
+
+    else if (role === "admin") {
+
+        const data = await appointment.getAdminAppointments(role);
+
+
+        if (!_.isEmpty(data)) {
+            AppointmentView.renderAdminAppointments(data)
+        }
+
+
     }
 
 
 
 }
 
-function test(item) {
-
-    console.log(item)
-}

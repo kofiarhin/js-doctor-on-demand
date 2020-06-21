@@ -1,5 +1,6 @@
 import { firebase, firebaseLooper } from "../firebase";
 import User from "./user";
+import { test } from "../lib/helper"
 
 export default class Appointment extends User {
 
@@ -21,17 +22,56 @@ export default class Appointment extends User {
     async getAppointments() {
 
         // get all apointments
-        const data = await firebase.database().ref("appointments").once("value").then(snapshot => firebaseLooper(snapshot));
+        const appData = await firebase.database().ref("appointments").once("value").then(snapshot => firebaseLooper(snapshot));
 
-        return data;
+        return appData;
 
     }
 
+    async getAdminAppointments() {
 
+        let dataToSubmit = [];
+
+        const appData = await firebase.database().ref("appointments").once("value").then(snapshot => firebaseLooper(snapshot));
+
+        const patientsData = await this.getPatients();
+        const doctorsData = await this.getDoctors();
+
+        const result = await Promise.all([appData, patientsData, doctorsData]);
+
+
+        if (!_.isEmpty(result)) {
+            const [appResult, patientsResult, doctorsResult] = result;
+
+            if (!_.isEmpty(appResult)) {
+                appResult.forEach(item => {
+
+                    const { patientId, doctorId, id: appId, ...rest } = item;
+
+                    const patientDetail = patientsResult.find(patient => patient.patientId === patientId);
+
+                    const doctorDetail = doctorsResult.find(doctor => doctor.doctorId === doctorId);
+
+                    dataToSubmit.push({ patientData: patientDetail, doctorData: doctorDetail, ...rest, appId });
+
+
+                });
+
+
+                if (!_.isEmpty(dataToSubmit)) {
+
+                    return dataToSubmit;
+                }
+            }
+
+        }
+
+
+    }
+
+    // get appointments for patients
     async getPatientAppointments(id) {
 
-
-        console.log("???????", id);
 
         const appointments = await this.getAppointments()
         const doctors = await this.getDoctors();
@@ -66,31 +106,54 @@ export default class Appointment extends User {
     }
 
 
-    async getAppointment(id) {
 
-        const data = await firebase.database().ref(`appointments/${id}`).once("value").then(snapshot => snapshot.val());
 
-        if (!_.isEmpty(data)) {
+    // get doctor apppoints
+    async getDoctorAppointments(id) {
 
-            const { patientId, doctorId } = data;
+        let dataToSubmit = [];
 
-            const patientData = await this.getUser(patientId);
-            const doctorData = await firebase.database().ref(`doctors/${doctorId}`).once("value").then(snapshot => snapshot.val())
+        const appointments = await firebase.database().ref("appointments").orderByChild("doctorId").equalTo(id).once("value").then(snapshot => firebaseLooper(snapshot));
 
-            const result = await Promise.all([patientData, doctorData]);
+        // get list of patients
+        const patients = await this.getPatients();
 
-            if (!_.isEmpty(result)) {
+        const result = await Promise.all([appointments, patients]);
 
-                const [patientResult, doctorResult] = result;
+        const [appData, patientsData] = result;
 
-                const doctorDetail = await this.getUser(doctorResult.userId);
+        if (!_.isEmpty(result)) {
 
-                if (!_.isEmpty(doctorDetail)) {
+            appData.forEach(app => {
 
-                    return { patientId, doctorId, doctorData: doctorDetail, patientData, id }
-                }
+                const { patientUserId } = app;
+
+                const detail = patientsData.find(item => {
+
+                    return item.userId === patientUserId;
+                });
+
+                const { id: appId, ...rest } = app;
+
+                dataToSubmit.push({ appId, patientData: detail, ...rest });
+
+                // console.log("appointmentData:", app, "patientData:", detail)
+            });
+
+            if (!_.isEmpty(dataToSubmit)) {
+
+                return dataToSubmit;
             }
         }
+    }
+
+
+    // 
+    // get appointment with id
+    async getAppointment(id) {
+        test(id)
 
     }
+
+
 }

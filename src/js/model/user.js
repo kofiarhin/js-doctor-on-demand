@@ -1,5 +1,6 @@
 import _ from "lodash";
 import { firebase, firebaseLooper } from "../firebase";
+import { test } from "../lib/helper";
 
 export default class User {
 
@@ -193,13 +194,18 @@ export default class User {
 
     async getPatients() {
 
+
+        let result = [];
+
         const users = await this.getUsers("patient");
         const details = await firebase.database().ref("patients").once("value").then(snapshot => firebaseLooper(snapshot));
-
 
         const data = await Promise.all([users, details]);
 
         const [usersData, detailsData] = data;
+
+
+
 
         if (!_.isEmpty(usersData)) {
 
@@ -211,16 +217,24 @@ export default class User {
                     return d.userId === userData.id;
                 });
 
+
+                // check if detail is empty
                 if (!_.isEmpty(detail)) {
                     const { id: patientId, userId, ...rest } = detail;
+                    const { id, ...userRest } = userData;
 
-                    usersData[index] = { patientId, ...userData, ...rest }
+
+                    result.push({
+                        ...rest,
+                        patientId,
+                        ...userRest,
+                        userId
+
+                    })
                 }
             });
 
-
-
-            return usersData;
+            return result;
         }
     }
 
@@ -254,10 +268,7 @@ export default class User {
         return dataToSubmit;
     }
 
-    async test() {
 
-        console.log("passss")
-    }
 
 
 }

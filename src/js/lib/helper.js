@@ -47,3 +47,9 @@ export function formatDate(timestamp) {
     // var toyear = new Date(timestamp).getFullYear();
     // var original_date = tomonth + '/' + todate + '/' + toyear;
 }
+
+//  so that we dont write the damn console.log
+export function test(item) {
+
+    console.log(item)
+}

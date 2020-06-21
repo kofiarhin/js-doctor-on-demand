@@ -37,8 +37,8 @@ export function renderDoctorAppointments(data) {
 
     data.forEach(item => {
 
-        const { userData, status, createdOn, id } = item;
-        const { firstname, lastname, email, contact } = userData;
+        const { patientData, status, createdOn, appId: id } = item;
+        const { firstname, lastname, email, contact } = patientData;
 
         let markup = `
     <tr role="row">
@@ -87,16 +87,16 @@ function renderAdminBody(data) {
     // iterate through data
     data.forEach(item => {
 
-        const { userData, doctorData, createdOn, id } = item;
+        const { patientData, doctorData, createdOn, appId: id } = item;
 
         console.log(item)
 
         let markup = `
                  <tr role="row">
           <td role="cell" data-title="Date">${formatDate(createdOn)}</td>
-          <td role="cell" data-title="First name"> ${userData.firstname} ${userData.lastname}</td>
+          <td role="cell" data-title="First name"> ${patientData.firstname} ${patientData.lastname}</td>
           <td role="cell" data-title="Last Name">${doctorData.firstname} ${doctorData.lastname}</td>
-          <td role="cell" data-title="Email">${userData.email}</td>
+          <td role="cell" data-title="Email">${patientData.email}</td>
           <td role="cell" data-title="Contact">${doctorData.email} </td>
           <td role="cell" data-title="Action"> <a href="#" id="#"> ${item.status}</a></a></td>
           <td role="cell" data-title="Action"> <a href="view_appointment.html?id=${id}" id="#"> View</a></a></td>
@@ -111,12 +111,11 @@ function renderAdminBody(data) {
 };
 
 
-function renderAdminAppointment(data) {
+export function renderAdminAppointments(data) {
 
     // render different header
     // get header
     renderAdminHeader();
-
     // render body of appointment
 
     renderAdminBody(data);

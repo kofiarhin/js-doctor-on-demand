@@ -2,7 +2,7 @@ import User from "../model/user";
 import Appointment from "../model/appointment";
 import * as ViewAppointment from "../view/viewAppointment";
 import _ from "lodash";
-
+import { test } from "../lib/helper";
 export default async function () {
 
     // refactor this code
@@ -12,11 +12,15 @@ export default async function () {
 
     if (!_.isEmpty(id)) {
 
-        const appointment = new Appointment();
+        // get role of user
+        const user = new User();
+        const { userData: { role } } = user;
 
+        // get appointment
+        const appointment = new Appointment();
         const data = await appointment.getAppointment(id)
 
-        console.log(data)
+
     }
 
 }

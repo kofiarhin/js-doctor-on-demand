@@ -20,8 +20,8 @@ export default async function LoginController() {
 
 
     // // // login patient
-    const email = "johnasante@gmail.com";
-    const password = "password"
+    const email = "sarah@gmail.com";
+    const password = "password";
 
 
     // login as admin
