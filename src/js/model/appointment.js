@@ -1,6 +1,7 @@
 import { firebase, firebaseLooper } from "../firebase";
 import User from "./user";
-import { test } from "../lib/helper"
+import { test } from "../lib/helper";
+import _ from "lodash"
 
 export default class Appointment extends User {
 
@@ -151,8 +152,35 @@ export default class Appointment extends User {
     // 
     // get appointment with id
     async getAppointment(id) {
-        test(id)
 
+        const data = await firebase.database().ref(`appointments/${id}`).once("value").then(snapshot => snapshot.val());
+
+
+        if (!_.isEmpty(data)) {
+
+            const { patientId, doctorId, ...rest } = data;
+
+            // get patient data
+            const patientData = await this.getPatient(patientId)
+
+            // get doctorData
+            const doctorData = await this.getDoctor(doctorId)
+
+            const result = await Promise.all([patientData, doctorData]);
+
+            if (!_.isEmpty(result)) {
+
+                const [patientResult, doctorResult] = result;
+
+                return { ...rest, doctorData: doctorResult, patientData: patientResult, appointmentId: id }
+
+
+
+
+            }
+
+
+        }
     }
 
 

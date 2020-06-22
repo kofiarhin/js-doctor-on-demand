@@ -269,6 +269,41 @@ export default class User {
     }
 
 
+    async getPatient(id) {
+
+        const data = await firebase.database().ref(`patients/${id}`).once("value").then(snapshot => snapshot.val());
+
+        if (!_.isEmpty(data)) {
+
+            const { userId, id: patientId, ...rest } = data;
+
+            const userData = await this.getUser(userId);
+
+            const result = { patientId, ...rest, ...userData };
+
+            return result;
+        }
+    }
+
+
+    async getDoctor(id) {
+        if (id) {
+
+            const data = await firebase.database().ref(`doctors/${id}`).once("value").then(snapshot => snapshot.val());
+
+            if (!_.isEmpty(data)) {
+
+                const { userId, ...rest } = data;
+
+                const doctorData = await this.getUser(userId);
+                const { id, ...doctorRest } = doctorData;
+                const result = { ...rest, ...doctorRest, userId };
+
+                return result;
+
+            }
+        }
+    }
 
 
 }

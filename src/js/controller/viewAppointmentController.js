@@ -18,7 +18,12 @@ export default async function () {
 
         // get appointment
         const appointment = new Appointment();
-        const data = await appointment.getAppointment(id)
+        const data = await appointment.getAppointment(id);
+
+        if (!_.isEmpty(data)) {
+
+            ViewAppointment.renderAppointment(role, data)
+        }
 
 
     }
