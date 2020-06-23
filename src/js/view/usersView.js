@@ -11,13 +11,18 @@ export function renderDoctors(data) {
     let output = "";
 
     data.forEach(dataItem => {
-        const { id, gender, email, firstname, lastname, specialty } = dataItem;
 
+        let { id, gender, email, firstname, lastname, specialty, profile } = dataItem;
+
+        if (!profile) {
+
+            profile = `./images/doctors/doctor-${gender}.jpg`;
+        }
 
         let markup = `
 
                      <a href="user.html?id=${id}" class="user-unit">
-                    <div class="cover" style="background-image:url(./images/doctors/doctor-${gender}.jpg)"></div>
+                    <div class="cover" style="background-image:url(${profile})"></div>
                     <div class="content">
                         <p class="name">${firstname} ${lastname}</p>
                         <p class="email">${email}</p>
@@ -46,12 +51,17 @@ export function renderPatients(data) {
 
         data.forEach(dataItem => {
 
-            const { id, gender, email, firstname, lastname, package_name } = dataItem;
+            let { id, gender, email, firstname, lastname, package_name, profile } = dataItem;
+
+            if (!profile) {
+
+                profile = `./images/patients/patient-${gender}.jpg`;
+            }
 
             let markup = `
 
                      <a href="user.html?id=${id}" class="user-unit">
-                    <div class="cover" style="background-image:url(./images/patients/patient-${gender}.jpg)"></div>
+                    <div class="cover" style="background-image:url(${profile})"></div>
                     <div class="content">
                         <p class="name">${firstname} ${lastname}</p>
                         <p class="email">${email}</p>

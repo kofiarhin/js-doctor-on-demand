@@ -73,15 +73,20 @@ function renderVerified(verified) {
 
 function renderDoctor(data) {
 
-    const { id, firstname, lastname, email, contact, gender, specialty, cases = 0, verified, role } = data;
+    let { id, firstname, lastname, email, contact, gender, specialty, cases = 0, verified, role, profile } = data;
 
+    if (!profile) {
+
+        profile = `./images/doctors/doctor-${gender}.jpg`;
+
+    }
 
     const element = getElement("#user-profile .user-wrapper");
 
     let markup = `
             
                 <!-- profile -->
-                <div class="profile" style="background-image: url(./images/doctors/doctor-${gender}.jpg)">
+                <div class="profile" style="background-image: url(${profile})">
                 </div>
                 <!-- end profile -->
 
@@ -118,13 +123,18 @@ function renderPatient(data) {
 
     if (!_.isEmpty(data)) {
 
-        const { id, firstname, lastname, email, contact, gender, role, package_name } = data;
+        let { id, firstname, lastname, email, contact, gender, role, package_name, profile } = data;
+
+        if (!profile) {
+
+            profile = `./images/patients/patient-${gender}.jpg`;
+        }
         const element = getElement("#user-profile .user-wrapper");
 
         let markup = `
             
                 <!-- profile -->
-                <div class="profile" style="background-image: url(./images/patients/patient-${gender}.jpg)">
+                <div class="profile" style="background-image: url(${profile})">
                 </div>
                 <!-- end profile -->
 

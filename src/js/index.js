@@ -1,5 +1,5 @@
 import "../css/styles.sass";
-import { getElement } from "./lib/helper";
+import { getElement, test } from "./lib/helper";
 import RegisterController from "./controller/registerController";
 import LoginController from "./controller/LoginController";
 import DashboardController from "./controller/dashboardController";
@@ -15,6 +15,7 @@ import RegisterDoctorController from "./controller/register_doctor_controller"
 import VerifyAccountController from "./controller/verify_account_controller";
 import DoctorsController from "./controller/DoctorsController";
 import PatientsController from "./controller/pateintsController";
+import ChangeProfileController from "./controller/change_profile_controller";
 
 
 
@@ -177,6 +178,9 @@ function Router() {
     else if (state.url === "verify_account.html") {
 
         VerifyAccountController();
+    } else if (state.url === "change_profile.html") {
+
+        ChangeProfileController()
     }
 }
 

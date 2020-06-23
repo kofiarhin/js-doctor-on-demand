@@ -186,6 +186,10 @@ export default class User {
                 const { id: doctorId, userId, ...rest } = detail;
 
                 return { id, doctorId, ...user, ...rest }
+            } else if (role === "admin") {
+
+
+                return { id, ...user };
             }
         }
     }
@@ -303,6 +307,16 @@ export default class User {
 
             }
         }
+    }
+
+    async updateProfile(id, blob) {
+
+        await firebase.database().ref(`users/${id}`).update({
+            profile: blob
+        });
+
+        return true;
+
     }
 
 

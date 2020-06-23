@@ -5,11 +5,15 @@ const element = getElement("#view-appointment .wrapper")
 
 function renderPatientAppointment(data) {
 
-    const { patientData: { firstname, lastname, email, contact, gender }, reason } = data;
+    let { patientData: { firstname, lastname, email, contact, gender, profile }, reason } = data;
+
+    if (!profile) {
+        profile = `./images/patients/patient-${gender}.jpg`
+    }
 
     let markup = `
            <!-- cover -->
-                <div class="cover" style="background-image: url(./images/patients/patient-${gender}.jpg)"></div>
+                <div class="cover" style="background-image: url(${profile})"></div>
                 <!-- end cover -->
 
                 <!-- content -->

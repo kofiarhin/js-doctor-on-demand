@@ -5,9 +5,13 @@ import { getElement, test } from "../lib/helper";
 
 
 
+// state 
 const state = {
     doctors: []
 }
+
+
+// sort controller
 function SortController() {
 
     if (!_.isEmpty(state.doctors)) {
@@ -27,6 +31,9 @@ function SortController() {
 
     }
 }
+
+
+// doctors controller
 
 export default async function (user) {
 

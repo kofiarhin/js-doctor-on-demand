@@ -106,6 +106,11 @@ module.exports = {
         new htmlWebpackPlugin({
             filename: "patients.html",
             template: "./src/patients.html"
+        }),
+
+        new htmlWebpackPlugin({
+            filename: "change_profile.html",
+            template: "./src/change_profile.html"
         })
     ],
 
