@@ -15,8 +15,17 @@ function renderUrl(role) {
                 <a href='doctors.html'>Doctors</a>
         `;
 
+    } else if (role === "patient") {
+
+        return `
+                    <a href='doctors.html'>Doctors</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="pricing.html">Pricing</a>
+                    `
+            ;
+
     }
-    return `<a href='doctors.html'>Doctors</a>`;
 }
 
 

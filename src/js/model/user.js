@@ -1,6 +1,7 @@
 import _ from "lodash";
 import { firebase, firebaseLooper } from "../firebase";
 import { test } from "../lib/helper";
+import moment from 'moment';
 
 export default class User {
 
@@ -195,7 +196,7 @@ export default class User {
     }
 
 
-
+    // get list of patient
     async getPatients() {
 
 
@@ -316,6 +317,52 @@ export default class User {
         });
 
         return true;
+
+    }
+
+
+    async updatePackage(patientId, packageId = 1) {
+
+
+        // packakges
+        const packages = [
+            {
+                id: 1,
+                package_name: 'Stater',
+                number_of_visits: 10
+            },
+
+            {
+                id: 2,
+                package_name: "Family",
+                number_of_visits: 20
+            },
+
+            {
+                id: 3,
+                package_name: "Enterprise",
+                number_of_visits: 40
+            }
+        ];
+
+        const expiry = moment().add("30", "days").format("DD/MM/YYYY");
+        const selectedPackage = packages[packageId - 1];
+
+        const { id, package_name, number_of_visits } = selectedPackage;
+
+
+
+        try {
+
+            await firebase.database().ref(`patients/${patientId}`).update({ package_name, number_of_visits, expiry });
+
+            return true;
+
+
+        } catch (ex) {
+
+            return false;
+        }
 
     }
 

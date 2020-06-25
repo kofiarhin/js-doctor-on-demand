@@ -16,6 +16,8 @@ import VerifyAccountController from "./controller/verify_account_controller";
 import DoctorsController from "./controller/DoctorsController";
 import PatientsController from "./controller/pateintsController";
 import ChangeProfileController from "./controller/change_profile_controller";
+import ChoosePlanController from "./controller/choose_plan_controller";
+import EditProfileController from "./controller/edit_profile";
 
 
 
@@ -134,7 +136,6 @@ function Router() {
 
 
     // doctors
-
     else if (state.url === "doctors.html") {
         DoctorsController(user)
     }
@@ -181,6 +182,16 @@ function Router() {
     } else if (state.url === "change_profile.html") {
 
         ChangeProfileController()
+    }
+
+    else if (state.url === "edit_profile.html") {
+
+        EditProfileController();
+    }
+    // chosse plan
+    else if (state.url === "choose_plan.html") {
+
+        ChoosePlanController();
     }
 }
 
