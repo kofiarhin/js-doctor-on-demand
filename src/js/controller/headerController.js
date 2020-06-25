@@ -13,6 +13,9 @@ export default function () {
         const { userData: { password, ...rest } } = user;
 
         HeaderView.renderHeader(rest)
+    } else {
+
+        HeaderView.renderDefault();
     }
 
 

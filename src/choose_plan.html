@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <title>Choose Plan</title>
 </head>
 
 <body>
@@ -37,25 +39,46 @@
     </div>
     <!-- end container -->
 
-    <section id="user-profile">
 
-        <!-- container -->
+
+
+    <section id="choose-plan">
         <div class="container">
-            <h1 class="main-title center"></h1>
 
-            <!-- user-wrapper -->
-            <div class="user-wrapper">
+            <h1 class="main-title center">Select A plan</h1>
 
+            <!-- form-wrapper -->
+            <div class="form-wrapper">
 
+                <form action="">
+                    <!-- input-unit -->
+                    <div class="input-unit">
+                        <label for="">Pricing</label>
+                        <select name="plan" id="plan-id">
+                            <option value="1">Starter</option>
+                            <option value="2">Family</option>
+                            <option value="3">Enterprise</option>
+                        </select>
+                    </div>
+                    <!-- end input-unit  -->
+
+                    <div class="input-unit">
+                        <label for="">Credit Card NUmber</label>
+                        <input type="password" id="card-details" placeholder="********">
+                    </div>
+
+                    <!-- cta-wrapper -->
+                    <div class="cta-wrapper">
+                        <button class="cta cta-block">Submit</button>
+                    </div>
+                    <!-- end cta-wrapper -->
+                </form>
             </div>
+            <!-- end form-wrapper -->
 
-            <!-- end user-wrapper -->
         </div>
-
     </section>
-
-    <!-- end  -->
-
+    <!-- end template -->
 
     <!-- footer -->
     <footer>
@@ -114,7 +137,6 @@
         </div>
     </footer>
     <!-- end footer -->
-
 
 </body>
 

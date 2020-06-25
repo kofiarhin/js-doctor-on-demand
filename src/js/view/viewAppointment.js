@@ -46,12 +46,18 @@ function renderDoctorAppointment(data) {
 
     test(data)
 
-    const { doctorData: { firstname, lastname, email, gender, contact }, reason } = data;
+    let { doctorData: { firstname, lastname, email, gender, contact, profile }, reason } = data;
 
+
+    if (!profile) {
+
+        profile = `./images/doctors/doctor-${gender}.jpg`;
+
+    }
 
     let markup = `
            <!-- cover -->
-                <div class="cover" style="background-image: url(./images/doctors/doctor-${gender}.jpg)"></div>
+                <div class="cover" style="background-image: url(${profile})"></div>
                 <!-- end cover -->
 
                 <!-- content -->
@@ -81,12 +87,19 @@ function renderDoctorAppointment(data) {
 
 function renderAdminAppointment(data) {
 
-    const { patientData: { firstname, lastname, email, contact, gender }, reason, doctorData } = data;
+    let { patientData: { firstname, lastname, email, contact, gender, profile: patientProfile }, reason, doctorData } = data;
+
+    if (!patientProfile) {
+
+        patientProfile = `./images/patients/patient-${gender}.jpg`;
+    }
+
+
     let markup = `
 
         <h2 class="sub-title center">Patient Detail</h2>
            <!-- cover -->
-                <div class="cover" style="background-image: url(./images/patients/patient-${gender}.jpg)"></div>
+                <div class="cover" style="background-image: url(${patientProfile})"></div>
                 <!-- end cover -->
 
                 <!-- content -->

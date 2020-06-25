@@ -1,4 +1,4 @@
-import { getElement } from "../lib/helper";
+import { getElement, test } from "../lib/helper";
 
 // render custom  url if situations if role patient or doctor or admin
 function renderUrl(role) {
@@ -22,6 +22,7 @@ function renderUrl(role) {
 
 // render header
 export function renderHeader(data) {
+
 
     const header = getElement(".main-header nav");
 
@@ -49,5 +50,23 @@ export function renderHeader(data) {
         }
     }
 
+
+}
+
+
+export function renderDefault() {
+
+    const header = getElement(".main-header nav");
+    let markup = `
+     
+        <a href="#">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="login.html">Login</a>
+                    <a href="register.html" class="cta">Let's Get Started</a>
+     `;
+
+    header.innerHTML = markup;
 
 }

@@ -111,6 +111,16 @@ module.exports = {
         new htmlWebpackPlugin({
             filename: "change_profile.html",
             template: "./src/change_profile.html"
+        }),
+
+        new htmlWebpackPlugin({
+            filename: "pricing.html",
+            template: "./src/pricing.html"
+        }),
+
+        new htmlWebpackPlugin({
+            filename: "choose_plan.html",
+            template: "./src/choose_plan.html"
         })
     ],
 
