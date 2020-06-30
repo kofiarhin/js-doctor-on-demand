@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
     <title>Doctor on Demand</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
 
+
+    <div class="sidenav"></div>
+
     <!-- banner -->
-    <section id="banner">
+    <section id="banner" data-aos="fade-left">
 
         <div class="container">
 
@@ -55,7 +60,11 @@
                 </p>
 
                 <!-- cta -->
-                <a href="doctors.html" class="cta">Browse Doctors</a>
+                <div class="cta-wrapper">
+
+                    <a href="doctors.html" class="cta cta-main">Browse Doctors</a>
+                </div>
+                <!-- end cta-wrapper -->
 
 
             </div>
@@ -81,7 +90,7 @@
             <div class="icons-wrapper">
 
                 <!-- icon-unit -->
-                <div class="icon-unit">
+                <div class="icon-unit" data-aos="fade-up">
                     <!-- cover -->
                     <div class="cover">
                         <img src="./images/search.jpg" alt="">
@@ -91,7 +100,7 @@
                 <!-- end icon-unit -->
 
                 <!-- icon-unit -->
-                <div class="icon-unit">
+                <div class="icon-unit" data-aos="fade-left">
                     <!-- cover -->
                     <div class="cover">
                         <img src="./images/appointment.jpg" alt="">
@@ -101,7 +110,7 @@
                 <!-- end icon-unit -->
 
                 <!-- icon-unit -->
-                <div class="icon-unit">
+                <div class="icon-unit" data-aos="fade-down">
                     <!-- cover -->
                     <div class="cover">
                         <img src="./images/confirmation.jpg" alt="">
@@ -133,16 +142,16 @@
             <p class="slug"> Your bruceCare doctor is perfectly aligned with your life, passion and goads </p>
 
             <div class="wrapper">
-                <div class="unit"></div>
-                <div class="unit"></div>
-                <div class="unit"></div>
-                <div class="unit"></div>
-                <div class="unit"></div>
+                <div class="unit" data-aos="fade-left"></div>
+                <div class="unit" data-aos="fade-right"></div>
+                <div class="unit" data-aos="fade-left"></div>
+                <div class="unit" data-aos="fade-right"></div>
+                <div class="unit" data-aos="fade-left"></div>
 
             </div>
 
             <div class="cta-wrapper">
-                <a href="users.html?query=doctor">Our Doctors</a>
+                <a href="doctors.html">Our Doctors</a>
             </div>
         </div>
     </section>
@@ -249,7 +258,13 @@
         </div>
     </footer>
     <!-- end footer -->
-
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            offset: 400
+        });
+    </script>
 
 </body>
 

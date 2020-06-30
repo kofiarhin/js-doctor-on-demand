@@ -1,5 +1,26 @@
 import { getElement, test } from "../lib/helper";
 
+
+function showSideNav() {
+
+    const sidenav = getElement('.sidenav');
+
+    sidenav.classList.add("active")
+
+    test('pass ')
+}
+
+
+const header = getElement(".main-header nav");
+const menu = getElement(".menu");
+
+if (menu) {
+
+    menu.addEventListener("click", showSideNav);
+
+}
+
+
 // render custom  url if situations if role patient or doctor or admin
 function renderUrl(role) {
 
@@ -29,15 +50,33 @@ function renderUrl(role) {
 }
 
 
+function renderSideNav(markup) {
+
+    markup += `<i class="fa fa-window-close close"> </i>`;
+
+    if (markup) {
+
+        const sidenav = getElement(".sidenav");
+        if (sidenav) {
+            sidenav.classList.remove("active")
+            sidenav.innerHTML = markup;
+        }
+
+    }
+
+}
+
+
+
 // render header
 export function renderHeader(data) {
 
 
-    const header = getElement(".main-header nav");
+
+    let markup = "";
 
     if (header) {
 
-        let markup = "";
         if (data) {
             const { firstname, role, id } = data;
 
@@ -45,30 +84,34 @@ export function renderHeader(data) {
                 <nav>  
                     <a href='profile.html?id=${id}'>${firstname}</a>
                     <a href="dashboard.html">Dashboard</a>
-
                     ${
                 // render custom links based on roles
                 renderUrl(role)
                 }
-
                     <a href="logout.html">Logout</a>
                 </nav>
         `;
 
             header.innerHTML = markup;
+
         }
+        renderSideNav(markup)
+
     }
 
 
 }
 
 
+
+
 export function renderDefault() {
 
     const header = getElement(".main-header nav");
+
     let markup = `
      
-        <a href="#">Home</a>
+        <a href="index.html">Home</a>
                     <a href="about.html">About Us</a>
                     <a href="contact.html">Contact</a>
                     <a href="pricing.html">Pricing</a>
@@ -77,5 +120,6 @@ export function renderDefault() {
      `;
 
     header.innerHTML = markup;
+    renderSideNav(markup)
 
 }

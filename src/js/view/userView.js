@@ -98,9 +98,9 @@ function renderDoctor(data) {
                         <p class="name">Name: ${firstname} ${lastname}</p>
                         <p class="email">Email: ${email}</p>
                         <p class="contact">Contact: ${contact}</p>
-                        <p>Specialty: ${specialty}  </p> 
+                        <p class="specialty">Specialty: ${specialty}  </p> 
                         <p>Verified: ${verified}  </p> 
-                        <p>Cases: ${cases} </p> 
+                        <p>Completed Cases: ${cases} </p> 
                     </div>
                     <!-- end text-wrapper -->
 

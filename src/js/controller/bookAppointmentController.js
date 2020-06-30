@@ -1,10 +1,13 @@
-import _ from "lodash";
+import _, { conforms } from "lodash";
 import User from "../model/user";
 import * as BookAppointmentView from "../view/bookAppointmentView";
 import Doctor from "../model/doctor";
 import { getElement } from "../lib/helper";
 import Appointment from "../model/appointment";
 import { test } from "../lib/helper";
+import moment from "moment";
+
+
 
 
 function renderTitle({ firstname, lastname }) {
@@ -15,14 +18,19 @@ function renderTitle({ firstname, lastname }) {
 }
 
 
-async function formController() {
+
+// book appointment controller
+export default async function () {
+
+    const user = new User();
 
     // get the form
     const form = getElement('form');
 
     form.addEventListener("submit", async function (e) {
 
-        e.preventDefault();
+        test(window)
+
 
         // get details from ui
         const reason = getElement("#input-reason").value;
@@ -33,8 +41,7 @@ async function formController() {
         const search = new URLSearchParams(window.location.search);
         const doctorId = search.get("id");
 
-        // get user details
-        const user = new User();
+
         // const { userData } = user;
         const userData = await user.getUser(user.userData.id);
 
@@ -72,25 +79,4 @@ async function formController() {
 
 
     });
-
-}
-
-
-// book appointment controller
-export default async function () {
-
-    formController();
-    // load form using javascript to prevent loading errors
-
-
-
-
-
-    // renderTitle(doctorData);
-
-
-
-
-
-
 }

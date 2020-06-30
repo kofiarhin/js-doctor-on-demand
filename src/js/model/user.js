@@ -328,7 +328,7 @@ export default class User {
         const packages = [
             {
                 id: 1,
-                package_name: 'Stater',
+                package_name: 'Starter',
                 number_of_visits: 10
             },
 
@@ -350,14 +350,11 @@ export default class User {
 
         const { id, package_name, number_of_visits } = selectedPackage;
 
-
-
         try {
 
             await firebase.database().ref(`patients/${patientId}`).update({ package_name, number_of_visits, expiry });
 
             return true;
-
 
         } catch (ex) {
 

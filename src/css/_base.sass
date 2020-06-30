@@ -29,7 +29,8 @@ input
     outline: none
 
 // colors
-$main: #84697c;
+// $main: #84697c;
+$main: #111d5e
 $main-light: #4DAECF
 $secondary: #F16F5A
 $grey: #3d5a59
@@ -96,7 +97,12 @@ button
     .error
         color: red
         margin: 0.8rem 0rem
-
+.error
+    color: red
+    font-size: 2rem
+    &.center
+        text-align: center
+    
 .center
     text-align: center
 
@@ -119,10 +125,12 @@ button
             background: $grey
         &.cta-success
             background: $success
+        &.cta-main
+            background: $main
 
 @media(max-width: 400px)
     .main-title
-        font-size: 1.2rem
+        font-size: 1.8rem
 
     .sub-title
         font:

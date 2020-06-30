@@ -18,15 +18,7 @@ import PatientsController from "./controller/pateintsController";
 import ChangeProfileController from "./controller/change_profile_controller";
 import ChoosePlanController from "./controller/choose_plan_controller";
 import EditProfileController from "./controller/edit_profile";
-
-
-
-// model
-import User from "./model/user";
-
-
-const user = new User();
-
+import SideNavController from "./controller/side_nav_controller";
 
 
 // global state 
@@ -35,44 +27,47 @@ const state = {
 }
 
 
-function renderLoader() {
+// show laoder
+function showLoader() {
 
-    let markup = `<svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-//    <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
-// </svg>`;
+    let markup = `<div class="loader active"> 
+                <h1> Loading..... </h1>
+                </div>`;
 
-    const element = document.createElement("div");
-
-    element.classList.add("loader");
-
-    element.innerHTML = markup;
-
-    console.log(element);
-
-    getElement("body").appendChild(element)
+    document.body.insertAdjacentHTML("beforeend", markup);
 
 }
+
+// remove loader
+function removeLoader() {
+
+    const loader = getElement(".loader");
+    loader.classList.remove("active");
+}
+
 
 
 // main-controller
 function MainController() {
 
-    // render loader
-    // renderLoader()
-
-
+    // // render loader
+    showLoader()
+    setTimeout(removeLoader, 3000)
 
     // render Header
     HeaderController();
 
+    // sidenav controller
+    SideNavController();
+
+
     // get route information and set state of url
     Router();
-
 
 }
 
 
-
+// router
 function Router() {
 
     // get url
@@ -81,9 +76,10 @@ function Router() {
     // set state of url
     state.url = url;
 
-
+    // display current page
     console.log("---------current-page: ", state.url)
 
+    // index page
 
     if (!url && state.url === "") {
 
@@ -97,7 +93,6 @@ function Router() {
         registerBtn.addEventListener("click", RegisterController);
 
     }
-
 
     // create account
     else if (state.url === "create_account.html") {
@@ -137,7 +132,8 @@ function Router() {
 
     // doctors
     else if (state.url === "doctors.html") {
-        DoctorsController(user)
+
+        DoctorsController()
     }
 
     // patients
