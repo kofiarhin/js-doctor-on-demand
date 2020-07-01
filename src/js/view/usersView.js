@@ -1,4 +1,4 @@
-import { getElement } from "../lib/helper";
+import { getElement, test } from "../lib/helper";
 import _ from "lodash";
 
 export function renderDoctors(data) {
@@ -21,7 +21,7 @@ export function renderDoctors(data) {
 
         let markup = `
 
-                     <a href="user.html?id=${id}" class="user-unit">
+                     <a href="user.html?id=${id}" class="user-unit" data-aos="fade-left">
                     <div class="cover" style="background-image:url(${profile})"></div>
                     <div class="content">
                         <p class="name">${firstname} ${lastname}</p>
