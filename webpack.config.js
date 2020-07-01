@@ -55,10 +55,7 @@ module.exports = {
             template: "./src/profile.html"
         }),
 
-        new htmlWebpackPlugin({
-            filename: "logout.html",
-            template: "./src/logout.html"
-        }),
+
         new htmlWebpackPlugin({
             filename: "users.html",
             template: "./src/users.html"
