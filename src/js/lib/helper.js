@@ -6,6 +6,31 @@ export function getElement(name) {
 
 }
 
+// remove loader
+export function removeLoader() {
+
+    const loader = getElement(".loader");
+    loader.classList.remove("active");
+}
+
+// show laoder
+export function showLoader() {
+
+    let markup = `<div class="loader active"> 
+                <h1> Loading..... </h1>
+                </div>`;
+
+    document.body.insertAdjacentHTML("beforeend", markup);
+
+}
+
+
+export function renderLoader() {
+
+    showLoader()
+    setTimeout(removeLoader, 3000)
+}
+
 
 export function validateData(userData) {
 

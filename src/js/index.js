@@ -1,5 +1,5 @@
 import "../css/styles.sass";
-import { getElement, test } from "./lib/helper";
+import { getElement, test, renderLoader } from "./lib/helper";
 import RegisterController from "./controller/registerController";
 import LoginController from "./controller/LoginController";
 import DashboardController from "./controller/dashboardController";
@@ -27,23 +27,7 @@ const state = {
 }
 
 
-// show laoder
-function showLoader() {
 
-    let markup = `<div class="loader active"> 
-                <h1> Loading..... </h1>
-                </div>`;
-
-    document.body.insertAdjacentHTML("beforeend", markup);
-
-}
-
-// remove loader
-function removeLoader() {
-
-    const loader = getElement(".loader");
-    loader.classList.remove("active");
-}
 
 
 
@@ -51,8 +35,7 @@ function removeLoader() {
 function MainController() {
 
     // // // // render loader
-    // showLoader()
-    // setTimeout(removeLoader, 3000)
+
 
     // render Header
     HeaderController();
@@ -80,15 +63,23 @@ function Router() {
     console.log("---------current-page: ", state.url)
 
     // index page
-
-    if (!url && state.url === "") {
+    if (!url || state.url === "" || state.url === "index.html") {
 
         state.url = "index.html";
+        renderLoader();
 
     }
 
-    // register
+    // about page
+    else if (state.url === "about.html") {
+
+        renderLoader();
+    }
+
+    // register page
     else if (state.url === "register.html") {
+
+        renderLoader();
         const registerBtn = getElement("#register-btn")
         registerBtn.addEventListener("click", RegisterController);
 
@@ -97,7 +88,7 @@ function Router() {
     // create account
     else if (state.url === "create_account.html") {
 
-
+        renderLoader();
         RegisterDoctorController()
         // const registerBtn = getElement("#register-btn")
         // registerBtn.addEventListener("click", RegisterDoctorController);
@@ -105,6 +96,8 @@ function Router() {
 
     // login page
     else if (state.url === "login.html") {
+
+        renderLoader();
         const loginBtn = getElement("#login-btn")
         loginBtn.addEventListener("click", LoginController)
 
@@ -112,91 +105,86 @@ function Router() {
 
     // dashboard
     else if (state.url === "dashboard.html") {
-
+        renderLoader();
         DashboardController()
-    }
-
-    // logout
-    else if (state.url === "logout.html") {
-
-        LogoutController()
-
     }
 
     // profile
     else if (state.url === "profile.html") {
 
+        renderLoader()
         ProfileController()
     }
-
 
     // doctors
     else if (state.url === "doctors.html") {
 
+        renderLoader();
         DoctorsController()
     }
 
     // patients
     else if (state.url === 'patients.html') {
 
+        renderLoader();
         PatientsController();
     }
 
     // list of users
     else if (state.url === "users.html") {
 
+        renderLoader();
         UsersController()
     }
 
     // user
     else if (state.url === "user.html") {
 
+        renderLoader();
         UserController()
     }
 
     else if (state.url === "book_appointment.html") {
 
+        renderLoader();
         BookAppointmentController()
     }
 
     // apppointment
     else if (state.url === "appointment.html") {
 
+        renderLoader();
         AppointmentsController()
     }
 
     // view appointment 
     else if (state.url === "view_appointment.html") {
-
+        renderLoader();
         ViewAppointmentController();
     }
 
 
     else if (state.url === "verify_account.html") {
-
+        renderLoader();
         VerifyAccountController();
-    } else if (state.url === "change_profile.html") {
+    }
 
+    else if (state.url === "change_profile.html") {
+        renderLoader();
         ChangeProfileController()
     }
 
     else if (state.url === "edit_profile.html") {
-
+        renderLoader();
         EditProfileController();
     }
     // chosse plan
     else if (state.url === "choose_plan.html") {
-
+        renderLoader();
         ChoosePlanController();
     }
 }
 
-
-function HashChangeController() {
-
-    test("hash change")
-
-}
 
 window.addEventListener("load", MainController);
 
