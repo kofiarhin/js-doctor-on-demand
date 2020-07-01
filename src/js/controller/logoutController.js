@@ -6,6 +6,4 @@ export default function logoutController() {
     // redirect to login page
     window.location.href = "login.html"
 
-
-
 }

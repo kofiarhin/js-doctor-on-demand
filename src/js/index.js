@@ -50,9 +50,9 @@ function removeLoader() {
 // main-controller
 function MainController() {
 
-    // // render loader
-    showLoader()
-    setTimeout(removeLoader, 3000)
+    // // // // render loader
+    // showLoader()
+    // setTimeout(removeLoader, 3000)
 
     // render Header
     HeaderController();
@@ -189,6 +189,13 @@ function Router() {
 
         ChoosePlanController();
     }
+}
+
+
+function HashChangeController() {
+
+    test("hash change")
+
 }
 
 window.addEventListener("load", MainController);

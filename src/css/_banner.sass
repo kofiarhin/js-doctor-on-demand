@@ -1,10 +1,16 @@
+$image1: "../images/banner.jpg"
+$image2: "../images/banner2.jpg"
+$image3: "../images/banner3.jpg"
+
+
 #banner
-    height: 80vh
+    height: 100vh
     color: white
     margin-bottom: 2rem
     position: relative
+    animation: change ease-in-out 8s infinite
     background:
-        image: url(../images/banner.jpg)
+        image: url($image1)
         size: cover
         position: center
     .content
@@ -25,6 +31,16 @@
             .cta
                 padding: 1rem 4rem
       
+@keyframes change
+    0%
+        background-image: url($image1)
+    40%
+        background-image: url($image2)
+    80%
+        background-image: url($image3)
+    100%
+        background-image: url($image1)
+
 @media(max-width: 400px)
     #banner
         .content

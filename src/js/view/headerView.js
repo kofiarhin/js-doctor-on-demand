@@ -88,7 +88,7 @@ export function renderHeader(data) {
                 // render custom links based on roles
                 renderUrl(role)
                 }
-                    <a href="logout.html">Logout</a>
+                    <a href="#logout" class="logout">Logout</a>
                 </nav>
         `;
 
