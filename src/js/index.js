@@ -19,6 +19,7 @@ import ChangeProfileController from "./controller/change_profile_controller";
 import ChoosePlanController from "./controller/choose_plan_controller";
 import EditProfileController from "./controller/edit_profile";
 import SideNavController from "./controller/side_nav_controller";
+import FooterController from "./controller/footer_controller";
 
 
 // global state 
@@ -34,8 +35,11 @@ const state = {
 // main-controller
 function MainController() {
 
-    // // // // render loader
 
+    // get route information and set state of url
+    Router();
+
+    // // // // render loader
 
     // render Header
     HeaderController();
@@ -44,8 +48,9 @@ function MainController() {
     SideNavController();
 
 
-    // get route information and set state of url
-    Router();
+    // render footer
+    FooterController();
+
 
 }
 
