@@ -77,6 +77,10 @@ function Router() {
 
         renderLoader();
     }
+    // contact
+    else if (state.url === "contact.html") {
+        renderLoader();
+    }
 
     // register page
     else if (state.url === "register.html") {
