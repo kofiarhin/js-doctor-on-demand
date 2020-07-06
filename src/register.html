@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
-    <title>BruceCare |  Register</title>
+    <title>BruceCare | Register</title>
 </head>
 
 <body>
@@ -55,14 +55,17 @@
 
                 <!-- input-unit -->
                 <div class="input-unit">
-                    <input type="text" placeholder="Mail address" id="email">
+                    <label for="mail">Mail</label>
+                    <input type="text" placeholder="johndoe@gmail.com" id="email">
                     <p class="error error-email"></p>
                 </div>
                 <!-- end input-unit -->
 
                 <!-- input-unit -->
                 <div class="input-unit">
-                    <input type="text" placeholder="First Name" id="firstName">
+
+                    <label for="firstName">First Name</label>
+                    <input type="text" placeholder="John" id="firstName">
                     <p class="error error-name"></p>
                 </div>
                 <!-- end input-unit -->
@@ -70,7 +73,8 @@
 
                 <!-- input-unit -->
                 <div class="input-unit">
-                    <input type="text" placeholder="Last Name" id="lastName">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" placeholder="Doe" id="lastName">
                     <p class="error error-name"></p>
                 </div>
                 <!-- end input-unit -->
@@ -78,21 +82,25 @@
 
                 <!-- input-unit -->
                 <div class="input-unit">
+                    <label for="contact">Contact</label>
+                    <input type="text" placeholder="+233 405 443" id="contact-number">
+                    <p class="error error-password"></p>
+                </div>
+                <!-- end input-unit -->
+
+                <!-- input-unit -->
+                <div class="input-unit">
+                    <label for="Password">Password</label>
                     <input type="password" placeholder="Password" id="password">
                     <p class="error error-password"></p>
                 </div>
                 <!-- end input-unit -->
 
 
-                <!-- input-unit -->
-                <div class="input-unit">
-                    <input type="number" placeholder="Contact" id="contact">
-                    <p class="error error-contact"></p>
-                </div>
-                <!-- end input-unit -->
 
                 <!-- input unit -->
                 <div class="input-unit">
+                    <label for="gender">Gender</label>
                     <select name="gender" id="gender">
                         <option value=""> -- Select Gender --</option>
                         <option value="male">Male</option>

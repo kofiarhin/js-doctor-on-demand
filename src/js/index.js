@@ -68,7 +68,7 @@ function Router() {
     if (!url || state.url === "" || state.url === "index.html") {
 
         state.url = "index.html";
-        // renderLoader();
+        renderLoader();
 
     }
 
@@ -85,7 +85,7 @@ function Router() {
     // register page
     else if (state.url === "register.html") {
 
-        renderLoader();
+        // renderLoader();
         const registerBtn = getElement("#register-btn")
         registerBtn.addEventListener("click", RegisterController);
 

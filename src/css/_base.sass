@@ -55,6 +55,7 @@ button
         weight: 300
     margin-bottom: 1rem
     text-transform: capitalize
+    color: $main
     &.center
         text-align: center
 
@@ -67,14 +68,18 @@ button
 //default form
 .form-wrapper
     width: 540px
-    max-width: 90%
+    max-width: 100%
     margin: 50px  auto
+    padding: 0rem 2rem
+    border-radius: 5px
     .input-unit
         margin-bottom: 1rem
     input, select, textarea
         width: 100%
-        padding: 0.5rem
+        padding: 1rem
         border: 1px solid rgba(black, 0.2)
+        font-size: 1.2rem
+        color: $main
     .btn
         display: block
         padding: 0.8rem 0rem
@@ -86,8 +91,9 @@ button
         display: block
         margin-bottom: 0.8rem
         font:
-            size: 1rem
+            size: 1.2rem
             weight: 700
+        color: $main
 
     p
         font-size: 1.2rem
@@ -138,6 +144,12 @@ button
         margin-bottom: 1.2rem
     
 @media(max-width: 400px)
+    .form-wrapper
+        padding: 1rem
+        label
+            font-size: 1.2rem
+        input, select
+            padding: 0.8rem 
     .main-title
         font-size: 1.8rem
 
