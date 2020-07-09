@@ -68,7 +68,7 @@ function Router() {
     if (!url || state.url === "" || state.url === "index.html") {
 
         state.url = "index.html";
-        renderLoader();
+        // renderLoader();
 
     }
 
