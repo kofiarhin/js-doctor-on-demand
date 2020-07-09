@@ -50,7 +50,14 @@ async function SubmitController(e) {
     }
 }
 
+// change plan controller
 export default function () {
+
+    // redirect to login page
+    if (!user.checkLogin()) {
+
+        window.location.href = "login.html";
+    }
 
     renderButton()
     // get form

@@ -1,23 +1,13 @@
-import { getElement, validateData } from "../lib/helper";
+import { getElement, validateData, test, auth, redirect } from "../lib/helper";
 import * as LoginView from "../view/loginView";
 import { firebase, firebaseLooper } from "../firebase";
 import _ from "lodash";
 
 
-export default async function LoginController() {
 
-    // clear errors
-    LoginView.clearErrors()
-    //get data from ui
-    // const email = getElement("#email").value.trim();
-    // const password = getElement('#password').value.trim();
+async function SubmitController(e) {
 
-    // remove this code later
-
-    // // login doctor
-    // const email = "kevindurant@gmail.com";
-    // const password = "password"
-
+    e.preventDefault();
 
     // // // login patient
     const email = "johnasante@gmail.com";
@@ -27,7 +17,6 @@ export default async function LoginController() {
     // login as admin
     // const email = "admin@gmail.com";
     // const password = "password";
-
 
 
     // validate data
@@ -97,4 +86,41 @@ export default async function LoginController() {
         //login user
 
     }
+
+}
+
+export default async function LoginController() {
+
+
+    // clear errors
+    LoginView.clearErrors()
+
+    // check if user is logged in
+    if (auth()) {
+
+        redirect("dashboard.html")
+    }
+
+
+
+    const loginBtn = getElement("#login-btn")
+    loginBtn.addEventListener("click", SubmitController)
+
+    //get data from ui
+    // const email = getElement("#email").value.trim();
+    // const password = getElement('#password').value.trim();
+
+    test("login contoller")
+
+
+    return;
+
+    // remove this code later
+
+    // // login doctor
+    // const email = "kevindurant@gmail.com";
+    // const password = "password"
+
+
+
 }

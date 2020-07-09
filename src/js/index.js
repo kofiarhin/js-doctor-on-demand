@@ -68,7 +68,7 @@ function Router() {
     if (!url || state.url === "" || state.url === "index.html") {
 
         state.url = "index.html";
-        // renderLoader();
+        renderLoader();
 
     }
 
@@ -86,9 +86,10 @@ function Router() {
     else if (state.url === "register.html") {
 
         // renderLoader();
-        const registerBtn = getElement("#register-btn")
-        registerBtn.addEventListener("click", RegisterController);
+        // const registerBtn = getElement("#register-btn")
+        // registerBtn.addEventListener("click", RegisterController);
 
+        RegisterController();
     }
 
     // create account
@@ -103,9 +104,13 @@ function Router() {
     // login page
     else if (state.url === "login.html") {
 
-        renderLoader();
-        const loginBtn = getElement("#login-btn")
-        loginBtn.addEventListener("click", LoginController)
+        // renderLoader();
+
+        LoginController();
+        // const loginBtn = getElement("#login-btn")
+        // loginBtn.addEventListener("click", LoginController)
+
+        // test("Login controller")
 
     }
 
@@ -186,7 +191,7 @@ function Router() {
     }
     // chosse plan
     else if (state.url === "choose_plan.html") {
-        renderLoader();
+        // renderLoader();
         ChoosePlanController();
     }
 }

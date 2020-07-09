@@ -32,6 +32,20 @@ export function renderLoader() {
 }
 
 
+//  so that we dont write the damn console.log
+export function test(item) {
+
+    console.log(item)
+}
+
+
+// redirect user to page
+export function redirect(path) {
+
+    window.location.href = path;
+}
+
+// validate data
 export function validateData(userData) {
 
     const errors = []
@@ -73,8 +87,14 @@ export function formatDate(timestamp) {
     // var original_date = tomonth + '/' + todate + '/' + toyear;
 }
 
-//  so that we dont write the damn console.log
-export function test(item) {
+export function auth() {
 
-    console.log(item)
+    const user = sessionStorage.getItem("user");
+
+    if (!_.isEmpty(user)) {
+
+        return true;
+    }
+
+    return false;
 }

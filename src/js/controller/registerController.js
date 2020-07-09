@@ -1,12 +1,12 @@
-import { getElement } from "../lib/helper";
+import { getElement, test } from "../lib/helper";
 import * as  RegisterView from "../view/registerView";
 import User from "../model/user"
 import moment from "moment";
 
-export default async function RegisterController() {
+// SubmitController
+async function SubmitController(e) {
 
-    // clear all errors on ui
-    RegisterView.clearErrors()
+    e.preventDefault();
 
     // // get data from user
     // const email = getElement("#email").value;
@@ -65,13 +65,28 @@ export default async function RegisterController() {
         }
 
 
-
-
     }
+}
+
+
+
+// Register Controller
+export default async function RegisterController() {
+
+
+    test('pass')
+    // clear all errors on ui
+    RegisterView.clearErrors();
+
+
+    const registerBtn = getElement("#register-btn")
+    registerBtn.addEventListener("click", SubmitController);
+
 
 }
 
 
+// vadlidate data
 function validateData(userData) {
 
     const errors = []
