@@ -26,7 +26,7 @@ function renderUrl(role) {
 
     if (role === "doctor") {
 
-        return `<a href='users.html?query=patient'>Patients</a>`
+        return `<a href='patients.html'>Patients</a>`
 
         // admin
     } else if (role === "admin") {
@@ -95,6 +95,7 @@ export function renderHeader(data) {
             header.innerHTML = markup;
 
         }
+
         renderSideNav(markup)
 
     }

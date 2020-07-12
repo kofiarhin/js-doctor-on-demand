@@ -10,8 +10,13 @@ async function SubmitController(e) {
     e.preventDefault();
 
     // // // login patient
-    const email = "johnasante@gmail.com";
-    const password = "password";
+    // const email = "johnasante@gmail.com";
+    // const password = "password";
+
+
+    // // login doctor
+    const email = "kevindurant@gmail.com";
+    const password = "password"
 
 
     // login as admin
@@ -110,16 +115,9 @@ export default async function LoginController() {
     // const email = getElement("#email").value.trim();
     // const password = getElement('#password').value.trim();
 
-    test("login contoller")
-
-
-    return;
-
     // remove this code later
 
-    // // login doctor
-    // const email = "kevindurant@gmail.com";
-    // const password = "password"
+
 
 
 

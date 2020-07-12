@@ -55,23 +55,18 @@ async function SubmitController(e) {
 // edit profile
 export default async function () {
 
-    showLoader();
+    // showLoader();
 
     // check if user is logged ins
     if (!auth) {
         redirect("login.html")
     }
 
-
-
     // get user from database
     const userData = await user.getUser(id);
 
-
-    if (userData) {
-
-
-        test(userData)
+    // check if userData is not empty
+    if (!_.isEmpty(userData)) {
 
         removeLoader();
         // set fired values
@@ -80,6 +75,10 @@ export default async function () {
 
         const form = getElement(".form-wrapper form");
         form.addEventListener("submit", SubmitController);
+    } else {
+
+        // redirect to error page
+        test("user not found")
     }
 
 }

@@ -78,7 +78,7 @@ function renderDoctorProfile(data) {
                     <p class="name" style="text-transform: capitalize">Name: ${firstname} ${lastname}</p>
                     <p class="email">Email: ${email}</p>
                     <p class="contact">Contact: ${contact}</p>
-                    <p class="specialty">Specialty:${specialty} </p>
+                    <p class="specialty">Specialty: <span> ${specialty}</span> </p>
                     <p> <a href="change_profile.html?id=${id}"> Change Profile Picture </a> </p>
                     <h2> Work Experience </h2>
                     <p class="description">
@@ -90,7 +90,7 @@ function renderDoctorProfile(data) {
 
                 <!-- cta-wrapper -->
                 <div class="cta-wrapper">
-                    <a class="cta cta-block" href="edit_profile.html?id=">Edit Profile</a>
+                    <a class="cta cta-block" href="edit_profile.html?id=${id}">Edit Profile</a>
                 </div>
                 <!-- end cta-wrapper -->
      `;
@@ -148,6 +148,7 @@ export function renderProfile(data) {
         } else if (role === "doctor") {
 
             renderDoctorProfile(data)
+
         } else if (role === "admin") {
 
             renderAdminProfile(data)
