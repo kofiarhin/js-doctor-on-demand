@@ -51,7 +51,7 @@ export function renderPatients(data) {
 
         data.forEach(dataItem => {
 
-            let { id, gender, email, firstname, lastname, package_name, profile } = dataItem;
+            let { id, gender, email, firstname, lastname, package_name = "none", profile } = dataItem;
 
             if (!profile) {
 

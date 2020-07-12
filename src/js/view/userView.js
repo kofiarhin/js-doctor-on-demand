@@ -1,5 +1,5 @@
 import User from "../model/user";
-import { getElement } from "../lib/helper";
+import { getElement, test } from "../lib/helper";
 
 
 // get person loggged in details
@@ -15,6 +15,11 @@ if (!_.isEmpty(userData)) {
 
 // render custom cta's based on current logged in user
 function renderCta(data) {
+
+
+    test(data);
+    test(role);
+
 
     let ctaMarkup = "";
 
@@ -55,6 +60,12 @@ function renderCta(data) {
         ctaMarkup = ` <a href="book_appointment.html?id=${doctorId}" class="cta">Book Apppointment</a>`
     }
 
+
+    else if (role === "doctor" && data.role === "patient") {
+
+        ctaMarkup = "<button class='cta cta-block'> Contact Patient </button>";
+    }
+
     return ctaMarkup;
 
 }
@@ -70,6 +81,8 @@ function renderVerified(verified) {
 
     return `<a href="verfiy_user.html?"> Verify User</a>`;
 }
+
+// render doctor data
 
 function renderDoctor(data) {
 

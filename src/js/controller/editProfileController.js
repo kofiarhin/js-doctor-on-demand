@@ -55,7 +55,7 @@ async function SubmitController(e) {
 // edit profile
 export default async function () {
 
-    // showLoader();
+    showLoader();
 
     // check if user is logged ins
     if (!auth) {
