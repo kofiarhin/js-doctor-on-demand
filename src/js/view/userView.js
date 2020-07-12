@@ -52,7 +52,7 @@ function renderCta(data) {
 
         const { doctorId } = data;
         // doctor data 
-        ctaMarkup = ` <a href="book_appointment.html?id=${doctorId}" class="cta cta-success">Book Apppointment</a>`
+        ctaMarkup = ` <a href="book_appointment.html?id=${doctorId}" class="cta">Book Apppointment</a>`
     }
 
     return ctaMarkup;

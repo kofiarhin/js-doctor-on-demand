@@ -8,16 +8,15 @@ const user = new User();
 
 
 
-function renderCta(data) {
+function renderCta({ id }) {
 
-    return `<a class="cta cta-block" href="edit_profile.html?id=">Edit Profile</a>`;
+    return `<a class="cta cta-block" href="edit_profile.html?id=${id}">Edit Profile</a>`;
 }
 
 
 function renderPatientProfile(data) {
 
     test(data)
-
     let { id, firstname, lastname, email, contact, gender, package_name, number_of_visits = 0, profile } = data;
 
 

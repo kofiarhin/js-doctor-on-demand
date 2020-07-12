@@ -17,7 +17,7 @@ import DoctorsController from "./controller/DoctorsController";
 import PatientsController from "./controller/pateintsController";
 import ChangeProfileController from "./controller/change_profile_controller";
 import ChoosePlanController from "./controller/choose_plan_controller";
-import EditProfileController from "./controller/edit_profile";
+import EditProfileController from "./controller/editProfileController";
 import SideNavController from "./controller/side_nav_controller";
 import FooterController from "./controller/footer_controller";
 
@@ -123,7 +123,6 @@ function Router() {
     // profile
     else if (state.url === "profile.html") {
 
-        renderLoader()
         ProfileController()
     }
 
@@ -157,20 +156,17 @@ function Router() {
 
     else if (state.url === "book_appointment.html") {
 
-        renderLoader();
         BookAppointmentController()
     }
 
     // apppointment
     else if (state.url === "appointment.html") {
-
-        renderLoader();
         AppointmentsController()
     }
 
     // view appointment 
     else if (state.url === "view_appointment.html") {
-        renderLoader();
+        // renderLoader();
         ViewAppointmentController();
     }
 
@@ -186,7 +182,6 @@ function Router() {
     }
 
     else if (state.url === "edit_profile.html") {
-        renderLoader();
         EditProfileController();
     }
     // chosse plan

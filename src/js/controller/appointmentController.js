@@ -1,11 +1,15 @@
 import Appointment from "../model/appointment";
 import User from "../model/user";
 import * as AppointmentView from "../view/appointmentView";
-import { test } from "../lib/helper";
+import { test, showLoader, removeLoader } from "../lib/helper";
+
+
+// appointment controller
 
 export default async function () {
 
 
+    showLoader()
     const user = new User();
     const { userData } = user;
     const { role, id } = userData;
@@ -19,6 +23,8 @@ export default async function () {
         const { patientId } = userData;
 
         const data = await appointment.getPatientAppointments(patientId);
+
+        removeLoader();
         AppointmentView.renderPatientAppointments(data)
 
     }
@@ -40,6 +46,7 @@ export default async function () {
 
             if (!_.isEmpty(data)) {
 
+                removeLoader();
                 AppointmentView.renderDoctorAppointments(data)
             }
         }
@@ -53,6 +60,7 @@ export default async function () {
 
 
         if (!_.isEmpty(data)) {
+            removeLoader();
             AppointmentView.renderAdminAppointments(data)
         }
 

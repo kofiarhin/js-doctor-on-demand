@@ -2,9 +2,15 @@ import User from "../model/user";
 import Appointment from "../model/appointment";
 import * as ViewAppointment from "../view/viewAppointment";
 import _ from "lodash";
-import { test } from "../lib/helper";
+import { test, showLoader, removeLoader } from "../lib/helper";
+
+
+
+// view appointment controller
 export default async function () {
 
+
+    showLoader();
     // refactor this code
     // get appointment id from
     const search = new URLSearchParams(window.location.search);
@@ -22,6 +28,7 @@ export default async function () {
 
         if (!_.isEmpty(data)) {
 
+            removeLoader();
             ViewAppointment.renderAppointment(role, data)
         }
 

@@ -8,14 +8,16 @@ export default class Appointment extends User {
 
     async create(data) {
 
+
         // push data to firebase
-        const result = await firebase.database().ref('appointments').push(data).then(() => {
+        try {
+            await firebase.database().ref('appointments').push(data).then(() => {
+                return true;
+            });
             return true;
-        });
+        } catch (error) {
 
-        if (result) {
-
-            return true;
+            return false;
         }
     }
 

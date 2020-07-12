@@ -44,7 +44,6 @@ function renderPatientAppointment(data) {
 // doctor Appointment profile
 function renderDoctorAppointment(data) {
 
-    test(data)
 
     let { doctorData: { firstname, lastname, email, gender, contact, profile }, reason } = data;
 
@@ -62,7 +61,7 @@ function renderDoctorAppointment(data) {
 
                 <!-- content -->
                 <div class="content">
-                <h2>Personal Detail</h2>
+                <h2>Doctor Info</h2>
                     <p class="name">Name: ${firstname} ${lastname}</p>
                     <p class="email">Email: ${email}</p>
                     <p class="contact">Contact: ${contact}</p>
@@ -74,8 +73,8 @@ function renderDoctorAppointment(data) {
 
                 <!-- cta-wrapper -->
                 <div class="cta-wrapper">
-                  <a href="#" class="cta cta-block cta-success">Complete</a>
-             <a href="#" class="cta cta-block cta-danger">Delete Appointment</a>
+                <a href="#" class="cta cta-block cta-grey">Cancel</a>
+                  <a href="#" class="cta cta-block">Complete</a>
                 </div>
                 <!-- end cta-wrapper -->
     

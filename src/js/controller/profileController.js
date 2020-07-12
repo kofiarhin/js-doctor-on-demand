@@ -1,9 +1,11 @@
 import User from "../model/user";
 import _ from "lodash";
 import * as ProfileView from "../view/profileView";
-import { test } from "../lib/helper";
+import { test, showLoader, removeLoader } from "../lib/helper";
 
 export default async function () {
+
+    showLoader();
 
     const user = new User();
 
@@ -15,8 +17,7 @@ export default async function () {
 
     if (!_.isEmpty(userData)) {
 
-        test(userData)
-
+        removeLoader();
         ProfileView.renderProfile(userData)
     }
 

@@ -30,7 +30,7 @@ export default class User {
     }
 
 
-
+    // create patient
 
     async createPatient(userData) {
 
@@ -362,6 +362,21 @@ export default class User {
         }
 
     }
+
+
+    async updateInfo(id, data) {
+
+
+        try {
+
+            await firebase.database().ref(`users/${id}`).update(data);
+            return true;
+        } catch (error) {
+
+            return false;
+        }
+    }
+
 
 
 }
