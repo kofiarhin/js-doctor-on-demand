@@ -11,7 +11,7 @@ function showSideNav() {
 }
 
 
-const header = getElement(".main-header nav");
+const header = getElement(".main-header");
 const menu = getElement(".menu");
 
 if (menu) {
@@ -67,10 +67,8 @@ function renderSideNav(markup) {
 }
 
 
-
-// render header
+// render when user is logged in
 export function renderHeader(data) {
-
 
 
     let markup = "";
@@ -81,6 +79,11 @@ export function renderHeader(data) {
             const { firstname, role, id } = data;
 
             markup = `
+
+                <a href="index.html">
+                    <h1 class="logo">BruceCare</h1>
+                </a>
+
                 <nav>  
                     <a href='profile.html?id=${id}'>${firstname}</a>
                     <a href="dashboard.html">Dashboard</a>
@@ -108,16 +111,21 @@ export function renderHeader(data) {
 
 export function renderDefault() {
 
-    const header = getElement(".main-header nav");
+    const header = getElement(".main-header ");
 
     let markup = `
      
-        <a href="index.html">Home</a>
+    <a href="index.html">
+                    <h1 class="logo">BruceCare</h1>
+                </a>
+        <nav>
+            <a href="index.html">Home</a>
                     <a href="about.html">About Us</a>
                     <a href="contact.html">Contact</a>
                     <a href="pricing.html">Pricing</a>
                     <a href="login.html">Login</a>
                     <a href="register.html" class="cta">Let's Get Started</a>
+        </nav>
      `;
 
     header.innerHTML = markup;

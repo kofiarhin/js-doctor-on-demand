@@ -20,6 +20,7 @@ import ChoosePlanController from "./controller/choose_plan_controller";
 import EditProfileController from "./controller/editProfileController";
 import SideNavController from "./controller/side_nav_controller";
 import FooterController from "./controller/footer_controller";
+import IndexController from "./controller/indexController"
 
 
 // global state 
@@ -44,7 +45,6 @@ function MainController() {
     // sidenav controller
     SideNavController();
 
-
     // render footer
     FooterController();
 
@@ -67,14 +67,12 @@ function Router() {
     // index page
     if (!url || state.url === "" || state.url === "index.html") {
 
-        state.url = "index.html";
-        renderLoader();
+        IndexController();
 
     }
 
     // about page
     else if (state.url === "about.html") {
-
         renderLoader();
     }
     // contact

@@ -4,15 +4,14 @@
         margin-bottom: 0.8rem
     .wrapper
         width: 960px
-        max-width: 95%
+        max-width: 100%
         margin: 0 auto
         .text-wrapper
-            margin-bottom: 1rem
+            margin-bottom: 0.8rem
         .text-unit
             display: none
             font-size: 1.4rem
             text-align: center
-            padding: 1rem
             line-height: 1.2
             .quote-mark
                 font-size: 4rem
@@ -51,13 +50,31 @@
 @media(max-width: 650px)
     #testimonial
         .main-title
-            marrin-bottom: 0.8rem
+            marrin-bottom: 0.5rem
             
         .text-wrapper
             padding: 0
             .text-unit
                 font-size: 1rem
                 .quote-mark
-                    font-size: 3rem
+                    font-size: 2rem
                     text-align: center
 
+@media(max-width: 400px)
+    #testimonial
+        .main-title
+            marrin-bottom: 0.5rem
+        .container .wrapper
+            .thumb-wrapper .thumb-unit
+                display: none
+                &.active
+                    display: block
+                    width: 80px
+                    height: 80px
+        .text-wrapper
+            padding: 0
+            .text-unit
+                font-size: 1rem
+                .quote-mark
+                    font-size: 2rem
+                    text-align: center
