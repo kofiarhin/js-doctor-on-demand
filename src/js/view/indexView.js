@@ -1,5 +1,27 @@
 import { test, getElement } from "../lib/helper";
 
+
+function startAnimation() {
+
+    // start animation
+    setTimeout(() => {
+
+        const title = getElement("#banner .content h1");
+        const slug = getElement("#banner .content p");
+        const cta = getElement("#banner .content .cta");
+
+        const items = [title, slug, cta];
+
+        items.forEach(item => {
+            item.classList.add("active");
+
+        });
+
+    }, 5000);
+}
+
+
+
 // render banner
 export function renderBanner() {
 
@@ -29,21 +51,7 @@ export function renderBanner() {
     element.innerHTML = markup;
 
 
-    // start animation
-    setTimeout(() => {
-
-        const title = getElement("#banner .content h1");
-        const slug = getElement("#banner .content p");
-        const cta = getElement("#banner .content .cta");
-
-        // add active class
-        title.classList.add("active")
-        slug.classList.add("active");
-        cta.classList.add("active")
-
-
-
-    }, 5000);
+    startAnimation();
 
 
 
