@@ -1,4 +1,4 @@
-import { getElement, test } from "../lib/helper";
+import { getElement, test, renderLoader } from "../lib/helper";
 import * as  RegisterView from "../view/registerView";
 import User from "../model/user"
 import moment from "moment";
@@ -73,12 +73,13 @@ async function SubmitController(e) {
 // Register Controller
 export default async function RegisterController() {
 
+    // renderLoader
+    renderLoader();
 
-    test('pass')
     // clear all errors on ui
     RegisterView.clearErrors();
 
-
+    // when user click on the submit button
     const registerBtn = getElement("#register-btn")
     registerBtn.addEventListener("click", SubmitController);
 

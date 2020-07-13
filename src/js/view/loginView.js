@@ -1,6 +1,6 @@
-import { getElement } from "../lib/helper";
+import { getElement, test } from "../lib/helper";
 
-
+// clear erros
 export function clearErrors() {
 
     const elements = document.querySelectorAll(".error");
@@ -11,7 +11,7 @@ export function clearErrors() {
     });
 }
 
-
+// render errors
 export function renderErrors(errors) {
 
     if (errors && errors.length > 0) {

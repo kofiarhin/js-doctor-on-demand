@@ -20,7 +20,8 @@ import ChoosePlanController from "./controller/choose_plan_controller";
 import EditProfileController from "./controller/editProfileController";
 import SideNavController from "./controller/side_nav_controller";
 import FooterController from "./controller/footer_controller";
-import IndexController from "./controller/indexController"
+import IndexController from "./controller/indexController";
+import AboutController from "./controller/aboutController";
 
 
 // global state 
@@ -74,6 +75,7 @@ function Router() {
     // about page
     else if (state.url === "about.html") {
         renderLoader();
+        AboutController();
     }
     // contact
     else if (state.url === "contact.html") {

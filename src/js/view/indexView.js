@@ -3,6 +3,8 @@ import { test, getElement } from "../lib/helper";
 // render banner
 export function renderBanner() {
 
+
+
     let element = getElement("#banner .content");
 
     let markup = `
@@ -25,6 +27,25 @@ export function renderBanner() {
     `;
 
     element.innerHTML = markup;
+
+
+    // start animation
+    setTimeout(() => {
+
+        const title = getElement("#banner .content h1");
+        const slug = getElement("#banner .content p");
+        const cta = getElement("#banner .content .cta");
+
+        // add active class
+        title.classList.add("active")
+        slug.classList.add("active");
+        cta.classList.add("active")
+
+
+
+    }, 5000);
+
+
 
 }
 

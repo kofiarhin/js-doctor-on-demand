@@ -1,4 +1,4 @@
-import { getElement, validateData, test, auth, redirect } from "../lib/helper";
+import { getElement, validateData, test, auth, redirect, renderLoader } from "../lib/helper";
 import * as LoginView from "../view/loginView";
 import { firebase, firebaseLooper } from "../firebase";
 import _ from "lodash";
@@ -98,6 +98,8 @@ async function SubmitController(e) {
 // login controller
 export default async function LoginController() {
 
+    // render Loader
+    renderLoader();
 
     // clear errors
     LoginView.clearErrors()

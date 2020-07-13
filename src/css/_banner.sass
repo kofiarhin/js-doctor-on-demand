@@ -24,12 +24,32 @@ $image3: "../images/banner3.jpg"
         h1
             font-size: 3rem
             margin-bottom: 1rem
+            transform: translateX(100%)
+            opacity: 0
+            transition: all ease-in-out 300ms
+            &.active
+                opacity: 1
+                transform: translateX(0%)
         p
             font-size: 1.2rem
             margin-bottom: 2rem
+            transform: translateX(-100%)
+            transition: all ease-in-out 300ms
+            opacity: 0
+            &.active
+                transform: translateX(0%)
+                opacity: 1
+
         .cta-wrapper
             .cta
                 padding: 1rem 4rem
+                opacity: 0
+                transform: translateY(200px)
+                transition: all ease-in-out 400ms
+                &.active
+                    transform: translateY(0px)
+                    opacity: 1
+
       
 @keyframes change
     0%
