@@ -6,19 +6,8 @@ function showSideNav() {
     const sidenav = getElement('.sidenav');
 
     sidenav.classList.add("active")
-
-    test('pass ')
 }
 
-
-const header = getElement(".main-header");
-const menu = getElement(".menu");
-
-if (menu) {
-
-    menu.addEventListener("click", showSideNav);
-
-}
 
 
 // render custom  url if situations if role patient or doctor or admin
@@ -70,6 +59,7 @@ function renderSideNav(markup) {
 // render when user is logged in
 export function renderHeader(data) {
 
+    const header = getElement(".main-header");
 
     let markup = "";
 
@@ -116,7 +106,7 @@ export function renderHeader(data) {
 
 export function renderDefault() {
 
-    const header = getElement(".main-header ");
+    const header = getElement(".main-header");
 
     let markup = `
      
@@ -134,7 +124,7 @@ export function renderDefault() {
         </nav>
 
 
-        <div class="menu">
+              <div class="menu">
                     <i class="fa fa-bars"></i>
                 </div>
      `;
@@ -142,4 +132,4 @@ export function renderDefault() {
     header.innerHTML = markup;
     renderSideNav(markup)
 
-}
+};
