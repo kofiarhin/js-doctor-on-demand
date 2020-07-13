@@ -7,6 +7,7 @@ import logoutController from "./logoutController";
 
 function sideNavController() {
 
+    test("passss")
     const sidenav = getElement(".sidenav");
 
     sidenav.classList.add("active")
@@ -16,21 +17,31 @@ function sideNavController() {
 export default function () {
 
 
-    const menu = getElement(".main-header");
+    // const menu = getElement(".main-header .menu");
 
-    menu.addEventListener("click", sideNavController);
+    // menu.addEventListener("click", sideNavController);
 
 
     const user = new User();
 
     const header = getElement(".main-header");
 
+
+    // logout user
     header.addEventListener("click", function (event) {
 
         if (event.target.className === "logout") {
 
             logoutController();
         }
+
+        else if (event.target.className = "fa fa-bars") {
+
+            sideNavController();
+        }
+
+
+
     })
 
     if (user.checkLogin()) {
