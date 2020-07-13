@@ -32,8 +32,6 @@ export function renderHowItWorks() {
 
     const element = getElement("#how-it-works");
 
-    test(element)
-
     let markup = `
          <!-- container -->
         <div class="container">

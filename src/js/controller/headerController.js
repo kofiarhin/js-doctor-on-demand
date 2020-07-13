@@ -4,8 +4,21 @@ import User from "../model/user";
 import { getElement, test } from "../lib/helper";
 import logoutController from "./logoutController";
 
+
+function sideNavController() {
+
+    const sidenav = getElement(".sidenav");
+
+    sidenav.classList.add("active")
+}
+
 // header controller
 export default function () {
+
+
+    const menu = getElement(".main-header");
+
+    menu.addEventListener("click", sideNavController);
 
 
     const user = new User();

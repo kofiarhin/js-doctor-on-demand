@@ -90,9 +90,14 @@ export function renderHeader(data) {
                     ${
                 // render custom links based on roles
                 renderUrl(role)
+
                 }
                     <a href="#logout" class="logout">Logout</a>
                 </nav>
+
+                 <div class="menu">
+                    <i class="fa fa-bars"></i>
+                </div>
         `;
 
             header.innerHTML = markup;
@@ -115,7 +120,8 @@ export function renderDefault() {
 
     let markup = `
      
-    <a href="index.html">
+
+        <a href="index.html">
                     <h1 class="logo">BruceCare</h1>
                 </a>
         <nav>
@@ -126,6 +132,11 @@ export function renderDefault() {
                     <a href="login.html">Login</a>
                     <a href="register.html" class="cta">Let's Get Started</a>
         </nav>
+
+
+        <div class="menu">
+                    <i class="fa fa-bars"></i>
+                </div>
      `;
 
     header.innerHTML = markup;
