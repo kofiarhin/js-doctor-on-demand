@@ -82,6 +82,8 @@ export function renderHeader(data) {
                 renderUrl(role)
 
                 }
+                <a href="about.html"> About</a>
+                <a href="contact.html.html"> Contact</a>
                     <a href="#logout" class="logout">Logout</a>
                 </nav>
 

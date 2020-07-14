@@ -104,8 +104,6 @@ function renderAdminProfile(data) {
 
     const { firstname, lastname, email, contact, id, profile = "./images/admin/admin.jpg" } = data;
 
-
-
     let markup = `
             <!-- cover -->
                 <div class="cover" style="background-image: url(${profile})"></div>
@@ -123,7 +121,7 @@ function renderAdminProfile(data) {
 
                 <!-- cta-wrapper -->
                 <div class="cta-wrapper">
-                    <a class="cta cta-block" href="edit_profile.html?id=">Edit Profile</a>
+                    <a class="cta cta-block" href="edit_profile.html?id=${id}">Edit Profile</a>
                 </div>
                 <!-- end cta-wrapper -->
      `;

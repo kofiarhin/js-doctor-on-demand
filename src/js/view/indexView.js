@@ -72,7 +72,7 @@ export function renderHowItWorks() {
             <div class="icons-wrapper">
 
                 <!-- icon-unit -->
-                <div class="icon-unit" data-aos="fade-up">
+                <div class="icon-unit" data-aos="fade-left">
                     <!-- cover -->
                     <div class="cover">
                         <img src="./images/search.jpg" alt="">
@@ -92,7 +92,7 @@ export function renderHowItWorks() {
                 <!-- end icon-unit -->
 
                 <!-- icon-unit -->
-                <div class="icon-unit" data-aos="fade-down">
+                <div class="icon-unit" data-aos="fade-left">
                     <!-- cover -->
                     <div class="cover">
                         <img src="./images/confirmation.jpg" alt="">

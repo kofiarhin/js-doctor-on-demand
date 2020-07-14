@@ -15,8 +15,8 @@ async function SubmitController(e) {
 
 
     // // login doctor
-    const email = "kevindurant@gmail.com";
-    const password = "password"
+    // const email = "kevindurant@gmail.com";
+    // const password = "password"
 
 
     // login as admin
