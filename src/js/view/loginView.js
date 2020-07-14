@@ -27,3 +27,24 @@ export function renderErrors(errors) {
         });
     }
 }
+
+
+// render feedback
+export function renderFeedback(error) {
+
+    const feedback = getElement("#feedback")
+    feedback.innerHTML = `<p class="feedback"> ${error} </p>`;
+}
+
+export function clearUi() {
+
+    const errors = document.querySelectorAll(".error");
+    const feedback = getElement("#feedback");
+
+    errors.forEach(error => {
+
+        error.innerHTML = "";
+    });
+
+    feedback.innerHTML = "";
+}

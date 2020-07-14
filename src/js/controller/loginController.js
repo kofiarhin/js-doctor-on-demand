@@ -1,4 +1,4 @@
-import { getElement, validateData, test, auth, redirect, renderLoader } from "../lib/helper";
+import { getElement, validateData, test, auth, redirect, renderLoader, showLoader, removeLoader } from "../lib/helper";
 import * as LoginView from "../view/loginView";
 import { firebase, firebaseLooper } from "../firebase";
 import _ from "lodash";
@@ -7,8 +7,13 @@ import _ from "lodash";
 
 async function SubmitController(e) {
 
+
     e.preventDefault();
 
+    LoginView.clearUi();
+
+    const email = getElement("#email").value;
+    const password = getElement("#password").value;
     // // // login patient
     // const email = "johnasante@gmail.com";
     // const password = "password";
@@ -27,6 +32,7 @@ async function SubmitController(e) {
     // validate data
     const errors = validateData({ email, password });
 
+
     // check if there are any errors
     if (errors && errors.length > 0) {
 
@@ -35,6 +41,8 @@ async function SubmitController(e) {
 
     } else {
 
+
+
         // get user from database
         const snapshot = await firebase.database().ref('users').orderByChild("email").equalTo(email).once("value").then(snapshot => snapshot);
 
@@ -42,7 +50,7 @@ async function SubmitController(e) {
 
         if (!_.isEmpty(snapshot)) {
 
-            // format data
+
             const userData = firebaseLooper(snapshot)[0];
 
             // compare password
@@ -77,7 +85,8 @@ async function SubmitController(e) {
 
             } else {
 
-                console.log("???????", "invalid email/password combination ")
+                LoginView.renderFeedback("invalid username password combination")
+
             }
 
         } else {
@@ -99,7 +108,7 @@ async function SubmitController(e) {
 export default async function LoginController() {
 
     // render Loader
-    renderLoader();
+    // renderLoader();
 
     // clear errors
     LoginView.clearErrors()
