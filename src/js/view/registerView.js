@@ -1,5 +1,4 @@
-import { getElement } from "../lib/helper";
-
+import { getElement, test } from "../lib/helper";
 
 export function clearErrors() {
 
@@ -12,19 +11,21 @@ export function clearErrors() {
 }
 
 
-
+// render errors
 export function renderErrors(errors) {
+
 
     if (errors && errors.length > 0) {
 
-        errors.forEach(item => {
+        errors.forEach((error, index) => {
 
-            const key = Object.keys(item)[0];
-            const field = `.error-${key}`;
+            const key = Object.keys(error);
+            const field = getElement(`.error-${key}`);
 
-            const element = getElement(field)
-            element.textContent = item[key]
+            field.textContent = `${key} is required`;
 
         });
+
     }
+
 }
