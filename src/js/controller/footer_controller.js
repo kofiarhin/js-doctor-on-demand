@@ -12,48 +12,44 @@ export default function () {
 
                 <!-- footer-unit -->
                 <ul class="footer-unit">
-                    <li class="title">About Us</li>
+                    <li class="title">Site Map</li>
                     <li>Home</li>
-                    <li>Our Mission and Team</li>
-                    <li>Our Technology Platform</li>
-                    <li>Our Passion</li>
-                    <li>Our Blog</li>
+                    <li>ABout Us</li>
+                    <li>Contact</li>
+                    <li>Login</li>
+                    <li>Register</li>
                 </ul>
                 <!-- end footer-unit -->
 
 
                 <!-- footer-unit -->
                 <ul class="footer-unit">
-                    <li class="title">About Us</li>
-                    <li>Home</li>
-                    <li>Our Mission and Team</li>
-                    <li>Our Technology Platform</li>
-                    <li>Our Passion</li>
-                    <li>Our Blog</li>
+                    <li class="title">Address</li>
+                    <li>Email: info@brucecare.com</li>
+                    <li>Contact: +233 508025370</li>
+                    <li>Ghana
+House N0. 5 Cashew Street, Daffodil Avenue, Christian Centre, East Legon, Accra, Ghana</li>
                 </ul>
                 <!-- end footer-unit -->
 
 
                 <!-- footer-unit -->
                 <ul class="footer-unit">
-                    <li class="title">About Us</li>
-                    <li>Home</li>
-                    <li>Our Mission and Team</li>
-                    <li>Our Technology Platform</li>
-                    <li>Our Passion</li>
-                    <li>Our Blog</li>
+                    <li class="title">Social Media</li>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>LinkedIn</li>
                 </ul>
                 <!-- end footer-unit -->
 
-
                 <!-- footer-unit -->
                 <ul class="footer-unit">
-                    <li class="title">About Us</li>
-                    <li>Home</li>
-                    <li>Our Mission and Team</li>
-                    <li>Our Technology Platform</li>
-                    <li>Our Passion</li>
-                    <li>Our Blog</li>
+                    <li class="title">FAQ</li>
+                    <li>How to register</li>
+                    <li>Meet Our Doctors</li>
+                    <li>Blog</li>
+                    <li>Legal</li>
                 </ul>
                 <!-- end footer-unit -->
 
