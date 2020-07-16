@@ -378,5 +378,21 @@ export default class User {
     }
 
 
+    // find user
+    async find(email) {
+
+        const data = await firebase.database().ref(`users`).orderByChild("email").equalTo(email).once("value").then(snapshot => firebaseLooper(snapshot)[0]);
+
+        if (!_.isEmpty(data)) {
+
+            return data;
+        } else {
+
+            return false;
+        }
+
+
+
+    }
 
 }

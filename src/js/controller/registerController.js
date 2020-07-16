@@ -1,7 +1,7 @@
 import { getElement, test, renderLoader, redirect } from "../lib/helper";
 import * as  RegisterView from "../view/registerView";
 import User from "../model/user"
-import moment from "moment";
+import { validateAll, validate } from "indicative/validator";
 
 // SubmitController
 async function SubmitController(e) {
@@ -29,6 +29,71 @@ async function SubmitController(e) {
         role: "patient"
     }
 
+    // const userData = {
+    //     email: "test@gmail.com",
+    //     firstname: "test",
+    //     lastname: "test",
+    //     password: "password",
+    //     contact: 223232323,
+    //     gender: "male"
+    // }
+
+
+    const rules = {
+        email: "required|email",
+        firstname: "required",
+        lastname: "required",
+        password: "required",
+        gender: "required",
+        contact: "required|number"
+    }
+
+    const messages = {
+        required: (field) => `${field} is required`,
+        "email.email": "Invalid email format",
+        "contact.number": "Contact must be a number"
+    };
+
+    try {
+
+        await validateAll(userData, rules, messages);
+
+        const user = new User();
+
+        const result = await user.find(userData.email);
+
+
+        if (!result) {
+
+            await user.createPatient(userData);
+            redirect("login.html")
+
+        } else {
+
+            // display error on ui
+            const field = getElement(".error-email");
+
+            field.textContent = "Email already taken"
+        }
+
+        // find user in database;
+
+
+
+    } catch (errors) {
+
+
+        if (errors && errors.length > 0) {
+            errors.forEach(error => {
+
+                const field = getElement(`.error-${error.field}`);
+
+                field.textContent = error.message;
+            })
+        }
+
+
+    }
 
 
 
@@ -65,44 +130,44 @@ async function SubmitController(e) {
 
 
     // validate data
-    const errors = validateData(userData);
+    // const errors = validateData(userData);
 
-    // check if there is any error
-    if (errors.length > 0) {
-
-
-        RegisterView.renderErrors(errors)
-
-    } else {
-
-        const user = new User();
-
-        try {
-
-            await user.createPatient(userData);
-            redirect("login.html");
-        } catch (error) {
-
-            test(error);
-        }
+    // // check if there is any error
+    // if (errors.length > 0) {
 
 
-        // // create an instance of user
-        // const user = new User();
+    //     RegisterView.renderErrors(errors)
 
-        // // create user
-        // const newUser = await user.createPatient(userData)
+    // } else {
 
-        // if (!_.isEmpty(newUser)) {
-        //     window.location.href = "login.html"
-        // }
-        // if (newUser) {
+    //     const user = new User();
 
-        //     window.location.href = "login.html"
-        // }
+    //     try {
+
+    //         await user.createPatient(userData);
+    //         redirect("login.html");
+    //     } catch (error) {
+
+    //         test(error);
+    //     }
 
 
-    }
+    //     // // create an instance of user
+    //     // const user = new User();
+
+    //     // // create user
+    //     // const newUser = await user.createPatient(userData)
+
+    //     // if (!_.isEmpty(newUser)) {
+    //     //     window.location.href = "login.html"
+    //     // }
+    //     // if (newUser) {
+
+    //     //     window.location.href = "login.html"
+    //     // }
+
+
+    // }
 }
 
 

@@ -26,6 +26,7 @@
   "dependencies": {
     "aos": "^3.0.0-beta.6",
     "firebase": "^7.14.6",
+    "indicative": "^7.4.4",
     "lodash": "^4.17.15",
     "moment": "^2.27.0"
   }

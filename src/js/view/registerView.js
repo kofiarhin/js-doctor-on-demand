@@ -4,10 +4,15 @@ export function clearErrors() {
 
     const elements = document.querySelectorAll(".error");
 
-    elements.forEach(field => {
+    if (elements && elements.length > 0) {
+        elements.forEach(field => {
 
-        field.textContent = ""
-    });
+            field.textContent = ""
+        });
+
+    }
+
+
 }
 
 
