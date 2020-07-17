@@ -22,6 +22,7 @@ import SideNavController from "./controller/side_nav_controller";
 import FooterController from "./controller/footer_controller";
 import IndexController from "./controller/indexController";
 import AboutController from "./controller/aboutController";
+import ContactController from "./controller/contactController";
 
 
 // global state 
@@ -80,7 +81,9 @@ function Router() {
     }
     // contact
     else if (state.url === "contact.html") {
-        renderLoader();
+        // renderLoader();
+
+        ContactController();
     }
 
     // register page
@@ -106,7 +109,6 @@ function Router() {
     else if (state.url === "login.html") {
 
         // renderLoader();
-
         LoginController();
         // const loginBtn = getElement("#login-btn")
         // loginBtn.addEventListener("click", LoginController)
@@ -154,7 +156,7 @@ function Router() {
         renderLoader();
         UserController()
     }
-
+    // book appointment
     else if (state.url === "book_appointment.html") {
 
         BookAppointmentController()
@@ -171,12 +173,12 @@ function Router() {
         ViewAppointmentController();
     }
 
-
+    // verify account
     else if (state.url === "verify_account.html") {
         renderLoader();
         VerifyAccountController();
     }
-
+    // change profile
     else if (state.url === "change_profile.html") {
         renderLoader();
         ChangeProfileController()
