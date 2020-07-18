@@ -1,4 +1,4 @@
-import { getElement, test } from "../lib/helper";
+import { getElement, test, redirect } from "../lib/helper";
 import { validateAll } from "indicative/validator";
 
 
@@ -18,19 +18,22 @@ async function SubmitController(e) {
 
     const rules = {
         name: 'required',
-        email: "required",
+        email: "required|email",
         message: "required"
     };
 
 
 
     const messages = {
-        required: (field) => `${field} is required`
+        required: (field) => `${field} is required`,
+        "email.email": "invalid email format"
     }
 
     try {
 
         await validateAll(dataToSubmit, rules, messages);
+
+        redirect("index.html");
 
     } catch (errors) {
 
@@ -42,7 +45,6 @@ async function SubmitController(e) {
             errors.forEach(error => {
 
                 const field = getElement(`.error-${error.field}`);
-
                 field.textContent = error.message;
             })
         }
