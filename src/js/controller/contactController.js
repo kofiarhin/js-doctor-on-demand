@@ -7,7 +7,7 @@ async function SubmitController(e) {
     e.preventDefault();
     const name = getElement("#name").value;
     const email = getElement('#email').value;
-    const message = getElement("#message");
+    const message = getElement("#message").value;
 
     const dataToSubmit = {
         name,
@@ -21,6 +21,8 @@ async function SubmitController(e) {
         email: "required",
         message: "required"
     };
+
+
 
     const messages = {
         required: (field) => `${field} is required`
