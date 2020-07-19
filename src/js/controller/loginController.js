@@ -12,8 +12,10 @@ async function SubmitController(e) {
 
     LoginView.clearUi();
 
-    const email = getElement("#email").value;
-    const password = getElement("#password").value;
+    // const email = getElement("#email").value;
+    // const password = getElement("#password").value;
+
+
     // // // login patient
     // const email = "johnasante@gmail.com";
     // const password = "password";
@@ -25,8 +27,8 @@ async function SubmitController(e) {
 
 
     // login as admin
-    // const email = "admin@gmail.com";
-    // const password = "password";
+    const email = "admin@gmail.com";
+    const password = "password";
 
 
     // validate data
