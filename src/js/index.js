@@ -153,7 +153,6 @@ function Router() {
     // user
     else if (state.url === "user.html") {
 
-        renderLoader();
         UserController()
     }
     // book appointment
