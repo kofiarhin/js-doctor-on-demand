@@ -11,7 +11,7 @@ async function SubmitController(e) {
     const email = getElement("#email").value;
     const firstname = getElement('#firstname').value;
     const lastname = getElement('#lastname').value;
-    const contact = getElement('#contactNumber').value;
+    const contact = getElement('#contact').value;
     const password = getElement("#password").value;
     const gender = getElement("#gender").value;
     const specialty = getElement("#specialty").value;
@@ -47,6 +47,7 @@ async function SubmitController(e) {
         firstname,
         lastname,
         password,
+        contact,
         gender,
         specialty,
         role: 'doctor'
