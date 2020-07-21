@@ -16,8 +16,11 @@ if (!_.isEmpty(userData)) {
 // render custom cta's based on current logged in user
 function renderCta(data) {
 
+    test("?????")
+    test(data)
 
-    let ctaMarkup = "";
+
+    let ctaMarkup = "<a class='cta cta-block' href='book_appointment.html' > Book Appontment</a>";
 
     // if user is a patiend and admin is logged in
     if (data.role === "patient" && role === "admin") {
@@ -36,12 +39,17 @@ function renderCta(data) {
         const { verified } = data;
         ctaMarkup = `
            <a href="edit_profile.html?id=${data.id}" class="cta">Edit Profile</a>
+           <a href="appointments.html?id=${data.doctorId}" class='cta cta-block'> Appointments </a>
         `;
 
         if (!verified) {
             ctaMarkup += ` <a href="verify_account.html?id=${data.doctorId}" class="cta cta-success">Activate Account</a>`
         } else {
-            ctaMarkup += ` <a href="edit_profile.html?id=" class="cta cta-danger">Deactivate Account</a>`
+            ctaMarkup += ` 
+                            
+                            <a href="edit_profile.html?id=" class="cta cta-danger">Deactivate Account</a>
+            
+            `
         }
 
 
@@ -78,8 +86,9 @@ function renderVerified(verified) {
 }
 
 // render doctor data
-
 function renderDoctor(data) {
+
+    test(data)
 
     let { id, firstname, lastname, email, contact, gender, specialty, cases = 0, verified, role, profile } = data;
 
@@ -108,7 +117,10 @@ function renderDoctor(data) {
                         <p class="contact">Contact: ${contact}</p>
                         <p class="specialty">Specialty: ${specialty}  </p> 
                         <p>Verified: ${verified}  </p> 
-                        <p>Completed Cases: ${cases} </p> 
+                        <p>Completed Cases: ${cases} </p>
+
+                        <h2>Work History </h2>
+                        <p> dable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the  </p>
                     </div>
                     <!-- end text-wrapper -->
 

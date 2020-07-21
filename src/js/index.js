@@ -9,7 +9,7 @@ import ProfileController from "./controller/profileController";
 import UsersController from "./controller/usersController";
 import UserController from "./controller/userController";
 import BookAppointmentController from "./controller/bookAppointmentController"
-import AppointmentsController from "./controller/appointmentController";
+import AppointmentController from "./controller/appointmentController";
 import ViewAppointmentController from "./controller/viewAppointmentController";
 import RegisterDoctorController from "./controller/register_doctor_controller"
 import VerifyAccountController from "./controller/verify_account_controller";
@@ -23,6 +23,7 @@ import FooterController from "./controller/footer_controller";
 import IndexController from "./controller/indexController";
 import AboutController from "./controller/aboutController";
 import ContactController from "./controller/contactController";
+import AppointmentsController from "./controller/appointmentsController";
 
 
 // global state 
@@ -161,9 +162,16 @@ function Router() {
         BookAppointmentController()
     }
 
+
+    // appointments
+    else if (state.url === "appointments.html") {
+
+        AppointmentsController();
+    }
+
     // apppointment
     else if (state.url === "appointment.html") {
-        AppointmentsController()
+        AppointmentController()
     }
 
     // view appointment 

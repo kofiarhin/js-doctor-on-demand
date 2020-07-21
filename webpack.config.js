@@ -118,6 +118,12 @@ module.exports = {
         new htmlWebpackPlugin({
             filename: "choose_plan.html",
             template: "./src/choose_plan.html"
+        }),
+
+        // appointments
+        new htmlWebpackPlugin({
+            filename: "appointments.html",
+            template: "./src/appointments.html"
         })
     ],
 

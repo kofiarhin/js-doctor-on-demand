@@ -1,8 +1,8 @@
-import _, { conforms } from "lodash";
+import _ from "lodash";
 import User from "../model/user";
 import * as BookAppointmentView from "../view/bookAppointmentView";
 import Doctor from "../model/doctor";
-import { getElement, redirect, test, showLoader, removeLoader } from "../lib/helper";
+import { getElement, redirect, test, showLoader, removeLoader, auth, renderLoader } from "../lib/helper";
 import Appointment from "../model/appointment";
 import moment from "moment";
 
@@ -87,7 +87,15 @@ async function SubmitController(e) {
 export default async function () {
 
     // render laoder
-    // renderLoader();
+    renderLoader();
+
+    if (!auth()) {
+
+        redirect("login.html")
+    }
+
+
+    test("book appointment")
 
 
     // get the form
