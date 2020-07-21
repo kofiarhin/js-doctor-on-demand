@@ -2,13 +2,11 @@ import User from "../model/user";
 import * as UserView from "../view/userView";
 import { test, auth, redirect } from "../lib/helper"
 
+
+
+// user controller
 export default async function () {
 
-    // check if user is logged in
-    if (!auth) {
-
-        redirect("login.html")
-    }
 
     const search = new URLSearchParams(window.location.search);
     const id = search.get("id");

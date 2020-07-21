@@ -17,10 +17,6 @@ if (!_.isEmpty(userData)) {
 function renderCta(data) {
 
 
-    test(data);
-    test(role);
-
-
     let ctaMarkup = "";
 
     // if user is a patiend and admin is logged in
@@ -43,7 +39,6 @@ function renderCta(data) {
         `;
 
         if (!verified) {
-
             ctaMarkup += ` <a href="verify_account.html?id=${data.doctorId}" class="cta cta-success">Activate Account</a>`
         } else {
             ctaMarkup += ` <a href="edit_profile.html?id=" class="cta cta-danger">Deactivate Account</a>`
@@ -121,7 +116,6 @@ function renderDoctor(data) {
                     <div class="cta-wrapper">
                         ${renderCta(data)}
                     </div>
-
                     <!-- end cta-wrapper -->
                 </div>
                 <!-- end content -->
@@ -178,8 +172,10 @@ function renderPatient(data) {
 }
 
 
+// render user
+export function renderUser(data, auth) {
 
-export function renderUser(data) {
+
 
     // render title
     const { role } = data;
@@ -190,7 +186,7 @@ export function renderUser(data) {
     if (data) {
 
         // get role of user and render title
-        const role = data.role;
+        const { role } = data;
 
         if (role === "patient") {
 
@@ -199,7 +195,8 @@ export function renderUser(data) {
 
         else if (role === "doctor") {
 
-            renderDoctor(data)
+            renderDoctor(data);
+
         }
     }
 

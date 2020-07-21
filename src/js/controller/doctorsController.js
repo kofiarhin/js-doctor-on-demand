@@ -37,6 +37,7 @@ function SortController() {
 
 export default async function (user) {
 
+
     const select = getElement("#search select");
 
     select.addEventListener("change", SortController);

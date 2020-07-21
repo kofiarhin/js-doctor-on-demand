@@ -5,7 +5,6 @@ export function renderDoctors(data) {
 
 
     const element = getElement("#doctors .container .users-wrapper");
-    const title = getElement(".main-title");
 
 
     let output = "";
@@ -35,7 +34,6 @@ export function renderDoctors(data) {
     });
 
     element.innerHTML = output;
-    title.textContent = "Our Doctors"
 }
 
 export function renderPatients(data) {
