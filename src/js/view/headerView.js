@@ -29,7 +29,6 @@ function renderUrl(role) {
 
         return `
                     <a href='doctors.html'>Doctors</a>
-                    <a href="about.html">About Us</a>
                     <a href="contact.html">Contact</a>
                     <a href="pricing.html">Pricing</a>
                     `
@@ -118,7 +117,7 @@ export function renderDefault() {
                 </a>
         <nav>
             <a href="index.html">Home</a>
-                    <a href="about.html">About Us</a>
+                    <a href="about.html">About</a>
                     <a href="contact.html">Contact</a>
                     <a href="pricing.html">Pricing</a>
                     <a href="login.html">Login</a>
