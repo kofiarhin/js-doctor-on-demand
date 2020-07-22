@@ -1,5 +1,5 @@
 import User from "../model/user";
-import { getElement, test } from "../lib/helper";
+import { getElement, test, redirect } from "../lib/helper";
 import { validateAll } from "indicative/validator"
 import { clearUi } from "../view/createDoctorView";
 
@@ -55,7 +55,20 @@ async function SubmitController(e) {
 
 
     try {
+
         await validateAll(dataToSubmit, rules, messages);
+
+        // clear errors
+        // check if user already exist;
+        //display errors  or register user
+
+
+        const user = new User();
+
+        await user.createDoctor(dataToSubmit);
+
+        redirect("doctors.html");
+
     } catch (errors) {
 
         if (errors && errors.length > 0) {

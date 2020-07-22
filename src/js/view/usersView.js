@@ -36,6 +36,8 @@ export function renderDoctors(data) {
     element.innerHTML = output;
 }
 
+
+// render list of patients
 export function renderPatients(data) {
 
 
@@ -76,6 +78,11 @@ export function renderPatients(data) {
     }
 }
 
+
+export function renderFeedback(message) {
+
+
+}
 
 
 

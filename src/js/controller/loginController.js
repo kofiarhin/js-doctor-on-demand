@@ -10,10 +10,11 @@ async function SubmitController(e) {
 
     e.preventDefault();
 
+
     LoginView.clearUi();
 
-    // const email = getElement("#email").value;
-    // const password = getElement("#password").value;
+    const email = getElement("#email").value.trim();
+    const password = getElement("#password").value.trim();
 
 
     // // // login patient
@@ -27,8 +28,8 @@ async function SubmitController(e) {
 
 
     // login as admin
-    const email = "admin@gmail.com";
-    const password = "password";
+    // const email = "admin@gmail.com";
+    // const password = "password";
 
 
     // validate data
@@ -81,13 +82,12 @@ async function SubmitController(e) {
                 // sessionStorage.setItem("user", JSON.stringify({ id: userData.id, email: userData.email, role: userData.role, firstName: userData.firstName, lastName: userData.lastName }));
 
 
-
                 // redirect to dashboard
                 // window.location.href = "dashboard.html"
 
             } else {
 
-                LoginView.renderFeedback("invalid username password combination")
+                LoginView.renderFeedback("Invalid Username/Password combination")
 
             }
 

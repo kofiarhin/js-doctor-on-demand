@@ -2,6 +2,7 @@ import Doctor from "../model/doctor";
 import _ from "lodash";
 import * as UsersView from "../view/UsersView";
 import { getElement, test } from "../lib/helper";
+import * as DoctorsView from "../view/doctorsView";
 
 
 
@@ -50,6 +51,9 @@ export default async function (user) {
         state.doctors = doctors;
 
         UsersView.renderDoctors(doctors)
+    } else {
+
+        DoctorsView.renderFeedback("No doctors registered yet!")
     }
 
 

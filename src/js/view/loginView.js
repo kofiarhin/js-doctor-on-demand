@@ -33,7 +33,7 @@ export function renderErrors(errors) {
 export function renderFeedback(error) {
 
     const feedback = getElement("#feedback")
-    feedback.innerHTML = `<p class="feedback"> ${error} </p>`;
+    feedback.innerHTML = `<p class="error"> ${error} </p>`;
 }
 
 export function clearUi() {
