@@ -91,6 +91,7 @@ async function SubmitController(e) {
 // register doctor controller
 export default function () {
 
+
     const user = new User();
     const btn = getElement("#register-btn");
 
@@ -102,7 +103,19 @@ export default function () {
 
         if (role === "admin") {
 
+            // when the submit button is pressedd
+
             btn.addEventListener("click", SubmitController);
+
+            // when the enter key is presssed
+            window.addEventListener("keydown", (e) => {
+
+                if (e.keyCode == 13) {
+
+                    SubmitController(e)
+                }
+
+            });
 
         } else {
 

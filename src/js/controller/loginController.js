@@ -13,8 +13,8 @@ async function SubmitController(e) {
 
     LoginView.clearUi();
 
-    const email = getElement("#email").value.trim();
-    const password = getElement("#password").value.trim();
+    // const email = getElement("#email").value.trim();
+    // const password = getElement("#password").value.trim();
 
 
     // // // login patient
@@ -28,8 +28,8 @@ async function SubmitController(e) {
 
 
     // login as admin
-    // const email = "admin@gmail.com";
-    // const password = "password";
+    const email = "admin@gmail.com";
+    const password = "password";
 
 
     // validate data
@@ -108,6 +108,15 @@ async function SubmitController(e) {
 
 // login controller
 export default async function LoginController() {
+
+
+    window.addEventListener("keypress", function (e) {
+
+        if (e.keyCode == 13) {
+
+            SubmitController(e);
+        }
+    })
 
     // render Loader
     // renderLoader();

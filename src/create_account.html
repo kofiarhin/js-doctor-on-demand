@@ -50,14 +50,17 @@
 
             <!-- input-unit -->
             <div class="input-unit">
-                <input type="text" placeholder="Mail address" id="email">
+
+                <label for="">Email</label>
+                <input type="text" placeholder="kofirarhin69@gmail.com" id="email">
                 <p class="error error-email"></p>
             </div>
             <!-- end input-unit -->
 
             <!-- input-unit -->
             <div class="input-unit">
-                <input type="text" placeholder="First Name" id="firstname">
+                <label for="firstname">Firstname</label>
+                <input type="text" placeholder="Kofi" id="firstname">
                 <p class="error error-firstname"></p>
             </div>
             <!-- end input-unit -->
@@ -65,14 +68,18 @@
 
             <!-- input-unit -->
             <div class="input-unit">
-                <input type="text" placeholder="Last Name" id="lastname">
-                <p class="error error-lastname"></p>
+
+                <label for="lastname">Lastname<label>
+                        <input type="text" placeholder="Arhin" id="lastname">
+                        <p class="error error-lastname"></p>
             </div>
             <!-- end input-unit -->
 
 
             <!-- input-unit -->
             <div class="input-unit">
+
+                <label for="password">Password</label>
                 <input type="password" placeholder="Password" id="password">
                 <p class="error error-password"></p>
             </div>
@@ -81,7 +88,8 @@
 
             <!-- input-unit -->
             <div class="input-unit">
-                <input type="number" placeholder="Contact" id="contact">
+                <label for="contact">Contact</label>
+                <input type="text" placeholder="+233 508025370" id="contact">
                 <p class="error error-contact"></p>
             </div>
             <!-- end input-unit -->
@@ -103,9 +111,14 @@
             <div class="input-unit">
                 <select name="gender" id="specialty">
                     <option value=""> -- Select Specialty --</option>
-                    <option value="dentist">Dentist</option>
-                    <option value="general pratice">General Practice</option>
-                    <option value="gynecologist">Gynecologist</option>
+                    <option value="Dentist">Dentist</option>
+                    <option value="General pratice">General Practice</option>
+                    <option value="Gynecologist">Gynecologist</option>
+                    <option value="Psychiatrist">Psychiatrist</option>
+                    <option value="Cardiologist">Cardiologist</option>
+                    <option value="Dermatologist">Dermatologist</option>
+                    <option value="Ophthalmologist">Ophthalmologist</option>
+                    <option value="Neurologist">Neurologist</option>
                 </select>
 
                 <p class="error error-specialty"></p>
@@ -116,7 +129,6 @@
             <!-- register button -->
             <button type="submit" name="submit" class="btn" id="register-btn">Create Account</button>
 
-            <p>Already have an account? <a href="login.html">Login Here</a></p>
         </div>
         <!-- end form-wrapper -->
 
