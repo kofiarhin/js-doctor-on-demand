@@ -15,6 +15,10 @@ const state = {
 // sort controller
 function SortController() {
 
+
+    // clear feedback
+    DoctorsView.clearFeedBack();
+
     if (!_.isEmpty(state.doctors)) {
 
         const search = this.value;
@@ -22,7 +26,19 @@ function SortController() {
         if (!_.isEmpty(search)) {
 
             const fileteredData = state.doctors.filter(item => item.specialty === search);
-            UsersView.renderDoctors(fileteredData)
+            if (_.isEmpty(fileteredData)) {
+
+                // clear feedback
+                DoctorsView.renderFeedback("There are no doctors matching filter");
+
+                // clear users on ui
+                DoctorsView.clearUsers();
+
+            } else {
+
+                UsersView.renderDoctors(fileteredData)
+
+            }
 
         } else {
 
@@ -46,6 +62,7 @@ export default async function (user) {
     const doctor = new Doctor()
 
     const doctors = await doctor.getDoctors();
+
     if (!_.isEmpty(doctors)) {
 
         state.doctors = doctors;

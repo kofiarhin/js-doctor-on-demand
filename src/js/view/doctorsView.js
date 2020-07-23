@@ -9,3 +9,17 @@ export function renderFeedback(message) {
     element.innerHTML = `<p class="feedback center"> ${message} </p>`
 
 }
+
+export function clearFeedBack() {
+
+    const element = getElement("#feedback");
+
+    element.textContent = "";
+}
+
+
+export function clearUsers() {
+
+    const element = getElement(".users-wrapper");
+    element.innerHTML = "";
+}
