@@ -112,7 +112,8 @@ export default function () {
 
                 if (e.keyCode == 13) {
 
-                    SubmitController(e)
+                    SubmitController(e
+                    )
                 }
 
             });

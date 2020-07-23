@@ -82,95 +82,28 @@ async function SubmitController(e) {
 
     } catch (errors) {
 
-
+        // if there are any errors
         if (errors && errors.length > 0) {
             errors.forEach(error => {
 
                 const field = getElement(`.error-${error.field}`);
-
                 field.textContent = error.message;
-            })
+
+            });
         }
 
 
     }
 
-
-
-    // // get data from user
-    // const email = getElement("#email").value;
-    // const name = getElement("#name").value;
-    // const password = getElement("#password").value;
-    // const contact = getElement("#contact").value;
-    // const gender = getElement("#gender").value;
-
-    // const userData = {
-    //     name,
-    //     email,
-    //     password,
-    //     contact,
-    //     gender,
-    //     role: "patient",
-    //     createdOn: Date.now()
-    // };
-
-
-
-    // const userData = {
-    //     firstname: "Sarah",
-    //     lastname: "Mbroh",
-    //     email: "sarah@gmail.com",
-    //     password: "password",
-    //     contact: "2092003023",
-    //     gender: "female",
-    //     role,
-    //     createdOn
-
-    // };
-
-
-    // validate data
-    // const errors = validateData(userData);
-
-    // // check if there is any error
-    // if (errors.length > 0) {
-
-
-    //     RegisterView.renderErrors(errors)
-
-    // } else {
-
-    //     const user = new User();
-
-    //     try {
-
-    //         await user.createPatient(userData);
-    //         redirect("login.html");
-    //     } catch (error) {
-
-    //         test(error);
-    //     }
-
-
-    //     // // create an instance of user
-    //     // const user = new User();
-
-    //     // // create user
-    //     // const newUser = await user.createPatient(userData)
-
-    //     // if (!_.isEmpty(newUser)) {
-    //     //     window.location.href = "login.html"
-    //     // }
-    //     // if (newUser) {
-
-    //     //     window.location.href = "login.html"
-    //     // }
-
-
-    // }
 }
 
 
+// keypress controller
+function KeypressController(e) {
+
+    // when user press the enter key
+    if (e.keyCode === 13) SubmitController(e);
+}
 
 // Register Controller
 export default async function RegisterController() {
@@ -178,12 +111,18 @@ export default async function RegisterController() {
     // renderLoader
     // renderLoader();
 
+
     // clear all errors on ui
     RegisterView.clearErrors();
 
     // when user click on the submit button
-    const registerBtn = getElement("#register-btn")
+    const registerBtn = getElement("#register-btn");
+
+    // when user clicks on the the submit form
     registerBtn.addEventListener("click", SubmitController);
+
+    // when the enter key is pressed
+    window.addEventListener("keypress", KeypressController);
 
 
 }
