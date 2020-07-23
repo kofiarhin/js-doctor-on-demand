@@ -23,14 +23,11 @@ export default function () {
     // logout user
     header.addEventListener("click", function (event) {
 
-
-
         if (event.target.className === "logout") {
             logoutController();
         }
 
         if (event.target.className === "fa fa-bars") {
-
             sideNavController();
         }
 

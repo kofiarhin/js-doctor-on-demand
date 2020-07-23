@@ -40,8 +40,11 @@ function renderCta(data) {
         ctaMarkup = `
            <a href="edit_profile.html?id=${data.id}" class="cta">Edit Profile</a>
            <a href="appointments.html?id=${data.doctorId}" class='cta cta-block'> Appointments </a>
+           <a href="#delete" class="cta cta-danger cta-block"> Delete Account </a>
         `;
 
+
+        // if user is verified
         if (!verified) {
             ctaMarkup += ` <a href="verify_account.html?id=${data.doctorId}" class="cta cta-success">Activate Account</a>`
         } else {
@@ -87,8 +90,6 @@ function renderVerified(verified) {
 
 // render doctor data
 function renderDoctor(data) {
-
-    test(data)
 
     let { id, firstname, lastname, email, contact, gender, specialty, cases = 0, verified, role, profile } = data;
 
@@ -186,8 +187,6 @@ function renderPatient(data) {
 
 // render user
 export function renderUser(data, auth) {
-
-
 
     // render title
     const { role } = data;

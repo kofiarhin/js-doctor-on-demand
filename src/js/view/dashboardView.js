@@ -26,7 +26,7 @@ export function renderDashboard({ role, id }) {
                 <!-- dash-item-unit -->
                 <a href="create_account.html" class="dash-item-unit">
                     <i class="icon fa fa-user"></i>
-                    <p>Create Account</p>
+                    <p>Add Doctor</p>
                 </a>
                 <!-- end dash-item-unit -->
 

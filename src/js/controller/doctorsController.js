@@ -65,9 +65,19 @@ export default async function (user) {
 
     if (!_.isEmpty(doctors)) {
 
-        state.doctors = doctors;
 
-        UsersView.renderDoctors(doctors)
+        const filteredData = doctors.sort((a, b) => {
+
+            if (a.firstname < b.firstname) { return 1; }
+
+        });
+
+
+
+
+        state.doctors = filteredData;
+
+        UsersView.renderDoctors(state.doctors)
     } else {
 
         DoctorsView.renderFeedback("No doctors registered yet!")

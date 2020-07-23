@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _, { templateSettings } from "lodash";
 import { firebase, firebaseLooper } from "../firebase";
 import { test } from "../lib/helper";
 import moment from 'moment';
@@ -394,5 +394,43 @@ export default class User {
 
 
     }
+
+    async testing() {
+
+        console.log("testing")
+
+    }
+
+    async deleteUser(userData) {
+
+        // remove item from database
+
+
+        const { role, id, email } = userData;
+
+        const data = await this.find(email);
+
+        if (!_.isEmpty(data)) {
+
+            // remove from users table
+            await firebase.database().ref(`users/${id}`).remove();
+
+            if (role === "doctor") {
+
+                await firebase.database().ref(`doctors/${userData.doctorId}`).remove();
+
+                test("user removed from database");
+
+                // remove all appointments by doctors too //DO TO
+
+
+            }
+        }
+
+
+    }
+
+
+
 
 }
