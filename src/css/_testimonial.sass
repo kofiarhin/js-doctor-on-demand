@@ -1,4 +1,5 @@
 #testimonial
+    height: 450px
     margin-bottom: 2rem
     .main-title
         margin-bottom: 0.8rem
@@ -8,21 +9,29 @@
         margin: 0 auto
         .text-wrapper
             margin-bottom: 0.8rem
+            height: 240px
+            padding-bottom: 2rem
         .text-unit
             display: none
-            font-size: 1.4rem
             text-align: center
             line-height: 1.2
+            p
+                font-size: 1.8rem
+                &.name
+                    margin-top: 0.8rem
+                    font-size: 1.4rem
             .quote-mark
                 font-size: 4rem
                 color: $main
                 text-align: center
             &.active
                 display: block
+                
         .thumb-wrapper
             display: flex
             justify-content: center
             align-items: center
+            height: 100px
             .thumb-unit
                 width: 50px
                 height: 50px
@@ -47,6 +56,7 @@
                 
 
 
+
 @media(max-width: 650px)
     #testimonial
         .main-title
@@ -57,24 +67,25 @@
             .text-unit
                 font-size: 1rem
                 .quote-mark
-                    font-size: 2rem
+                    font-size: 3rem
                     text-align: center
+                p
+                    font-size: 1.5rem
 
-@media(max-width: 400px)
+@media(max-width: 500px)
     #testimonial
+        height: 400px
         .main-title
             marrin-bottom: 0.5rem
-        .container .wrapper
-            .thumb-wrapper .thumb-unit
-                display: none
-                &.active
-                    display: block
-                    width: 80px
-                    height: 80px
         .text-wrapper
             padding: 0
             .text-unit
                 font-size: 1rem
                 .quote-mark
-                    font-size: 2rem
+                    font-size: 3rem
                     text-align: center
+                p
+                    font-size: 1.4rem
+                    &.name
+                        font-weight: 900
+

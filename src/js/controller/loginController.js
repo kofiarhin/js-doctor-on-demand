@@ -23,13 +23,13 @@ async function SubmitController(e) {
 
 
     // // login doctor
-    // const email = "kevindurant@gmail.com";
-    // const password = "password"
+    const email = "kevindurant@gmail.com";
+    const password = "password"
 
 
     // login as admin
-    const email = "admin@gmail.com";
-    const password = "password";
+    // const email = "admin@gmail.com";
+    // const password = "password";
 
 
     // validate data

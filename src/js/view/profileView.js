@@ -7,16 +7,16 @@ const profileWrapper = getElement("#profile .wrapper");
 const user = new User();
 
 
-
+// render cta
 function renderCta({ id }) {
 
     return `<a class="cta cta-block" href="edit_profile.html?id=${id}">Edit Profile</a>`;
 }
 
 
+// render patient profile
 function renderPatientProfile(data) {
 
-    test(data)
     let { id, firstname, lastname, email, contact, gender, package_name, number_of_visits = 0, profile } = data;
 
 
@@ -24,6 +24,11 @@ function renderPatientProfile(data) {
 
         profile = `./images/patients/patient-${gender}.png`;
     }
+
+
+    // renderTitle
+
+    renderTitle(firstname);
 
     let markup = `
      
@@ -54,10 +59,13 @@ function renderPatientProfile(data) {
 }
 
 
+
+// render patient profile
 function renderDoctorProfile(data) {
 
 
     let { id, firstname, lastname, email, contact, gender, verified, specialty, profile } = data;
+
 
     // check if user has updated profile
     if (!profile) {
@@ -66,6 +74,9 @@ function renderDoctorProfile(data) {
     };
 
 
+
+// render title
+renderTitle(firstname);
     let markup = `
      
             <!-- cover -->
@@ -100,9 +111,21 @@ function renderDoctorProfile(data) {
 }
 
 
+
+function renderTitle(name) {
+
+    // render title
+    const title = getElement(".main-title");
+    title.textContent = `Hey! ${name}`
+}
+
+// render admin profile
 function renderAdminProfile(data) {
 
     const { firstname, lastname, email, contact, id, profile = "./images/admin/admin.jpg" } = data;
+
+
+    renderTitle(firstname);
 
     let markup = `
             <!-- cover -->
