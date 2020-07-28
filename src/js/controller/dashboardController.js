@@ -1,9 +1,11 @@
-import { loggedIn } from "../lib/helper";
+import { loggedIn, renderLoader } from "../lib/helper";
 import User from "../model/user";
 import * as DashboardView from "../view/dashboardView";
 
 export default function () {
 
+// render loader
+// renderLoader();
     // create user
     const user = new User();
 

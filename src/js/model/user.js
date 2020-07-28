@@ -1,4 +1,4 @@
-import _, { templateSettings } from "lodash";
+import _ from "lodash";
 import { firebase, firebaseLooper } from "../firebase";
 import { test } from "../lib/helper";
 import moment from 'moment';
@@ -36,7 +36,6 @@ export default class User {
 
         // get role of user
         const role = userData.role;
-
 
 
         // save data to firebase

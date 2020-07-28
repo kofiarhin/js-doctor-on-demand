@@ -120,7 +120,6 @@ function Router() {
 
     // dashboard
     else if (state.url === "dashboard.html") {
-        renderLoader();
         DashboardController()
     }
 
