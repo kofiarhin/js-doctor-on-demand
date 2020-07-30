@@ -1,0 +1,48 @@
+{
+  "doctors" : {
+    "-MCvSmpGWnCfq0Le6EwQ" : {
+      "cases" : 0,
+      "specialty" : "Dermatologist",
+      "userId" : "-MCvEZ3ug5JMBDj2u4R5",
+      "verified" : false
+    }
+  },
+  "patients" : {
+    "-MD03HcNZBpp9Xs0s9-8" : {
+      "package_name" : "none",
+      "userId" : "-MD03HXHSrRy6-TsiM8s"
+    }
+  },
+  "users" : {
+    "-M9wMCnRQu4HcEiWqRkM" : {
+      "contact" : "2092003023",
+      "createdOn" : 1592298101967,
+      "email" : "admin@gmail.com",
+      "firstname" : "admin",
+      "gender" : "male",
+      "lastname" : "admin",
+      "password" : "password",
+      "role" : "admin"
+    },
+    "-MCvEZ3ug5JMBDj2u4R5" : {
+      "contact" : "23424324",
+      "createdOn" : 1595500544299,
+      "email" : "test@gmail.com",
+      "firstname" : "test",
+      "gender" : "female",
+      "lastname" : "test",
+      "password" : "password",
+      "role" : "doctor"
+    },
+    "-MD03HXHSrRy6-TsiM8s" : {
+      "contact" : 23232,
+      "createdOn" : 1595598249599,
+      "email" : "dsfdf@dsad.com",
+      "firstname" : "ffd",
+      "gender" : "male",
+      "lastname" : "fdf",
+      "password" : "123123",
+      "role" : "patient"
+    }
+  }
+}
