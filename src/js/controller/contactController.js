@@ -1,4 +1,4 @@
-import { getElement, test, redirect } from "../lib/helper";
+import { getElement, test, redirect, renderLoader } from "../lib/helper";
 import { validateAll } from "indicative/validator";
 
 
@@ -53,8 +53,14 @@ async function SubmitController(e) {
 // contact controller
 export default function () {
 
+
+    // render loader
+    renderLoader();
+
+    // get form from dom
     const form = getElement("form");
 
+    // add eventlistener
     form.addEventListener("submit", SubmitController);
 
 }

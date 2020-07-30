@@ -15,11 +15,10 @@ export function render() {
                 <!-- footer-unit -->
                 <ul class="footer-unit">
                     <li class="title">Site Map</li>
-                    <li>Home</li>
-                    <li>ABout Us</li>
-                    <li>Contact</li>
-                    <li>Login</li>
-                    <li>Register</li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.html">Help</a></li>
                 </ul>
                 <!-- end footer-unit -->
 
@@ -38,19 +37,19 @@ House N0. 5 Cashew Street, Daffodil Avenue, Christian Centre, East Legon, Accra,
                 <!-- footer-unit -->
                 <ul class="footer-unit">
                     <li class="title">Social Media</li>
-                    <li>Social</li>
-                    <li>Twitter</li>
-                    <li>Instagram</li>
-                    <li>LinkedIn</li>
+                    <li><a href="www.facebook.com">Facebook </a></li>
+                    <li><a href="www.instagram.com">Instagram</a></li>
+                    <li><a href="www.linkedin.com">LinkedIn</a></li>
+                    <li><a href="www.twitter.com">Twitter</a></li>
                 </ul>
                 <!-- end footer-unit -->
 
                 <!-- footer-unit -->
                 <ul class="footer-unit">
                     <li class="title">FAQ</li>
-                    <li>How to register</li>
-                    <li>Meet Our Doctors</li>
-                    <li>Blog</li>
+                    <li><a href="register.html">How to register</a></li>
+                    <li><a href="doctors.html">Meet Our Doctors</a></li>
+                    <li>Terms and conditions</li>
                     <li>Legal</li>
                 </ul>
                 <!-- end footer-unit -->

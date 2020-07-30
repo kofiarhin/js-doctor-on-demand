@@ -2,13 +2,12 @@ footer
     background: rgba($main, 0.8)
     padding: 2rem
     color: white
-    margin-top: 2rem  
     .footer-wrapper
         display: grid
         grid-template-columns: repeat(4, 1fr)
         grid-gap: 20px
     .footer-wrapper .footer-unit
-        padding: 1rem
+        padding: 0rem 1rem
         li
             margin-bottom: 0.4rem
             font-size: 1rem
@@ -16,11 +15,19 @@ footer
             &.title
                 font-size: 1.4rem
                 color: rgba(white, 0.2)
+            a
+                color: rgba(white, 0.5)
 
 @media(max-width: 750px)
     footer .footer-wrapper
         grid-template-columns: repeat(2, 1fr)
+        .footer-unit
+            padding: 0rem
 
 @media(max-width: 400px)
-    footer .footer-wrapper
-        grid-template-columns: repeat(1, 1fr)
+    footer
+        padding: 1rem 
+        .footer-wrapper
+            grid-template-columns: repeat(1, 1fr)
+            .footer-unit
+                text-align: center

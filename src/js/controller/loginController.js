@@ -4,17 +4,19 @@ import { firebase, firebaseLooper } from "../firebase";
 import _ from "lodash";
 
 
-
+// submit controller
 async function SubmitController(e) {
 
-
+    // prevent default
     e.preventDefault();
 
-
+    // clear all errrors from ui
     LoginView.clearUi();
 
-    // const email = getElement("#email").value.trim();
-    // const password = getElement("#password").value.trim();
+
+    // get user inputs
+    const email = getElement("#email").value.trim();
+    const password = getElement("#password").value.trim();
 
 
     // // // login patient
@@ -23,8 +25,8 @@ async function SubmitController(e) {
 
 
     // // login doctor
-    const email = "kevindurant@gmail.com";
-    const password = "password"
+    // const email = "kevindurant@gmail.com";
+    // const password = "password"
 
 
     // login as admin
@@ -105,44 +107,41 @@ async function SubmitController(e) {
 
 }
 
+// keypress controller
+function KeyPressController(e) {
+
+    //check if keycode is 13== enter key
+    if (e.keyCode == 13) {
+
+        // run the submit controller
+        SubmitController(e);
+    }
+}
+
 
 // login controller
 export default async function LoginController() {
 
+    //renderloader
+    renderLoader();
 
-    window.addEventListener("keypress", function (e) {
-
-        if (e.keyCode == 13) {
-
-            SubmitController(e);
-        }
-    })
-
-    // render Loader
-    // renderLoader();
 
     // clear errors
     LoginView.clearErrors()
 
-    // check if user is logged in
-    if (auth()) {
 
+    // check if user has pressed the enter key
+    window.addEventListener("keypress", KeyPressController);
+
+
+    // check if user is already logged in
+    if (auth()) {
         redirect("dashboard.html")
     }
 
 
-
-    const loginBtn = getElement("#login-btn")
-    loginBtn.addEventListener("click", SubmitController)
-
-    //get data from ui
-    // const email = getElement("#email").value.trim();
-    // const password = getElement('#password').value.trim();
-
-    // remove this code later
-
-
-
-
+    //  get submit button from ui and add event listener on click
+    const loginBtn = getElement("#login-btn");
+    loginBtn.addEventListener("click", SubmitController);
 
 }

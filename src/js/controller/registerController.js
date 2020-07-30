@@ -109,7 +109,7 @@ function KeypressController(e) {
 export default async function RegisterController() {
 
     // renderLoader
-    // renderLoader();
+    renderLoader();
 
 
     // clear all errors on ui
