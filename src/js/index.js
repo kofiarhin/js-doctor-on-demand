@@ -1,5 +1,5 @@
 import "../css/styles.sass";
-import { getElement, test, renderLoader } from "./lib/helper";
+import { getElement, test, renderLoader, renderPageTitle } from "./lib/helper";
 import RegisterController from "./controller/registerController";
 import LoginController from "./controller/LoginController";
 import DashboardController from "./controller/dashboardController";
@@ -24,7 +24,7 @@ import IndexController from "./controller/indexController";
 import AboutController from "./controller/aboutController";
 import ContactController from "./controller/contactController";
 import AppointmentsController from "./controller/appointmentsController";
-
+import PricingController from "./controller/pricingController";
 
 // global state 
 const state = {
@@ -35,7 +35,6 @@ const state = {
 
 // main-controller
 function MainController() {
-
 
 
     // get route information and set state of url
@@ -80,6 +79,7 @@ function Router() {
         renderLoader();
         AboutController();
     }
+
     // contact
     else if (state.url === "contact.html") {
         // renderLoader();
@@ -104,6 +104,11 @@ function Router() {
         RegisterDoctorController()
         // const registerBtn = getElement("#register-btn")
         // registerBtn.addEventListener("click", RegisterDoctorController);
+    }
+
+    else if (state.url == "pricing.html") {
+
+        PricingController();
     }
 
     // login page
@@ -155,6 +160,7 @@ function Router() {
 
         UserController()
     }
+
     // book appointment
     else if (state.url === "book_appointment.html") {
 
@@ -190,9 +196,11 @@ function Router() {
         ChangeProfileController()
     }
 
+    // edit profile
     else if (state.url === "edit_profile.html") {
         EditProfileController();
     }
+
     // chosse plan
     else if (state.url === "choose_plan.html") {
         // renderLoader();

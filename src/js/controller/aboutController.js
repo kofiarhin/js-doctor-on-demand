@@ -1,7 +1,12 @@
-import { getElement, test } from "../lib/helper";
+import { getElement, test, renderPageTitle } from "../lib/helper";
 
 // about Controller
 export default function () {
+
+
+    // render page title
+
+    renderPageTitle("About")
 
     const element = getElement("#about");
 

@@ -1,4 +1,4 @@
-import { test, renderLoader, getElement } from "../lib/helper";
+import { test, renderLoader, getElement, renderPageTitle } from "../lib/helper";
 import * as IndexView from "../view/indexView";
 
 function init() {
@@ -54,12 +54,16 @@ function testimonialController() {
 
 
 }
+
+
+// index controller
 export default function () {
 
     // renderLoader();
 
-    testimonialController();
+    renderPageTitle("Home")
 
+    testimonialController();
     init();
 }
 

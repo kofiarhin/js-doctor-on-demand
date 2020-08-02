@@ -1,4 +1,4 @@
-import { getElement, test, renderLoader, redirect } from "../lib/helper";
+import { getElement, test, renderLoader, redirect, renderPageTitle } from "../lib/helper";
 import * as  RegisterView from "../view/registerView";
 import User from "../model/user"
 import { validateAll, validate } from "indicative/validator";
@@ -108,8 +108,12 @@ function KeypressController(e) {
 // Register Controller
 export default async function RegisterController() {
 
+
     // renderLoader
     renderLoader();
+
+    // render page title
+    renderPageTitle("Register");
 
 
     // clear all errors on ui

@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _, { capitalize } from "lodash";
 
 export function getElement(name) {
 
@@ -113,4 +113,13 @@ export function auth() {
     }
 
     return false;
+}
+
+
+
+// render page title dynamically
+export function renderPageTitle(pageName) {
+
+    document.title = `BruceCare | ${pageName}`
+
 }

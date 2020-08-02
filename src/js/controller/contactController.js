@@ -1,7 +1,9 @@
-import { getElement, test, redirect, renderLoader } from "../lib/helper";
+import { getElement, test, redirect, renderLoader, renderTitle, renderPageTitle } from "../lib/helper";
 import { validateAll } from "indicative/validator";
 
 
+
+// submit controller
 async function SubmitController(e) {
 
     e.preventDefault();
@@ -50,9 +52,15 @@ async function SubmitController(e) {
         }
     }
 }
+
+
+
+
 // contact controller
 export default function () {
 
+    //render page title
+    renderPageTitle("Contact")
 
     // render loader
     renderLoader();
