@@ -1,6 +1,8 @@
-$image1: "../images/banner.jpg"
-$image2: "../images/banner2.jpg"
-$image3: "../images/banner3.jpg"
+$image1: "../images/banner/banner.jpg"
+$image2: "../images/banner/banner2.jpg"
+$image3: "../images/banner/banner3.jpg"
+$image4: "../images/banner/banner4.jpg"
+$image5: "../images/banner/banner5.jpg"
 
 
 #banner
@@ -55,10 +57,14 @@ $image3: "../images/banner3.jpg"
 @keyframes change
     0%
         background-image: url($image1)
+    20%
+        background-image: url($image2)   
     40%
-        background-image: url($image2)
-    80%
         background-image: url($image3)
+    60%
+        background-image: url($image4)
+    80%
+        background-image: url($image5)
     100%
         background-image: url($image1)
 
