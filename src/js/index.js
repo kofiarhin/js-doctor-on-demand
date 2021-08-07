@@ -8,10 +8,10 @@ import LogoutController from "./controller/logoutController";
 import ProfileController from "./controller/profileController";
 import UsersController from "./controller/usersController";
 import UserController from "./controller/userController";
-import BookAppointmentController from "./controller/bookAppointmentController"
+import BookAppointmentController from "./controller/bookAppointmentController";
 import AppointmentController from "./controller/appointmentController";
 import ViewAppointmentController from "./controller/viewAppointmentController";
-import RegisterDoctorController from "./controller/register_doctor_controller"
+import RegisterDoctorController from "./controller/register_doctor_controller";
 import VerifyAccountController from "./controller/verify_account_controller";
 import DoctorsController from "./controller/DoctorsController";
 import PatientsController from "./controller/pateintsController";
@@ -26,189 +26,160 @@ import ContactController from "./controller/contactController";
 import AppointmentsController from "./controller/appointmentsController";
 import PricingController from "./controller/pricingController";
 
-// global state 
+// global state
 const state = {
-    url: "index.html"
-}
-
-
+  url: "index.html",
+};
 
 // main-controller
 function MainController() {
+  // get route information and set state of url
+  Router();
 
+  // // // // render loader
 
-    // get route information and set state of url
-    Router();
+  // render Header
+  HeaderController();
 
-    // // // // render loader
+  // sidenav controller
+  SideNavController();
 
-    // render Header
-    HeaderController();
-
-    // sidenav controller
-    SideNavController();
-
-    // render footer
-    FooterController();
-
-
+  // render footer
+  FooterController();
 }
-
 
 // router
 function Router() {
+  // get url
+  const url = window.location.pathname.replace("/", "");
 
-    // get url
-    const url = window.location.pathname.replace("/", "");
+  // set state of url
+  state.url = url;
 
-    // set state of url
-    state.url = url;
+  // display current page
 
-    // display current page
-    console.log("---------current-page: ", state.url)
+  // index page
+  if (!url || state.url === "" || state.url === "index.html") {
+    IndexController();
+  }
 
-    // index page
-    if (!url || state.url === "" || state.url === "index.html") {
+  // about page
+  else if (state.url === "about.html") {
+    renderLoader();
+    AboutController();
+  }
 
-        IndexController();
+  // contact
+  else if (state.url === "contact.html") {
+    // renderLoader();
 
-    }
+    ContactController();
+  }
 
-    // about page
-    else if (state.url === "about.html") {
-        renderLoader();
-        AboutController();
-    }
+  // register page
+  else if (state.url === "register.html") {
+    // renderLoader();
+    // const registerBtn = getElement("#register-btn")
+    // registerBtn.addEventListener("click", RegisterController);
 
-    // contact
-    else if (state.url === "contact.html") {
-        // renderLoader();
+    RegisterController();
+  }
 
-        ContactController();
-    }
+  // create account
+  else if (state.url === "create_account.html") {
+    renderLoader();
+    RegisterDoctorController();
+    // const registerBtn = getElement("#register-btn")
+    // registerBtn.addEventListener("click", RegisterDoctorController);
+  } else if (state.url == "pricing.html") {
+    PricingController();
+  }
 
-    // register page
-    else if (state.url === "register.html") {
+  // login page
+  else if (state.url === "login.html") {
+    // renderLoader();
+    LoginController();
+    // const loginBtn = getElement("#login-btn")
+    // loginBtn.addEventListener("click", LoginController)
 
-        // renderLoader();
-        // const registerBtn = getElement("#register-btn")
-        // registerBtn.addEventListener("click", RegisterController);
+    // test("Login controller")
+  }
 
-        RegisterController();
-    }
+  // dashboard
+  else if (state.url === "dashboard.html") {
+    DashboardController();
+  }
 
-    // create account
-    else if (state.url === "create_account.html") {
+  // profile
+  else if (state.url === "profile.html") {
+    ProfileController();
+  }
 
-        renderLoader();
-        RegisterDoctorController()
-        // const registerBtn = getElement("#register-btn")
-        // registerBtn.addEventListener("click", RegisterDoctorController);
-    }
+  // doctors
+  else if (state.url === "doctors.html") {
+    renderLoader();
+    DoctorsController();
+  }
 
-    else if (state.url == "pricing.html") {
+  // patients
+  else if (state.url === "patients.html") {
+    renderLoader();
+    PatientsController();
+  }
 
-        PricingController();
-    }
+  // list of users
+  else if (state.url === "users.html") {
+    renderLoader();
+    UsersController();
+  }
 
-    // login page
-    else if (state.url === "login.html") {
+  // user
+  else if (state.url === "user.html") {
+    UserController();
+  }
 
-        // renderLoader();
-        LoginController();
-        // const loginBtn = getElement("#login-btn")
-        // loginBtn.addEventListener("click", LoginController)
+  // book appointment
+  else if (state.url === "book_appointment.html") {
+    BookAppointmentController();
+  }
 
-        // test("Login controller")
+  // appointments
+  else if (state.url === "appointments.html") {
+    AppointmentsController();
+  }
 
-    }
+  // apppointment
+  else if (state.url === "appointment.html") {
+    AppointmentController();
+  }
 
-    // dashboard
-    else if (state.url === "dashboard.html") {
-        DashboardController()
-    }
+  // view appointment
+  else if (state.url === "view_appointment.html") {
+    // renderLoader();
+    ViewAppointmentController();
+  }
 
-    // profile
-    else if (state.url === "profile.html") {
+  // verify account
+  else if (state.url === "verify_account.html") {
+    renderLoader();
+    VerifyAccountController();
+  }
+  // change profile
+  else if (state.url === "change_profile.html") {
+    renderLoader();
+    ChangeProfileController();
+  }
 
-        ProfileController()
-    }
+  // edit profile
+  else if (state.url === "edit_profile.html") {
+    EditProfileController();
+  }
 
-    // doctors
-    else if (state.url === "doctors.html") {
-
-        renderLoader();
-        DoctorsController()
-    }
-
-    // patients
-    else if (state.url === 'patients.html') {
-
-        renderLoader();
-        PatientsController();
-    }
-
-    // list of users
-    else if (state.url === "users.html") {
-
-        renderLoader();
-        UsersController()
-    }
-
-    // user
-    else if (state.url === "user.html") {
-
-        UserController()
-    }
-
-    // book appointment
-    else if (state.url === "book_appointment.html") {
-
-        BookAppointmentController()
-    }
-
-
-    // appointments
-    else if (state.url === "appointments.html") {
-
-        AppointmentsController();
-    }
-
-    // apppointment
-    else if (state.url === "appointment.html") {
-        AppointmentController()
-    }
-
-    // view appointment 
-    else if (state.url === "view_appointment.html") {
-        // renderLoader();
-        ViewAppointmentController();
-    }
-
-    // verify account
-    else if (state.url === "verify_account.html") {
-        renderLoader();
-        VerifyAccountController();
-    }
-    // change profile
-    else if (state.url === "change_profile.html") {
-        renderLoader();
-        ChangeProfileController()
-    }
-
-    // edit profile
-    else if (state.url === "edit_profile.html") {
-        EditProfileController();
-    }
-
-    // chosse plan
-    else if (state.url === "choose_plan.html") {
-        // renderLoader();
-        ChoosePlanController();
-    }
+  // chosse plan
+  else if (state.url === "choose_plan.html") {
+    // renderLoader();
+    ChoosePlanController();
+  }
 }
 
-
 window.addEventListener("load", MainController);
-
-
